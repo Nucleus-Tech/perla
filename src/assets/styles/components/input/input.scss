@@ -1,0 +1,14 @@
+.p-input {
+  &__label {
+    color: black;
+  }
+  &__container {
+    border-radius: 20px;
+    padding: 1rem;
+    height: 24px;
+  }
+  &__error {
+    margin-top: 0.25rem;
+    color: red;
+  }
+}

@@ -1,0 +1,23 @@
+@import 'src/assets/styles/global/constants';
+@import 'src/assets/styles/global/colors';
+
+.p-registration {
+  min-height: fit-content;
+  max-height: 600px;
+  width: 300px;
+  margin: 0 auto;
+  border: 1px solid black;
+  &__header {
+    font-size: $p-heading-1;
+    color: $p-secondary-font-color;
+    &__icon {
+      height: 100px;
+      &--left {
+        height: 30px;
+      }
+      &--right {
+        color: blue;
+      }
+    }
+  }
+}
