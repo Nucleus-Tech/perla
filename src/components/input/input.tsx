@@ -10,7 +10,8 @@ interface Props {
   name: string;
   disabled?: boolean;
   errors?: object;
-  label: string;
+  label?: string;
+  type?: string;
 }
 
 const Input: FC<Props> = ({
@@ -22,20 +23,32 @@ const Input: FC<Props> = ({
   disabled = false,
   errors = {},
   label,
+  type,
 }) => {
+  const hasErrors = () => {
+    if (value) {
+      return errors && errors[name];
+    }
+    return;
+  };
   return (
     <div className={"p-input"}>
       <div className={"p-input__label"}>{label}</div>
       <input
         placeholder={placeholder}
-        className={`p-input__container`}
+        className={
+          hasErrors()
+            ? ` p-input__container p-input__container--errors`
+            : `p-input__container`
+        }
         name={name}
         onChange={onChange}
         value={value}
         id={id}
         disabled={disabled}
+        type={type}
       />
-      {errors && errors[name] ? (
+      {hasErrors() ? (
         <div className={"p-input__error"}>{errors[name]}</div>
       ) : (
         <></>

@@ -1,0 +1,102 @@
+@import "src/assets/styles/global/main";
+
+.p-login {
+  height: 100vh;
+  background: linear-gradient(
+      rgba(255, 255, 255, 0.5),
+      rgba(255, 255, 255, 0.5)
+    ),
+    url(../../../assets/images/zakynthos-JPEG.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  &__container {
+    position: fixed;
+    top: 50%;
+    transform: translate(0, -50%);
+    width: 686px;
+    height: 773.5px;
+    background-color: white;
+    padding: 15px;
+    border-radius: 55px;
+    box-shadow: 8px rgba(0, 0, 0, 0.5);
+  }
+
+  &__label {
+    width: 100%;
+    text-align: center;
+    line-height: 0.1em;
+    margin: 10px 0 10px;
+
+    & > h1 {
+      display: flex;
+      flex-direction: row;
+      font-size: 50pt;
+      font-family: "Roboto-Thin";
+      font-weight: 300;
+    }
+    & > h1:before,
+    & > h1:after {
+      content: "";
+      flex: 1 1;
+      border-bottom: 2.5px solid $p-primary-color;
+      margin: auto;
+    }
+
+    & > h1:before {
+      margin-right: 10px;
+    }
+    & > h1:after {
+      margin-left: 10px;
+    }
+  }
+
+  &__logo {
+    height: 105px;
+  }
+
+  &__input {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__forgot {
+    display: flex;
+    align-self: flex-end;
+    padding-right: 15px;
+    transform: translateY(-25px);
+    font-size: 15pt;
+    color: $p-color-grey;
+    font-family: "Roboto-Light";
+  }
+
+  &__or {
+    width: 100%;
+    text-align: center;
+    line-height: 0.1em;
+    margin: 10px 0 10px;
+
+    & > h1 {
+      display: flex;
+      flex-direction: row;
+      font-size: 30pt;
+      font-family: "Roboto-Light";
+      font-weight: 300;
+      color: $p-color-grey;
+    }
+    & > h1:before,
+    & > h1:after {
+      content: "";
+      flex: 1 1;
+      border-bottom: 2.5px solid $p-color-grey;
+      margin: auto;
+    }
+  }
+
+  &__fbgoolge {
+    & > div {
+      display: inline-block;
+      padding: 10px;
+    }
+  }
+}

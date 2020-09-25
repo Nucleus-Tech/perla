@@ -1,6 +1,6 @@
-@import '../mixins/utils';
-@import '../mixins/desktop';
-@import '../mixins/mobile';
+@import "../mixins/utils";
+@import "../mixins/desktop";
+@import "../mixins/mobile";
 
 .p-no-margin {
   @include no-margin;

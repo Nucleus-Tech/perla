@@ -1,0 +1,15 @@
+@import "src/assets/styles/global/main";
+
+.p-button {
+  height: 50px;
+  width: 174px;
+  border-radius: 25px;
+  background-color: $p-primary-color;
+  color: white;
+  font-size: 30pt;
+  font-family: "Roboto-Regular";
+
+  &:disabled {
+    opacity: 0.5;
+  }
+}

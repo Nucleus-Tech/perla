@@ -20,6 +20,7 @@ export const loginValidators: ObjectSchema<Record<
     .required("Required"),
   [LoginFormFields.password]: Yup.string()
     .max(20, "Must be 20 characters or less")
+    .min(3, "Must be 3 characters or more")
     .required("Required"),
 });
 
@@ -34,7 +35,7 @@ export const defaultRegistartionValue: Record<
   [RegistartionFromFields.email]: "",
 };
 export const registrationValidators: ObjectSchema<Record<
-    RegistartionFromFields,
+  RegistartionFromFields,
   string
 >> = Yup.object({
   [LoginFormFields.email]: Yup.string()

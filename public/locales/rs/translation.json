@@ -1,6 +1,10 @@
 {
   "onboarding": {
-    "loginPlaceholder": "Unesite username",
+    "loginPlaceholder": {
+      "email": "email",
+      "password": "password",
+      "signIn": "Sign in"
+    },
     "registration": {
       "name": "Unesi nemanja"
     }
