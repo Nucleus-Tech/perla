@@ -1,0 +1,13 @@
+@import '../../../assets/styles/global/colors.scss';
+
+.search-box {
+    height: 100vh;
+    background-image: url('../../../assets/images/zakynthos-JPEG.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.destination-box {
+    background-color: $p-white;
+    height: 30rem;
+}

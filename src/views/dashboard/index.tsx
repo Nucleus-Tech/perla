@@ -1,15 +1,22 @@
 import React from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
-import { homeRoute } from '../../shared/routes/routes';
+import { aboutUsRoute, homeRoute } from '../../shared/routes/routes';
+import AboutUs from './about-us/about-us';
+import Footer from './footer/footer';
+import Header from './header/header';
 import Home from './home/home';
-
 
 const Dashboard = () => {
   return (
-    <Switch>
-      <Route path={homeRoute()} component={Home}/>
-      <Redirect to={homeRoute()}/>
-    </Switch>
+    <>
+      <Header/>
+      <Switch>
+        <Route path={homeRoute()} component={Home}/>
+        <Route path={aboutUsRoute()} component={AboutUs}/>
+        <Redirect to={homeRoute()}/>
+      </Switch>
+      <Footer />
+    </>
   )
 }
 

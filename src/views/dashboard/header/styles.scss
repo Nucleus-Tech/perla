@@ -1,0 +1,63 @@
+@import '../../../assets/styles/global/colors.scss';
+@import '../../../assets/styles/global/breakpoint.scss';
+
+.menu {
+    box-sizing: border-box;
+    position: absolute;
+    padding: 3rem 6rem;
+    top: 0;
+    width: 100%;
+    background: rgba(57, 57, 57, .45);
+
+    @media only screen and (max-width: $bp-medium) {
+        padding: 1rem 1.5rem;
+    }
+
+    .logo {
+        height: 10rem;
+        @media only screen and (max-width: $bp-medium) {
+            height: 6rem;
+        }
+    }
+
+    &-box {
+        width: 100%;
+    }
+
+    &-nav {
+        font-size: 2.5rem;
+        list-style: none;
+        @media only screen and (max-width: $bp-medium) {
+            padding-left: 1rem;
+            font-size: 2rem;
+        }
+
+        @media only screen and (max-width: $bp-medium) {
+            font-size: 1.7rem;
+        }
+    }
+
+    &-item {
+        color: $p-white;
+        margin: 0 1.5rem;
+        cursor: pointer;
+        text-decoration: none;
+
+        @media only screen and (max-width: $bp-medium) {
+            margin: 0 1.2rem;
+        }
+
+        @media only screen and (max-width: $bp-medium) {
+            margin: 0 1rem;
+        }
+
+        &:hover {
+            text-decoration: underline;
+        }
+
+        .arrow {
+            padding-left: .5rem;
+            height: .7rem;
+        }
+    }
+}
