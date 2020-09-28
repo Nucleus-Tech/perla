@@ -3,10 +3,12 @@
     "loginPlaceholder": {
       "email": "email",
       "password": "password",
-      "signIn": "Sign in"
+      "signIn": "Sign in",
+      "forgotPassword": "Forgot password?",
+      "or": "or"
     },
     "registration": {
-      "name": "Unesi nemanja"
+      "name": "name"
     }
   }
 }

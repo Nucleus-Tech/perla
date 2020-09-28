@@ -2,21 +2,22 @@ import React from "react";
 import { Container, Row, Col } from "react-grid-system";
 import { useTranslation } from "react-i18next";
 import { useFormik } from "formik";
+import { useHistory } from "react-router-dom";
 import Input from "../../../components/input/input";
 import Button from "../../../components/button/button";
 import { loginRequest } from "../../../services/api/auth/authService";
+import { storeInBrowserStorage } from "../../../services/shared/browserStorageService";
 import {
   defaultLoginValues,
   LoginFormFields,
   loginValidators,
 } from "../form/loginForm";
 import { OnboardingTranslation } from "../context/onboardingTranslation";
-
+import { exploreRoute } from "../../../shared/routes/routes";
 import "./styles.scss";
-import { withRouter } from "react-router-dom";
-import { homeRoute } from "../../../shared/routes/routes";
 
-const Login = ({ history }) => {
+const Login = () => {
+  const history = useHistory();
   const { t: translate } = useTranslation();
 
   // @ts-ignore
@@ -25,23 +26,27 @@ const Login = ({ history }) => {
     validationSchema: loginValidators,
   });
 
-  const submitLogin = async (values) => {
+  const submitLogin = async () => {
     try {
-      console.log(values);
       const { data } = await loginRequest(values);
-      localStorage.setItem("jwtToken", data["accessToken"]);
-      history.push(homeRoute());
+      const accessToken = data.accessToken;
+      storeInBrowserStorage("accessToken", accessToken);
+      history.push(exploreRoute());
     } catch (error) {
       // TODO: Handle error https://brick-link.atlassian.net/browse/BRIC-15
     }
   };
 
   return (
-    <div className={"p-login"}>
+    <div
+      className={"p-login p-flex p-flex-column p-items-center p-justify-center"}
+    >
       <Container
-        className={"p-login__container p-flex p-flex-column p-items-center"}
+        className={
+          "p-login__container p-flex p-flex-column p-items-center p-box-shadow"
+        }
       >
-        <div className={"p-login__logo"}>LOGO</div>
+        <div className={"p-login__logo"}></div>
         <label className={"p-login__label"}>
           <h1>{translate(OnboardingTranslation.signInPlaceholder)}</h1>
         </label>
@@ -55,6 +60,7 @@ const Login = ({ history }) => {
               value={values.email}
               errors={errors}
               type={"email"}
+              className={"p-login__input-field"}
             />
             <Input
               id={LoginFormFields.password}
@@ -64,19 +70,23 @@ const Login = ({ history }) => {
               value={values.password}
               errors={errors}
               type={"password"}
+              className={"p-login__input-field"}
             />
           </Col>
-          <div className={"p-login__forgot"}>Forgot password?</div>
+          <div className={"p-login__forgot"}>
+            {translate(OnboardingTranslation.forgotPasswordPlaceholder)}
+          </div>
         </Row>
         <Row>
           <Button
             label={translate(OnboardingTranslation.signInPlaceholder)}
-            onClick={() => submitLogin(values)}
+            onClick={submitLogin}
             disabled={!dirty || !isValid}
+            className={"p-login__button"}
           />
         </Row>
         <div className={"p-login__or"}>
-          <h1>or</h1>
+          <h1>{translate(OnboardingTranslation.orPlaceholder)}</h1>
         </div>
         <div className={"p-login__fbgoolge"}>
           <div>FB</div>
@@ -87,4 +97,4 @@ const Login = ({ history }) => {
   );
 };
 
-export default withRouter(Login);
+export default Login;

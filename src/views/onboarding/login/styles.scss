@@ -11,15 +11,11 @@
   background-repeat: no-repeat;
 
   &__container {
-    position: fixed;
-    top: 50%;
-    transform: translate(0, -50%);
-    width: 686px;
-    height: 773.5px;
-    background-color: white;
+    width: $p-onboarding-width;
+    height: $p-onboarding-height;
+    background-color: $p-color-white;
     padding: 15px;
-    border-radius: 55px;
-    box-shadow: 8px rgba(0, 0, 0, 0.5);
+    border-radius: $p-onboarding-border-radius;
   }
 
   &__label {
@@ -39,7 +35,7 @@
     & > h1:after {
       content: "";
       flex: 1 1;
-      border-bottom: 2.5px solid $p-primary-color;
+      border-bottom: 2.5px solid $p-primary-button-background;
       margin: auto;
     }
 
@@ -52,7 +48,11 @@
   }
 
   &__logo {
-    height: 105px;
+    height: $p-logo-height;
+    width: $p-logo-width;
+    background-image: url("../../../assets/images/Logo\ crni.svg");
+    background-size: cover;
+    background-repeat: no-repeat;
   }
 
   &__input {
@@ -98,5 +98,13 @@
       display: inline-block;
       padding: 10px;
     }
+  }
+
+  &__button {
+    width: 174px;
+  }
+
+  &__input-field {
+    width: 590px;
   }
 }

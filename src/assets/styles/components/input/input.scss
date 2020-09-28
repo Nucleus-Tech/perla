@@ -1,14 +1,13 @@
 @import "src/assets/styles/global/main";
 
 .p-input {
-  height: 100px;
+  height: $p-input-height;
   &__label {
-    color: black;
+    color: $p-color-black;
   }
   &__container {
-    border-radius: 7px;
     height: 50px;
-    width: 590px;
+    width: min-content;
     padding: 10px;
     border-radius: 8pt;
     border: 0.5pt solid rgba(0, 0, 0, 0.5);
@@ -17,15 +16,15 @@
 
     &--errors {
       border: 1px solid $p-error-color;
-      opacity: 0.5;
-    }
+      opacity: $p-opacity;
 
-    &--errors:focus {
-      outline: none;
+      &:focus {
+        outline: none;
+      }
     }
 
     &:focus {
-      background-color: #ffff;
+      background-color: $p-color-white;
     }
   }
 
@@ -33,7 +32,7 @@
     color: $p-error-color;
     width: max-content;
     font-size: 15pt;
-    opacity: 0.5;
+    opacity: $p-opacity;
     font-family: "Roboto-Light";
   }
 }

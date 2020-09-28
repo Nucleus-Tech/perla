@@ -373,3 +373,11 @@
     vertical-align: top;
   }
 }
+
+.p-disabled {
+  opacity: 0.5;
+}
+
+.p-box-shadow {
+  box-shadow: 8px 8px rgba(0, 0, 0, 0.5);
+}
