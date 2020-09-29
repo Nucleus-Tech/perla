@@ -43,7 +43,7 @@ const Login = () => {
     >
       <Container
         className={
-          "p-login__container p-flex p-flex-column p-items-center p-box-shadow"
+          "p-login__container p-flex p-flex-column p-items-center p-justify-center p-box-shadow"
         }
       >
         <div className={"p-login__logo"}></div>
@@ -51,7 +51,7 @@ const Login = () => {
           <h1>{translate(OnboardingTranslation.signInPlaceholder)}</h1>
         </label>
         <Row className={"p-login__input"}>
-          <Col xs={4} lg={12}>
+          <Col xs={12} sm={12} md={12} lg={12}>
             <Input
               id={LoginFormFields.email}
               placeholder={translate(OnboardingTranslation.emailPlaceholder)}
@@ -60,7 +60,6 @@ const Login = () => {
               value={values.email}
               errors={errors}
               type={"email"}
-              className={"p-login__input-field"}
             />
             <Input
               id={LoginFormFields.password}
@@ -70,7 +69,6 @@ const Login = () => {
               value={values.password}
               errors={errors}
               type={"password"}
-              className={"p-login__input-field"}
             />
           </Col>
           <div className={"p-login__forgot"}>

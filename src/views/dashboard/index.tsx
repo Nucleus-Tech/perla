@@ -1,5 +1,6 @@
 import React from "react";
 import { Redirect, Route, Switch } from "react-router-dom";
+
 import { exploreRoute } from "../../shared/routes/routes";
 import Home from "./home/home";
 

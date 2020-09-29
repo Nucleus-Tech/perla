@@ -6,7 +6,6 @@ interface Props {
   id: string;
   value: string;
   onChange: (value) => void;
-  className?: string;
   placeholder: string;
   name: string;
   disabled?: boolean;
@@ -25,7 +24,6 @@ const Input: FC<Props> = ({
   errors = {},
   label,
   type = "text",
-  className = "",
 }) => {
   return (
     <div className={"p-input"}>
@@ -34,8 +32,8 @@ const Input: FC<Props> = ({
         placeholder={placeholder}
         className={
           value && errors && errors[name]
-            ? `p-input__container p-input__container--errors ${className}`
-            : `p-input__container ${className}`
+            ? `p-input__container p-input__container--errors`
+            : `p-input__container`
         }
         name={name}
         onChange={onChange}
