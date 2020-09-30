@@ -6,7 +6,6 @@ import { useHistory } from "react-router-dom";
 import Input from "../../../components/input/input";
 import Button from "../../../components/button/button";
 import { loginRequest } from "../../../services/api/auth/authService";
-import { storeInBrowserStorage } from "../../../services/shared/browserStorageService";
 import {
   defaultLoginValues,
   LoginFormFields,
@@ -15,10 +14,13 @@ import {
 import { OnboardingTranslation } from "../context/onboardingTranslation";
 import { exploreRoute } from "../../../shared/routes/routes";
 import "./styles.scss";
+import { useUserStore } from "../../../stores/user-store/user-store";
 
 const Login = () => {
   const history = useHistory();
   const { t: translate } = useTranslation();
+
+  const { setAccessToken } = useUserStore();
 
   // @ts-ignore
   const { handleChange, values, errors, dirty, isValid } = useFormik({
@@ -30,7 +32,7 @@ const Login = () => {
     try {
       const { data } = await loginRequest(values);
       const accessToken = data.accessToken;
-      storeInBrowserStorage("accessToken", accessToken);
+      setAccessToken(accessToken);
       history.push(exploreRoute());
     } catch (error) {
       // TODO: Handle error https://brick-link.atlassian.net/browse/BRIC-15
@@ -46,7 +48,7 @@ const Login = () => {
           "p-login__container p-flex p-flex-column p-items-center p-justify-center p-box-shadow"
         }
       >
-        <div className={"p-login__logo"}></div>
+        <div className={"p-login__logo"} />
         <label className={"p-login__label"}>
           <h1>{translate(OnboardingTranslation.signInPlaceholder)}</h1>
         </label>
