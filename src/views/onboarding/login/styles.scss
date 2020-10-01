@@ -14,20 +14,20 @@
     width: $p-onboarding-width;
     height: $p-onboarding-height;
     background-color: $p-color-white;
-    padding: 15px;
+    padding: 2rem 5rem 6rem 5rem;
     border-radius: $p-onboarding-border-radius;
   }
 
   &__label {
-    width: 100%;
+    width: 95%;
     text-align: center;
     line-height: 0.1em;
-    margin: 10px 0 10px;
+    margin: 1rem 0 1rem;
 
     & > h1 {
       display: flex;
       flex-direction: row;
-      font-size: 50pt;
+      font-size: 40pt;
       font-family: "Roboto-Thin";
       font-weight: 300;
     }
@@ -35,51 +35,53 @@
     & > h1:after {
       content: "";
       flex: 1 1;
-      border-bottom: 2.5px solid $p-primary-button-background;
+      border-bottom: 0.25rem solid $p-primary-button-background;
       margin: auto;
     }
 
     & > h1:before {
-      margin-right: 10px;
+      margin-right: 1rem;
     }
     & > h1:after {
-      margin-left: 10px;
+      margin-left: 1rem;
     }
   }
 
   &__logo {
     height: $p-logo-height;
     width: $p-logo-width;
-    background-image: url("../../../assets/images/Logo\ crni.svg");
-    background-size: cover;
-    background-repeat: no-repeat;
   }
 
   &__input {
     width: 100%;
     flex-direction: column;
+
+    &__icon {
+      background-image: url(../../../assets/images/eye.svg);
+      background-repeat: no-repeat;
+    }
   }
 
   &__forgot {
     display: flex;
     align-self: flex-end;
-    padding-right: 15px;
-    transform: translateY(-25px);
-    font-size: 15pt;
+    padding-right: 1.5rem;
+    transform: translateY(-2.5rem);
+    font-size: 12pt;
     color: $p-color-grey;
     font-family: "Roboto-Light";
   }
 
   &__or {
-    width: 100%;
+    width: 95%;
     text-align: center;
     line-height: 0.1em;
-    margin: 10px 0 10px;
+    margin: 3rem 0 3rem 0;
 
     & > h1 {
       display: flex;
       flex-direction: row;
-      font-size: 30pt;
+      font-size: 20pt;
       font-family: "Roboto-Light";
       font-weight: 300;
       color: $p-color-grey;
@@ -88,19 +90,28 @@
     & > h1:after {
       content: "";
       flex: 1 1;
-      border-bottom: 2.5px solid $p-color-grey;
+      border-bottom: 0.25rem solid $p-color-grey;
       margin: auto;
+    }
+
+    & > h1:before {
+      margin-right: 1rem;
+    }
+    & > h1:after {
+      margin-left: 1rem;
     }
   }
 
   &__fbgoolge {
-    & > div {
-      display: inline-block;
-      padding: 10px;
+    display: inline-block;
+
+    & > img {
+      padding: 1rem;
+      width: 26rem;
     }
   }
 
   &__button {
-    width: 174px;
+    width: 17.4rem;
   }
 }

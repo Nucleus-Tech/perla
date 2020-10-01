@@ -3,17 +3,17 @@
 
 .p-registration {
   min-height: fit-content;
-  max-height: 600px;
-  width: 300px;
+  max-height: 60rem;
+  width: 30rem;
   margin: 0 auto;
   border: 1px solid $p-color-black;
   &__header {
     font-size: $p-heading-1;
     color: $p-color-black;
     &__icon {
-      height: 100px;
+      height: 10rem;
       &--left {
-        height: 30px;
+        height: 3rem;
       }
       &--right {
         color: blue;

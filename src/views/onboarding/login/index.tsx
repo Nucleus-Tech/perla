@@ -15,6 +15,9 @@ import { OnboardingTranslation } from "../context/onboardingTranslation";
 import { exploreRoute } from "../../../shared/routes/routes";
 import "./styles.scss";
 import { useUserStore } from "../../../stores/user-store/user-store";
+import logoBlack from "../../../assets/images/logoBlack.svg";
+import facebook from "../../../assets/images/facebook.svg";
+import google from "../../../assets/images/google.svg";
 
 const Login = () => {
   const history = useHistory();
@@ -48,7 +51,7 @@ const Login = () => {
           "p-login__container p-flex p-flex-column p-items-center p-justify-center p-box-shadow"
         }
       >
-        <div className={"p-login__logo"} />
+        <img className={"p-login__logo"} src={logoBlack} alt="Perla Imperial" />
         <label className={"p-login__label"}>
           <h1>{translate(OnboardingTranslation.signInPlaceholder)}</h1>
         </label>
@@ -71,6 +74,7 @@ const Login = () => {
               value={values.password}
               errors={errors}
               type={"password"}
+              className={"p-login__input__icon"}
             />
           </Col>
           <div className={"p-login__forgot"}>
@@ -88,9 +92,9 @@ const Login = () => {
         <div className={"p-login__or"}>
           <h1>{translate(OnboardingTranslation.orPlaceholder)}</h1>
         </div>
-        <div className={"p-login__fbgoolge"}>
-          <div>FB</div>
-          <div>Google</div>
+        <div className={"p-login__fbgoolge p-text-center"}>
+          <img src={facebook} alt="Perla Imperial" />
+          <img src={google} alt="Perla Imperial" />
         </div>
       </Container>
     </div>

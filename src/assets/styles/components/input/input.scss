@@ -2,7 +2,7 @@
 
 .p-input {
   height: $p-input-height;
-  max-width: 590px;
+  max-width: 57rem;
 
   &__label {
     color: $p-color-black;
@@ -10,11 +10,11 @@
   &__container {
     height: $p-input-container-height;
     width: 100%;
-    padding: 10px;
     border-radius: $p-input-border-radius;
     border: 0.5pt solid rgba(0, 0, 0, 0.5);
-    font-size: 20pt;
+    font-size: 14pt;
     font-family: "Roboto-Light";
+    padding-left: 1.5rem;
 
     &--errors {
       border: 1px solid $p-error-color;
@@ -33,8 +33,10 @@
   &__error {
     color: $p-error-color;
     width: max-content;
-    font-size: 15pt;
+    font-size: 14pt;
     opacity: $p-opacity;
     font-family: "Roboto-Light";
+    padding-left: 1.5rem;
+    padding-top: 0.5rem;
   }
 }
