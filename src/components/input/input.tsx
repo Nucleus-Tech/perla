@@ -29,23 +29,20 @@ const Input: FC<Props> = ({
   return (
     <div className={"p-input"}>
       {label && <div className={"p-input__label"}>{label}</div>}
-      <div>
-        <input
-          placeholder={placeholder}
-          className={
-            value && errors && errors[name]
-              ? `p-input__container p-input__container--errors}`
-              : `p-input__container`
-          }
-          name={name}
-          onChange={onChange}
-          value={value}
-          id={id}
-          disabled={disabled}
-          type={type}
-        />
-        <i className={"className"}></i>
-      </div>
+      <input
+        placeholder={placeholder}
+        className={
+          value && errors && errors[name]
+            ? `p-input__container p-input__container--errors`
+            : `p-input__container`
+        }
+        name={name}
+        onChange={onChange}
+        value={value}
+        id={id}
+        disabled={disabled}
+        type={type}
+      />
 
       {value ? <div className={"p-input__error"}>{errors[name]}</div> : <></>}
     </div>

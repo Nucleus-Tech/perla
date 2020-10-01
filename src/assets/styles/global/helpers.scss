@@ -92,11 +92,11 @@
 }
 
 .p-justify-start {
-  justify-content: flex-start;
+  justify-content: flex-start !important;
 }
 
 .p-justify-center {
-  justify-content: center;
+  justify-content: center !important;
 }
 
 .p-justify-end {
@@ -104,7 +104,7 @@
 }
 
 .p-items-center {
-  align-items: center;
+  align-items: center !important;
 }
 
 .p-top-0 {

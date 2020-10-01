@@ -1,8 +1,7 @@
 @import "src/assets/styles/global/main";
 
 .p-input {
-  height: $p-input-height;
-  max-width: 57rem;
+  min-height: $p-input-height;
 
   &__label {
     color: $p-color-black;
@@ -15,6 +14,9 @@
     font-size: 14pt;
     font-family: "Roboto-Light";
     padding-left: 1.5rem;
+    outline: none;
+    min-width: -webkit-fill-available;
+    max-width: -webkit-fill-available;
 
     &--errors {
       border: 1px solid $p-error-color;
@@ -28,6 +30,10 @@
     &:focus {
       background-color: $p-color-white;
     }
+  }
+
+  > div > svg {
+    height: 20px;
   }
 
   &__error {
