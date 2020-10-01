@@ -17,6 +17,7 @@ import "./styles.scss";
 import { useUserStore } from "../../../stores/user-store/user-store";
 import logoBlack from "../../../assets/images/logoBlack.svg";
 import { Facebook } from "../../../shared/icons";
+import { Google } from "../../../shared/icons";
 
 const Login = () => {
   const history = useHistory();
@@ -51,11 +52,11 @@ const Login = () => {
         }
       >
         <Col
-          xs={10}
-          sm={10}
-          md={8}
-          lg={8}
-          xl={8}
+          xs={6}
+          sm={6}
+          md={4}
+          lg={4}
+          xl={4}
           className={"p-login__wrapper__container p-box-shadow"}
         >
           <Row className={"p-flex p-justify-center"}>
@@ -77,8 +78,12 @@ const Login = () => {
               <h1>{translate(OnboardingTranslation.signInPlaceholder)}</h1>
             </label>
           </Row>
-          <Row className={"p-login__wrapper__container__form"}>
-            <Col xs={12} sm={12} md={12} lg={12}>
+          <Row
+            className={
+              "p-login__wrapper__container__form p-flex p-justify-center"
+            }
+          >
+            <Col xs={12} sm={12} md={12} lg={12} xl={12}>
               <Input
                 id={LoginFormFields.email}
                 placeholder={translate(OnboardingTranslation.emailPlaceholder)}
@@ -89,7 +94,13 @@ const Login = () => {
                 type={"email"}
               />
             </Col>
-            <Col xs={12} sm={12} md={12} lg={12} className={"p-flex p-flex-column"}>
+            <Col
+              xs={12}
+              sm={12}
+              md={12}
+              lg={12}
+              className={"p-flex p-flex-column"}
+            >
               <Input
                 id={LoginFormFields.password}
                 placeholder={translate(
@@ -106,27 +117,35 @@ const Login = () => {
               </div>
             </Col>
           </Row>
-          <Row className={'p-flex p-justify-center'}>
+          <Row className={"p-flex p-justify-center"}>
             <Button
-                label={translate(OnboardingTranslation.signInPlaceholder)}
-                onClick={submitLogin}
-                disabled={!dirty || !isValid}
-                className={"p-login__button"}
+              label={translate(OnboardingTranslation.signInPlaceholder)}
+              onClick={submitLogin}
+              disabled={!dirty || !isValid}
+              className={"p-login__wrapper__container__button"}
             />
           </Row>
-          <Row>
-            <div className={"p-login__or"}>
+          <Row className={"p-flex p-justify-center"}>
+            <div className={"p-login__wrapper__container__or"}>
               <h1>{translate(OnboardingTranslation.orPlaceholder)}</h1>
             </div>
           </Row>
-          <Row>
-            <Col xs={12} sm={12} md={6} lg={6} xl={6}>
-              <div>
-              <Facebook />
+          <Row
+            className={
+              "p-flex p-justify-center p-login__wrapper__container__fbgoogle "
+            }
+          >
+            <Col xs={11} sm={11} md={11} lg={9} xl={6}>
+              <div
+                className={"p-login__wrapper__container__fbgoogle__facebook"}
+              >
+                <Facebook />
               </div>
             </Col>
-            <Col xs={12} sm={12} md={6} lg={6} xl={6}>
-              <Facebook />
+            <Col xs={11} sm={11} md={11} lg={9} xl={6}>
+              <div className={"p-login__wrapper__container__fbgoogle__google"}>
+                <Google />
+              </div>
             </Col>
           </Row>
         </Col>

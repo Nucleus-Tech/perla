@@ -14,15 +14,12 @@
     width: 100%;
     &__container {
       width: 100%;
-      //max-width: $p-onboarding-width;
-      //max-height: $p-onboarding-height;
       background-color: $p-color-white;
-      padding: 2rem 5rem 6rem 5rem;
+      padding: 2rem 3rem 6rem 3rem !important;
       border-radius: $p-onboarding-border-radius;
 
       &__logo {
         max-height: $p-logo-height;
-        //width: $p-logo-width;
       }
 
       &__label {
@@ -72,53 +69,54 @@
           }
         }
       }
+
+      &__or {
+        width: 95%;
+        text-align: center;
+        line-height: 0.1em;
+        margin: 1rem 0 1rem;
+
+        & > h1 {
+          display: flex;
+          flex-direction: row;
+          font-size: 20pt;
+          font-family: "Roboto-Light";
+          font-weight: 300;
+          color: $p-color-grey;
+        }
+
+        & > h1:before,
+        & > h1:after {
+          content: "";
+          flex: 1 1;
+          border-bottom: 0.25rem solid $p-color-grey;
+          margin: auto;
+        }
+
+        & > h1:before {
+          margin-right: 1rem;
+        }
+
+        & > h1:after {
+          margin-left: 1rem;
+        }
+      }
+
+      &__fbgoogle {
+        max-height: 5rem;
+        font-size: 15pt;
+        &__facebook,
+        &__google {
+          &:hover {
+            cursor: pointer;
+          }
+        }
+      }
+
+      &__button {
+        width: max-content;
+        padding: 0 2rem 0 2rem;
+      }
     }
-  }
-
-
-
-  &__or {
-    width: 95%;
-    text-align: center;
-    line-height: 0.1em;
-    margin: 3rem 0 3rem 0;
-
-    & > h1 {
-      display: flex;
-      flex-direction: row;
-      font-size: 20pt;
-      font-family: "Roboto-Light";
-      font-weight: 300;
-      color: $p-color-grey;
-    }
-
-    & > h1:before,
-    & > h1:after {
-      content: "";
-      flex: 1 1;
-      border-bottom: 0.25rem solid $p-color-grey;
-      margin: auto;
-    }
-
-    & > h1:before {
-      margin-right: 1rem;
-    }
-
-    & > h1:after {
-      margin-left: 1rem;
-    }
-  }
-
-  //&__fbgoolge {
-  //  display: inline-block;
-  //
-  //  & > img {
-  //    padding: 1rem;
-  //    width: 26rem;
-  //  }
-  //}
-
-  &__button {
-    width: 17.4rem;
   }
 }

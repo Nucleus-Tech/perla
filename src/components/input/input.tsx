@@ -1,5 +1,6 @@
 import React, { FC } from "react";
 
+import { Error } from "../../shared/icons";
 import "./styles.scss";
 
 interface Props {
@@ -44,7 +45,14 @@ const Input: FC<Props> = ({
         type={type}
       />
 
-      {value ? <div className={"p-input__error"}>{errors[name]}</div> : <></>}
+      {value ? (
+        <div className={"p-input__error"}>
+          <Error />{" "}
+          <div className={"p-input__error__message"}>{errors[name]}</div>
+        </div>
+      ) : (
+        <></>
+      )}
     </div>
   );
 };

@@ -19,7 +19,7 @@
     max-width: -webkit-fill-available;
 
     &--errors {
-      border: 1px solid $p-error-color;
+      border: 0.1rem solid $p-error-color;
       opacity: $p-opacity;
 
       &:focus {
@@ -33,16 +33,21 @@
   }
 
   > div > svg {
-    height: 20px;
+    height: 2rem;
+    padding-right: 0.5rem;
   }
 
   &__error {
-    color: $p-error-color;
+    display: flex;
+    flex-direction: row;
     width: max-content;
-    font-size: 14pt;
-    opacity: $p-opacity;
-    font-family: "Roboto-Light";
     padding-left: 1.5rem;
     padding-top: 0.5rem;
+    &__message {
+      color: $p-error-color;
+      font-size: 14pt;
+      opacity: $p-opacity;
+      font-family: "Roboto-Light";
+    }
   }
 }
