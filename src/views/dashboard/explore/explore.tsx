@@ -5,7 +5,7 @@ import './styles.scss';
 const Explore = () => {
   return (
     <div className="p-flex p-flex-column">
-      <div className="search-box p-flex p-justify-center p-items-center">
+      <div className="search-box p-flex p-justify-center p-items-center p-wrap">
         <Search />
       </div>
       <div className="destination-box p-flex p-justify-center">
