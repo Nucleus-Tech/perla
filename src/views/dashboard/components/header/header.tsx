@@ -1,15 +1,26 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import "./header.scss";
+import { aboutUsRoute, homeRoute, loginRoute } from '../../../../shared/routes/routes';
+import { useTranslation } from 'react-i18next';
+import { MenuTransaltion } from '../../context/menuTranslation';
+
 import logo from '../../../../assets/images/logo.svg';
 import zakynthos  from '../../../../assets/images/zakynthos-JPEG.jpg';
 
 const Header = () => {
 
+  const history = useHistory();
+  const { t: translate } = useTranslation();
   const [menuContentVisibility, setMenuContentVisibility] = useState(false);
 
   const handleMenuContent = (show: boolean) => {
     setMenuContentVisibility(show);
+  }
+
+  const redirectToHomePage = () => {
+    handleMenuContent(true);
+    history.push(homeRoute());
   }
 
   return (
@@ -19,12 +30,12 @@ const Header = () => {
       <nav className="menu-box">
         <ul className="menu-nav p-flex p-wrap p-justify-between p-align-strech  m-0">
           <div className="p-flex">
-            <li className="menu-item p-flex p-items-center margin" onClick={() => handleMenuContent(true)}  onMouseEnter={() => handleMenuContent(true)}>
-              <span>Destination</span>
+            <li className="menu-item p-flex p-items-center margin" onMouseEnter={() => handleMenuContent(true)} onClick={redirectToHomePage}>
+              <span>{translate(MenuTransaltion.destination)}</span>
             </li>
-            <Link className="menu-item p-flex p-items-center" to="/dashboard/about-us" onMouseEnter={() => handleMenuContent(false)}>About us</Link>
+            <Link className="menu-item p-flex p-items-center" to={aboutUsRoute()} onMouseEnter={() => handleMenuContent(false)}>{translate(MenuTransaltion.aboutUs)}</Link>
           </div>
-          <Link className="menu-item p-flex p-items-center margin" to="/onboarding/login" onMouseEnter={() => handleMenuContent(false)}>Login</Link>
+          <Link className="menu-item p-flex p-items-center margin" to={loginRoute()} onMouseEnter={() => handleMenuContent(false)}>{translate(MenuTransaltion.login)}</Link>
         </ul>
       </nav>
     </div>
