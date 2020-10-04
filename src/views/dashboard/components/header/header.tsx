@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import "./styles.scss";
-import logo from '../../../assets/images/logo.svg';
-import arrow from '../../../assets/images/arrow.svg';
+import "./header.scss";
+import logo from '../../../../assets/images/logo.svg';
+import arrow from '../../../../assets/images/arrow.svg';
 
 const Header = () => {
   return (

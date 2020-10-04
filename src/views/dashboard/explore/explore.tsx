@@ -1,7 +1,7 @@
 import React from 'react';
 import './styles.scss';
 
-const Home = () => {
+const Explore = () => {
   return (
     <div className="p-flex p-flex-column">
       <div className="search-box p-flex p-justify-center p-items-center">
@@ -15,6 +15,4 @@ const Home = () => {
   )
 }
 
-export default Home;
-
-
+export default Explore;
