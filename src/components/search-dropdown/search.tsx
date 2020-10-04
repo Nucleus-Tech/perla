@@ -53,7 +53,7 @@ const Search = () => {
                         </div>
                     ))}
                 </> 
-            : <p className="message">No results...</p>}
+            : <p className="message">{translate(SearchTransaltion.message)}</p>}
         </div>
         : ''}
     </div>
