@@ -1,19 +1,19 @@
-@import 'src/assets/styles/global/constants';
-@import 'src/assets/styles/global/colors';
+@import "src/assets/styles/global/constants";
+@import "src/assets/styles/global/colors";
 
 .p-registration {
   min-height: fit-content;
-  max-height: 600px;
-  width: 300px;
+  max-height: 60rem;
+  width: 30rem;
   margin: 0 auto;
-  border: 1px solid black;
+  border: 1px solid $p-color-black;
   &__header {
     font-size: $p-heading-1;
-    color: $p-secondary-font-color;
+    color: $p-color-black;
     &__icon {
-      height: 100px;
+      height: 10rem;
       &--left {
-        height: 30px;
+        height: 3rem;
       }
       &--right {
         color: blue;

@@ -1,39 +1,48 @@
 @import "src/assets/styles/global/main";
 
 .p-input {
-  height: 100px;
+  min-height: $p-input-height;
+
   &__label {
-    color: black;
+    color: $p-color-black;
   }
   &__container {
-    border-radius: 7px;
-    height: 50px;
-    width: 590px;
-    padding: 10px;
-    border-radius: 8pt;
+    height: $p-input-container-height;
+    width: 100%;
+    border-radius: $p-input-border-radius;
     border: 0.5pt solid rgba(0, 0, 0, 0.5);
-    font-size: 20pt;
+    font-size: 14pt;
     font-family: "Roboto-Light";
+    padding-left: 1.5rem;
+    outline: none;
+    min-width: -webkit-fill-available;
+    max-width: -webkit-fill-available;
 
     &--errors {
       border: 1px solid $p-error-color;
-      opacity: 0.5;
-    }
+      opacity: $p-opacity;
 
-    &--errors:focus {
-      outline: none;
+      &:focus {
+        outline: none;
+      }
     }
 
     &:focus {
-      background-color: #ffff;
+      background-color: $p-color-white;
     }
+  }
+
+  > div > svg {
+    height: 20px;
   }
 
   &__error {
     color: $p-error-color;
     width: max-content;
-    font-size: 15pt;
-    opacity: 0.5;
+    font-size: 14pt;
+    opacity: $p-opacity;
     font-family: "Roboto-Light";
+    padding-left: 1.5rem;
+    padding-top: 0.5rem;
   }
 }

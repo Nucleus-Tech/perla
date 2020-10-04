@@ -92,11 +92,11 @@
 }
 
 .p-justify-start {
-  justify-content: flex-start;
+  justify-content: flex-start !important;
 }
 
 .p-justify-center {
-  justify-content: center;
+  justify-content: center !important;
 }
 
 .p-justify-end {
@@ -104,7 +104,7 @@
 }
 
 .p-items-center {
-  align-items: center;
+  align-items: center !important;
 }
 
 .p-wrap {
@@ -150,7 +150,7 @@
 }
 
 .p-mb-25 {
-  margin-bottom: 25px;
+  margin-bottom: 2.5rem;
 }
 
 .p-pa {
@@ -376,4 +376,12 @@
   &-top {
     vertical-align: top;
   }
+}
+
+.p-disabled {
+  opacity: 0.5;
+}
+
+.p-box-shadow {
+  box-shadow: 0rem 0rem 1.2rem rgba(0, 0, 0, 0.5);
 }

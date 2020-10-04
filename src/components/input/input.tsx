@@ -11,7 +11,8 @@ interface Props {
   disabled?: boolean;
   errors?: object;
   label?: string;
-  type?: string;
+  type?: "text" | "password" | "email";
+  className?: string;
 }
 
 const Input: FC<Props> = ({
@@ -19,26 +20,20 @@ const Input: FC<Props> = ({
   placeholder,
   name,
   id,
-  value,
+  value = "",
   disabled = false,
   errors = {},
   label,
-  type,
+  type = "text",
 }) => {
-  const hasErrors = () => {
-    if (value) {
-      return errors && errors[name];
-    }
-    return;
-  };
   return (
     <div className={"p-input"}>
-      <div className={"p-input__label"}>{label}</div>
+      {label && <div className={"p-input__label"}>{label}</div>}
       <input
         placeholder={placeholder}
         className={
-          hasErrors()
-            ? ` p-input__container p-input__container--errors`
+          value && errors && errors[name]
+            ? `p-input__container p-input__container--errors`
             : `p-input__container`
         }
         name={name}
@@ -48,11 +43,8 @@ const Input: FC<Props> = ({
         disabled={disabled}
         type={type}
       />
-      {hasErrors() ? (
-        <div className={"p-input__error"}>{errors[name]}</div>
-      ) : (
-        <></>
-      )}
+
+      {value ? <div className={"p-input__error"}>{errors[name]}</div> : <></>}
     </div>
   );
 };

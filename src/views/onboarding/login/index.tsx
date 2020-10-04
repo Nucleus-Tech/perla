@@ -1,7 +1,8 @@
 import React from "react";
-import { Container, Row, Col } from "react-grid-system";
+import { Row, Col } from "react-grid-system";
 import { useTranslation } from "react-i18next";
 import { useFormik } from "formik";
+import { useHistory } from "react-router-dom";
 import Input from "../../../components/input/input";
 import Button from "../../../components/button/button";
 import { loginRequest } from "../../../services/api/auth/authService";
@@ -11,13 +12,17 @@ import {
   loginValidators,
 } from "../form/loginForm";
 import { OnboardingTranslation } from "../context/onboardingTranslation";
-
+import { exploreRoute } from "../../../shared/routes/routes";
 import "./styles.scss";
-import { withRouter } from "react-router-dom";
-import { homeRoute } from "../../../shared/routes/routes";
+import { useUserStore } from "../../../stores/user-store/user-store";
+import logoBlack from "../../../assets/images/logoBlack.svg";
+import { Facebook } from "../../../shared/icons";
 
-const Login = ({ history }) => {
+const Login = () => {
+  const history = useHistory();
   const { t: translate } = useTranslation();
+
+  const { setAccessToken } = useUserStore();
 
   // @ts-ignore
   const { handleChange, values, errors, dirty, isValid } = useFormik({
@@ -25,66 +30,109 @@ const Login = ({ history }) => {
     validationSchema: loginValidators,
   });
 
-  const submitLogin = async (values) => {
+  const submitLogin = async () => {
     try {
-      console.log(values);
       const { data } = await loginRequest(values);
-      localStorage.setItem("jwtToken", data["accessToken"]);
-      history.push(homeRoute());
+      const accessToken = data.accessToken;
+      setAccessToken(accessToken);
+      history.push(exploreRoute());
     } catch (error) {
       // TODO: Handle error https://brick-link.atlassian.net/browse/BRIC-15
     }
   };
 
   return (
-    <div className={"p-login"}>
-      <Container
-        className={"p-login__container p-flex p-flex-column p-items-center"}
+    <div
+      className={"p-login p-flex p-flex-column p-items-center p-justify-center"}
+    >
+      <Row
+        className={
+          "p-login__wrapper p-flex p-flex-column p-items-center p-justify-center"
+        }
       >
-        <div className={"p-login__logo"}>LOGO</div>
-        <label className={"p-login__label"}>
-          <h1>{translate(OnboardingTranslation.signInPlaceholder)}</h1>
-        </label>
-        <Row className={"p-login__input"}>
-          <Col xs={4} lg={12}>
-            <Input
-              id={LoginFormFields.email}
-              placeholder={translate(OnboardingTranslation.emailPlaceholder)}
-              name={LoginFormFields.email}
-              onChange={handleChange}
-              value={values.email}
-              errors={errors}
-              type={"email"}
+        <Col
+          xs={10}
+          sm={10}
+          md={8}
+          lg={8}
+          xl={8}
+          className={"p-login__wrapper__container p-box-shadow"}
+        >
+          <Row className={"p-flex p-justify-center"}>
+            <Col
+              xs={4}
+              sm={4}
+              md={4}
+              lg={4}
+              xl={4}
+              className={"p-flex p-justify-center"}
+            >
+              <img
+                className={"p-login__wrapper__container__logo"}
+                src={logoBlack}
+                alt="Perla Imperial"
+              />
+            </Col>
+            <label className={"p-login__wrapper__container__label"}>
+              <h1>{translate(OnboardingTranslation.signInPlaceholder)}</h1>
+            </label>
+          </Row>
+          <Row className={"p-login__wrapper__container__form"}>
+            <Col xs={12} sm={12} md={12} lg={12}>
+              <Input
+                id={LoginFormFields.email}
+                placeholder={translate(OnboardingTranslation.emailPlaceholder)}
+                name={LoginFormFields.email}
+                onChange={handleChange}
+                value={values.email}
+                errors={errors}
+                type={"email"}
+              />
+            </Col>
+            <Col xs={12} sm={12} md={12} lg={12} className={"p-flex p-flex-column"}>
+              <Input
+                id={LoginFormFields.password}
+                placeholder={translate(
+                  OnboardingTranslation.passwordPlaceholder
+                )}
+                name={LoginFormFields.password}
+                onChange={handleChange}
+                value={values.password}
+                errors={errors}
+                type={"password"}
+              />
+              <div className={"p-login__wrapper__container__form__forgot"}>
+                {translate(OnboardingTranslation.forgotPasswordPlaceholder)}
+              </div>
+            </Col>
+          </Row>
+          <Row className={'p-flex p-justify-center'}>
+            <Button
+                label={translate(OnboardingTranslation.signInPlaceholder)}
+                onClick={submitLogin}
+                disabled={!dirty || !isValid}
+                className={"p-login__button"}
             />
-            <Input
-              id={LoginFormFields.password}
-              placeholder={translate(OnboardingTranslation.passwordPlaceholder)}
-              name={LoginFormFields.password}
-              onChange={handleChange}
-              value={values.password}
-              errors={errors}
-              type={"password"}
-            />
-          </Col>
-          <div className={"p-login__forgot"}>Forgot password?</div>
-        </Row>
-        <Row>
-          <Button
-            label={translate(OnboardingTranslation.signInPlaceholder)}
-            onClick={() => submitLogin(values)}
-            disabled={!dirty || !isValid}
-          />
-        </Row>
-        <div className={"p-login__or"}>
-          <h1>or</h1>
-        </div>
-        <div className={"p-login__fbgoolge"}>
-          <div>FB</div>
-          <div>Google</div>
-        </div>
-      </Container>
+          </Row>
+          <Row>
+            <div className={"p-login__or"}>
+              <h1>{translate(OnboardingTranslation.orPlaceholder)}</h1>
+            </div>
+          </Row>
+          <Row>
+            <Col xs={12} sm={12} md={6} lg={6} xl={6}>
+              <div>
+              <Facebook />
+              </div>
+            </Col>
+            <Col xs={12} sm={12} md={6} lg={6} xl={6}>
+              <Facebook />
+            </Col>
+          </Row>
+        </Col>
+      </Row>
     </div>
   );
 };
 
-export default withRouter(Login);
+export default Login;

@@ -3,7 +3,7 @@ import Axios from 'axios';
 import { getValueForKeyInBrowserStorage } from '../shared';
 import { SecurityHttpHeaders } from '../../shared/constants';
 import { isLoginUrl } from './util';
-import {ACCESS_TOKEN_STORAGE_KEY} from "../../stores/user-store/user-type";
+import {BROWSER_STORAGE_KEY_ACCESS_TOKEN} from "../../shared/constants/localStorageConstants";
 
 
 Axios.interceptors.request.use(req => {
@@ -12,7 +12,7 @@ Axios.interceptors.request.use(req => {
     return req;
   }
 
-  const token = getValueForKeyInBrowserStorage(ACCESS_TOKEN_STORAGE_KEY);
+  const token = getValueForKeyInBrowserStorage(BROWSER_STORAGE_KEY_ACCESS_TOKEN);
   if (token) {
     req.headers[SecurityHttpHeaders.authorization] = `Bearer ${token}`;
   }

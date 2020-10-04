@@ -6,3 +6,4 @@ export const dashboardRoute = () => `/dashboard`;
 export const homeRoute = () => `${dashboardRoute()}/home`;
 export const aboutUsRoute = () => `${dashboardRoute()}/about-us`;
 
+export const exploreRoute = () => `${dashboardRoute()}/explore`;

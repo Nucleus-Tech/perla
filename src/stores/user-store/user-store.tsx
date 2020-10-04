@@ -1,9 +1,10 @@
 import React, { createContext, useContext, useReducer } from "react";
 
-import { ACCESS_TOKEN_STORAGE_KEY, UserState } from "./user-type";
+import { UserState } from "./user-type";
 import { initialUserState, userReducer } from "./user-reducer";
 import { setUserAccessTokenAction } from "./user-actions";
 import { storeInBrowserStorage } from "../../services/shared";
+import {BROWSER_STORAGE_KEY_ACCESS_TOKEN} from "../../shared/constants/localStorageConstants";
 
 interface UserContext {
   state: UserState;
@@ -18,7 +19,7 @@ export const UserStoreProvider = ({ children }) => {
   const [state, dispatch] = useReducer(userReducer, initialUserState);
 
   const setAccessToken = (accessToken: string): void => {
-    storeInBrowserStorage(ACCESS_TOKEN_STORAGE_KEY, accessToken);
+    storeInBrowserStorage(BROWSER_STORAGE_KEY_ACCESS_TOKEN, accessToken);
     setUserAccessTokenAction(accessToken, dispatch);
   };
 
