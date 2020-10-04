@@ -1,3 +1,4 @@
+//TitilliumWeb
 @font-face {
   font-family: "TitilliumWeb-Bold";
   src: local("TitilliumWeb-Bold"),
@@ -22,6 +23,7 @@
     url(./../../fonts/TitilliumWeb/TitilliumWeb-SemiBold.ttf) format("truetype");
 }
 
+// Roboto
 @font-face {
   font-family: "Roboto-Bold";
   src: local("Roboto-Bold"),
@@ -44,4 +46,29 @@
   font-family: "Roboto-Thin";
   src: local("Roboto-Thin"),
     url(./../../fonts/Roboto/Roboto-Thin.ttf) format("truetype");
+}
+
+//Sans Serif
+@font-face {
+  font-family: "Sans-Bold";
+  src: local("Sans-Bold"),
+    url(./../../fonts/SansSerif/Sans-Bold.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "Sans-Bold-Italic";
+  src: local("Sans-Bold-Italic"),
+    url(./../../fonts/SansSerif/Sans-Bold-Italic.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "Sans-Italic";
+  src: local("Sans-Italic"),
+    url(./../../fonts/SansSerif/Sans-Italic.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "Sans-Regular";
+  src: local("Sans-Regular"),
+    url(./../../fonts/SansSerif/Sans-Regular.ttf) format("truetype");
 }
