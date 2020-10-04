@@ -17,6 +17,7 @@
     "aboutUs": "About us"
   },
   "search": {
-    "cityRegion": "City, region"
+    "cityRegion": "City, region",
+    "message": "No results..."
   }
 }
