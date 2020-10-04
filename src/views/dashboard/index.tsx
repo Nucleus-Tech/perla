@@ -12,13 +12,11 @@ const Dashboard = () => {
   return (
     <>
       <Header/>
-      <div>
-        <Switch>
-          <Route path={homeRoute()} component={Explore}/>
-          <Route path={aboutUsRoute()} component={AboutUs}/>
-          <Redirect to={homeRoute()}/>
-        </Switch>
-      </div>
+      <Switch>
+        <Route path={homeRoute()} component={Explore}/>
+        <Route path={aboutUsRoute()} component={AboutUs}/>
+        <Redirect to={homeRoute()}/>
+      </Switch>
       <Footer />
     </>
   )

@@ -106,6 +106,9 @@
 .p-items-center {
   align-items: center !important;
 }
+.p-align-strech {
+  align-items: stretch;
+}
 
 .p-wrap {
   flex-wrap: wrap;
@@ -261,6 +264,15 @@
   }
 }
 
+.p-mr {
+  &1 {
+    margin-right: 1rem;
+  }
+  &2 {
+    margin-right: 2rem;
+  }
+}
+
 .p-ml {
   &0 {
     margin-left: 0;
@@ -384,4 +396,8 @@
 
 .p-box-shadow {
   box-shadow: 0rem 0rem 1.2rem rgba(0, 0, 0, 0.5);
+}
+
+.m-0 {
+  margin: 0;
 }
