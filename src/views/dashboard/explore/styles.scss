@@ -1,7 +1,7 @@
 @import '../../../assets/styles/global/colors.scss';
 
 .search-box {
-    height: 100vh;
+    height: calc(100vh - 12rem);
     background-image: url('../../../assets/images/zakynthos-JPEG.jpg');
     background-repeat: no-repeat;
     background-size: cover;
