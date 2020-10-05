@@ -8,11 +8,9 @@
   }
   &__container {
     height: $p-input-container-height;
-    width: 100%;
     border-radius: $p-input-border-radius;
-    border: 0.5pt solid rgba(0, 0, 0, 0.5);
-    font-size: 14pt;
-    font-family: "Roboto-Light";
+    border: 0.07rem solid rgba(0, 0, 0, 0.5);
+    font-size: $p-input-font-size;
     padding-left: 1.5rem;
     outline: none;
     min-width: -webkit-fill-available;
@@ -38,16 +36,13 @@
   }
 
   &__error {
-    display: flex;
-    flex-direction: row;
     width: max-content;
     padding-left: 1.5rem;
     padding-top: 0.5rem;
     &__message {
       color: $p-error-color;
-      font-size: 14pt;
+      font-size: $p-input-font-size;
       opacity: $p-opacity;
-      font-family: "Roboto-Light";
     }
   }
 }

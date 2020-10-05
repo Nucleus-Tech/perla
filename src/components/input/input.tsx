@@ -34,8 +34,8 @@ const Input: FC<Props> = ({
         placeholder={placeholder}
         className={
           value && errors && errors[name]
-            ? `p-input__container p-input__container--errors`
-            : `p-input__container`
+            ? `p-input__container p-w-100 p-input__container--errors`
+            : `p-input__container p-w-100 `
         }
         name={name}
         onChange={onChange}
@@ -46,7 +46,7 @@ const Input: FC<Props> = ({
       />
 
       {value ? (
-        <div className={"p-input__error"}>
+        <div className={"p-input__error p-flex p-flex-row "}>
           <Error />{" "}
           <div className={"p-input__error__message"}>{errors[name]}</div>
         </div>

@@ -48,7 +48,7 @@ const Login = () => {
     >
       <Row
         className={
-          "p-login__wrapper p-flex p-flex-column p-items-center p-justify-center"
+          "p-login__wrapper p-w-100 p-flex p-flex-column p-items-center p-justify-center"
         }
       >
         <Col
@@ -57,7 +57,7 @@ const Login = () => {
           md={4}
           lg={4}
           xl={4}
-          className={"p-login__wrapper__container p-box-shadow"}
+          className={"p-login__wrapper__container p-w-100 p-box-shadow"}
         >
           <Row className={"p-flex p-justify-center"}>
             <Col
@@ -74,13 +74,17 @@ const Login = () => {
                 alt="Perla Imperial"
               />
             </Col>
-            <label className={"p-login__wrapper__container__label"}>
-              <h1>{translate(OnboardingTranslation.signInPlaceholder)}</h1>
+            <label
+              className={"p-login__wrapper__container__label p-text-center"}
+            >
+              <h1 className={"p-flex p-flex-row"}>
+                {translate(OnboardingTranslation.signInPlaceholder)}
+              </h1>
             </label>
           </Row>
           <Row
             className={
-              "p-login__wrapper__container__form p-flex p-justify-center"
+              "p-login__wrapper__container__form p-flex p-flex-column p-justify-center p-w-100"
             }
           >
             <Col xs={12} sm={12} md={12} lg={12} xl={12}>
@@ -126,8 +130,10 @@ const Login = () => {
             />
           </Row>
           <Row className={"p-flex p-justify-center"}>
-            <div className={"p-login__wrapper__container__or"}>
-              <h1>{translate(OnboardingTranslation.orPlaceholder)}</h1>
+            <div className={"p-login__wrapper__container__or p-text-center"}>
+              <h1 className={"p-flex p-flex-row"}>
+                {translate(OnboardingTranslation.orPlaceholder)}
+              </h1>
             </div>
           </Row>
           <Row
