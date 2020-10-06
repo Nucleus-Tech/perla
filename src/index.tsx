@@ -8,8 +8,6 @@ import * as serviceWorker from "./serviceWorker";
 
 import "./i18n";
 import "./index.scss";
-import 'primereact/resources/primereact.min.css';
-import 'primeicons/primeicons.css';
 
 ReactDOM.render(
   <React.StrictMode>
