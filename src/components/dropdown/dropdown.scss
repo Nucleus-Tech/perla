@@ -1,23 +1,11 @@
 @import '../../assets/styles/global/colors.scss';
-@import '../../assets/styles/global/main.scss';
 @import '../../assets/styles//global/breakpoint.scss';
 
-.dropdown-wrapper-search {
-    min-width: 30rem;
-    width: 30rem;
+.dropdown-wrapper {
+    min-width: 17rem;
 
     @media only screen and (max-width: $bp-xlarge) {
-        width: 100%;
-    }
-
-    .border-left {
-        border-top-left-radius: 1rem;
-        border-bottom-left-radius: 1rem;
-
-        @media only screen and (max-width: $bp-xlarge) {
-            border-top-right-radius: 1rem;
-            border-bottom-left-radius: unset;
-        }
+      width: 100%;
     }
 
     .results {
@@ -37,7 +25,7 @@
         scrollbar-width: none;
 
         @media only screen and (max-width: $bp-xlarge) {
-            position: absolute;
+          position: absolute;
         }
     
         &::-webkit-scrollbar {
@@ -57,22 +45,7 @@
     
         .item {
             padding: .5rem 1rem;
-            cursor: pointer;
-    
-            .pin {
-                height: 1.5rem;
-                margin-right: 1rem;
-            }
-    
-            .city {
-                font-size: 1.8rem;
-                font-weight: 500;
-            }
-        
-            .country {
-                color: $p-color-a0;
-                font-size: 1.5rem;
-            }
+            font-size: 1.8rem !important;
     
             &:hover {
                 background-color: rgba(225, 179, 129, 0.3);
@@ -89,4 +62,3 @@
         background-color: rgba(225, 179, 129, 0.3); 
     }
 }
-

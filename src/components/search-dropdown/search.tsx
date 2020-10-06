@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { SearchTransaltion } from '../../views/dashboard/context/searchTransaltion';
 import "./search.scss";
 import pin from '../../assets/images/pin.svg';
-import arrow from '../../assets/images/arrow.svg';
+import removeIcon from '../../assets/images/remove.svg';
 import { SEARCH_DATA } from '../../shared/mocks/search.mock';
 
 const Search = () => {
@@ -29,14 +29,23 @@ const Search = () => {
         setShowResults(false);
     }
 
-    const handleDropdownClick = () => {
-        setShowResults(!showResults);
+    const handleDropdownClick = (event) => {
+        const target = event.target;
+        if (target.id !== 'removeInput') {
+            setShowResults(!showResults);
+        } 
     }
 
-    return <div >
-        <div className="dropdown p-flex">
+    const resetDropdown = () => {
+        setInputValue('');
+        setSelectedPlace(null);
+        setShowResults(false);
+    }
+
+    return <div className="dropdown-wrapper-search" onClick={handleDropdownClick}>
+        <div className="p-dropdown p-flex border-left">
            <input type="string" value={inputValue} placeholder={translate(SearchTransaltion.cityRegion)} onChange={e => search(e.target.value)}/>
-           <img className="arrow" src={arrow} onClick={handleDropdownClick} />
+           {selectedPlace ? <img id="removeInput" className="remove" onClick={resetDropdown} src={removeIcon} /> : ''}
         </div>
         {showResults ?
         <div className="results p-flex p-flex-column">

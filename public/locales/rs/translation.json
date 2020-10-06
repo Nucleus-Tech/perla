@@ -18,6 +18,11 @@
   },
   "search": {
     "cityRegion": "City, region",
-    "message": "No results..."
+    "message": "No results...",
+    "search": "Search"
+  },
+  "dropdown": {
+    "adults": "Adults",
+    "children": "Children"
   }
 }
