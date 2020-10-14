@@ -36,6 +36,10 @@
         scrollbar-color: $p-color-grey;
         scrollbar-width: none;
 
+        @media only screen and (min-width: $bp-xlarge) {
+            border-top-left-radius: 1rem;
+        }
+
         @media only screen and (max-width: $bp-xlarge) {
             position: absolute;
         }
