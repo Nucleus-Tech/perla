@@ -10,5 +10,10 @@
     "registration": {
       "name": "name"
     }
+  },
+  "menu": {
+    "login": "Login",
+    "destination": "Destionation",
+    "aboutUs": "About us"
   }
 }
