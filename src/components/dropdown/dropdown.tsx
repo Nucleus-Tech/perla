@@ -49,7 +49,7 @@ const Dropdown = (props) => {
            <span>{selectedItem? inputValue: translate(DropdownTranslation[placeholder])} </span>
            <span>
                 {selectedItem ? <img id="removeInput" className="remove" onClick={resetDropdown} src={removeIcon} /> : ''}
-                {!selectedItem ? <img className="arrow" src={arrow} /> : ''}
+                {!selectedItem ? <img className="arrow" src={arrow} />: ''}
            </span>
         </div>
         {showResults ?
