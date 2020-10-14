@@ -15,5 +15,9 @@
     "login": "Login",
     "destination": "Destionation",
     "aboutUs": "About us"
+  },
+  "search": {
+    "cityRegion": "City, region",
+    "message": "No results..."
   }
 }
