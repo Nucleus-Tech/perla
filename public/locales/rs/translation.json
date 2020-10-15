@@ -13,8 +13,9 @@
   },
   "menu": {
     "login": "Login",
-    "destination": "Destionation",
-    "aboutUs": "About us"
+    "destination": "Destination",
+    "aboutUs": "About us",
+    "logout": "Log out"
   },
   "search": {
     "cityRegion": "City, region",

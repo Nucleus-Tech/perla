@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
-
+import { useUserStore } from '../../../../stores/user-store/user-store';
 import { aboutUsRoute, homeRoute, loginRoute } from '../../../../shared/routes/routes';
 import { useTranslation } from 'react-i18next';
 import { MenuTransaltion } from '../../context/menuTranslation';
+import userIcon  from '../../../../assets/images/user.svg';
 // @TODO change logo and zakynthos
 import logo from '../../../../assets/images/logo.svg';
 import zakynthos  from '../../../../assets/images/zakynthos-JPEG.jpg';
@@ -16,6 +17,9 @@ const Header = () => {
   const { t: translate } = useTranslation();
   const [menuContentVisibility, setMenuContentVisibility] = useState(false);
 
+  const { state: {user} } = useUserStore();
+  const { logoutUser } = useUserStore();
+
   const handleMenuContent = (show: boolean) => {
     setMenuContentVisibility(show);
   }
@@ -23,6 +27,10 @@ const Header = () => {
   const redirectToHomePage = () => {
     handleMenuContent(true);
     history.push(homeRoute());
+  }
+
+  const logOut = () => {
+    logoutUser(null, null);
   }
 
   return (
@@ -37,7 +45,16 @@ const Header = () => {
               </li>
               <Link className="menu-item p-flex p-items-center" to={aboutUsRoute()} onMouseEnter={() => handleMenuContent(false)}>{translate(MenuTransaltion.aboutUs)}</Link>
             </div>
-            <Link className="menu-item p-flex p-items-center margin" to={loginRoute()} onMouseEnter={() => handleMenuContent(false)}>{translate(MenuTransaltion.login)}</Link>
+            { user ?
+              <div className="p-flex">
+                <Link className="menu-item p-flex p-items-center margin" to={homeRoute()} onMouseEnter={() => handleMenuContent(false)}>
+                  <img src={userIcon}></img>
+                  {user.firstName ? user.firstName : user.email}
+                </Link>
+                <Link className="menu-item p-flex p-items-center margin" onClick={() => logOut()} to={loginRoute()} onMouseEnter={() => handleMenuContent(false)}>{translate(MenuTransaltion.logout)}</Link>
+              </div>
+              : <Link className="menu-item p-flex p-items-center margin" to={loginRoute()} onMouseEnter={() => handleMenuContent(false)}>{translate(MenuTransaltion.login)}</Link>
+            }
           </ul>
         </nav>
       </div>

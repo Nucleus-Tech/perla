@@ -34,7 +34,7 @@ const Login = () => {
     try {
       const { data } = await loginRequest(values);
       const accessToken = data.accessToken;
-      setAccessToken(accessToken);
+      setAccessToken(accessToken, data.user);
       history.push(exploreRoute());
     } catch (error) {
       // TODO: Handle error https://brick-link.atlassian.net/browse/BRIC-15
