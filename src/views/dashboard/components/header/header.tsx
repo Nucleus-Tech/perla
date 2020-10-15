@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { useUserStore } from '../../../../stores/user-store/user-store';
 import { aboutUsRoute, homeRoute, loginRoute } from '../../../../shared/routes/routes';
 import { useTranslation } from 'react-i18next';
 import { MenuTransaltion } from '../../context/menuTranslation';
+import { destinationRequest } from '../../../../services/api/destination/destinationService';
 import userIcon  from '../../../../assets/images/user.svg';
 // @TODO change logo and zakynthos
 import logo from '../../../../assets/images/logo.svg';
@@ -20,6 +21,10 @@ const Header = () => {
   const { state: {user} } = useUserStore();
   const { logoutUser } = useUserStore();
 
+  useEffect(() => {
+    fetchDestinations();
+  },[]);
+
   const handleMenuContent = (show: boolean) => {
     setMenuContentVisibility(show);
   }
@@ -27,6 +32,11 @@ const Header = () => {
   const redirectToHomePage = () => {
     handleMenuContent(true);
     history.push(homeRoute());
+  }
+
+  const fetchDestinations = async () => {
+    const { data } = await destinationRequest();
+    console.log(data);
   }
 
   const logOut = () => {
