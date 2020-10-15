@@ -41,6 +41,14 @@
             @media only screen and (max-width: $bp-small) {
                 margin-right: 2rem;
             }
+
+            &-username {
+                margin-right: 4rem;
+    
+                @media only screen and (max-width: $bp-medium) {
+                    margin-right: .5rem;
+                }
+            }
         }
     }
 
@@ -69,6 +77,12 @@
 
         img {
             margin-right: .5rem;
+        }
+
+        .username {
+            @media only screen and (max-width: $bp-medium) {
+                display: none;
+            }
         }
 
     }

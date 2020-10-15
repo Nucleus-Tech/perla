@@ -57,9 +57,9 @@ const Header = () => {
             </div>
             { user ?
               <div className="p-flex">
-                <Link className="menu-item p-flex p-items-center margin" to={homeRoute()} onMouseEnter={() => handleMenuContent(false)}>
+                <Link className="menu-item p-flex p-items-center margin-username" to={homeRoute()} onMouseEnter={() => handleMenuContent(false)}>
                   <img src={userIcon}></img>
-                  {user.firstName ? user.firstName : user.email}
+                  <span className="username">{user.firstName ? user.firstName : user.email}</span>
                 </Link>
                 <Link className="menu-item p-flex p-items-center margin" onClick={() => logOut()} to={loginRoute()} onMouseEnter={() => handleMenuContent(false)}>{translate(MenuTransaltion.logout)}</Link>
               </div>
