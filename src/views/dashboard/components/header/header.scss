@@ -135,16 +135,18 @@
             border-bottom: 1px solid $p-color-ec;
         }
     
-        .region {
-            cursor: pointer;
-            font-size: 1.7rem;
-            margin: 0 0 .5rem;
-        }
-    
-        .place {
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
+       .country-wrapper {
+            .region {
+                cursor: pointer;
+                font-size: 1.7rem;
+                margin: 0 0 .5rem;
+            }
+        
+            .place {
+                font-size: 1.5rem;
+                cursor: pointer;
+            }
+       }
     }
 }
 

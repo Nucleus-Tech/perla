@@ -79,12 +79,12 @@ const Header = () => {
                   <h3 className="country-name">{destination.name}</h3>
                   {
                     destination.regions.map((region) => (
-                      <div>
+                      <div key={region.id} className="country-wrapper">
                         <h4 className="region">{region.name}</h4>
                         <ul>
                         {
                           region.places.map((place) => (
-                            <li>
+                            <li key={place.id}>
                               <span className="place">{place.name}</span>
                             </li>
                           ))
