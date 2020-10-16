@@ -18,12 +18,19 @@ const Header = () => {
   const { t: translate } = useTranslation();
   const [menuContentVisibility, setMenuContentVisibility] = useState(false);
 
+  const [destinations, setDestinations] = useState<any[]>([]);
+
   const { state: {user} } = useUserStore();
   const { logoutUser } = useUserStore();
 
   useEffect(() => {
     fetchDestinations();
   },[]);
+
+  const fetchDestinations = async () => {
+    const { data } = await destinationRequest();
+    setDestinations(data);
+  }
 
   const handleMenuContent = (show: boolean) => {
     setMenuContentVisibility(show);
@@ -32,11 +39,6 @@ const Header = () => {
   const redirectToHomePage = () => {
     handleMenuContent(true);
     history.push(homeRoute());
-  }
-
-  const fetchDestinations = async () => {
-    const { data } = await destinationRequest();
-    console.log(data);
   }
 
   const logOut = () => {
@@ -70,35 +72,31 @@ const Header = () => {
       </div>
       { menuContentVisibility &&
         <div className="menu-content p-flex" onMouseLeave={() => handleMenuContent(false)}>
-        <div className="box p-flex p-wrap">
-          <div className="country">
-              <h3 className="country-name">Grcka</h3>
-              <h4 className="region">Tasos</h4>
-              <ul>
-                <li>
-                  <span className="place">Limenaria</span>
-                </li>
-                <li>
-                  <span className="place">Limenaria</span>
-                </li>
-                <li>
-                  <span className="place">Limenaria</span>
-                </li>
-              </ul>
-            </div>
-            <div className="country">
-              <h3 className="country-name">Turska</h3>
-              <h4 className="region">Pieria</h4>
-              <ul>
-                <li>
-                  <span className="place">Paralia</span>
-                </li>
-                <li>
-                  <span className="place">Paralia</span>
-                </li>
-              </ul>
-            </div>
-        </div>
+          <div className="box p-flex p-wrap">
+            {
+              destinations.map((destination) => (
+                <div key={destination.code} className="country">
+                  <h3 className="country-name">{destination.name}</h3>
+                  {
+                    destination.regions.map((region) => (
+                      <div>
+                        <h4 className="region">{region.name}</h4>
+                        <ul>
+                        {
+                          region.places.map((place) => (
+                            <li>
+                              <span className="place">{place.name}</span>
+                            </li>
+                          ))
+                        }
+                        </ul>
+                      </div>
+                    ))
+                  }
+                </div>
+              ))
+            }
+          </div>
           <img className="destination-image" src={zakynthos} />
         </div>
       }
