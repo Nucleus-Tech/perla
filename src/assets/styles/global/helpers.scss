@@ -1,6 +1,7 @@
 @import "../mixins/utils";
 @import "../mixins/desktop";
 @import "../mixins/mobile";
+@import "./breakpoint.scss";
 
 .p-no-margin {
   @include no-margin;
@@ -400,4 +401,52 @@
 
 .m-0 {
   margin: 0;
+}
+
+.p-dropdown {
+  width: 100%;
+  position: relative;
+  cursor: pointer;
+  background: $p-color-white;
+  padding: 2rem;
+  justify-content: space-between;
+  font-size: 2rem;
+  border-right: 1px solid $p-color-light-grey;
+
+  @media only screen and (max-width: $bp-xlarge) {
+    border-bottom:  1px solid $p-color-light-grey;
+    border-right: unset;
+  }
+
+  input {
+      font-size: 2rem;
+      color: $p-color-black;
+      border: none;
+
+      &:focus {
+          outline: none;
+      }
+
+      &:disabled {
+        background-color: rgb(255, 255, 255);
+      }
+  }
+
+  .placeholder {
+    font-size: 2rem;
+    color: $p-color-grey;
+    
+   /* @media only screen and (max-width: $bp-xlarge) {
+      width: 10rem;
+    } */
+  }
+
+  .remove {
+    width: 1.3rem;
+    margin: 0 1rem 0 1rem;
+  }
+
+  span {
+    padding: 0.1rem 0;
+  }
 }

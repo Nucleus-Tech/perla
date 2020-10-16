@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "antd": "^4.6.6",
     "axios": "^0.19.2",
     "formik": "^2.1.4",
     "i18next": "15.1.0",
