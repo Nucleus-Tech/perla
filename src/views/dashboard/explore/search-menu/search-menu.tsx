@@ -1,12 +1,12 @@
 import React from 'react';
 import "./search-menu.scss";
 import { useTranslation } from 'react-i18next';
-import Search from '../../../components/search-dropdown/search';
-import Dropdown from '../../../components/dropdown/dropdown';
+import Search from '../../../../components/search-dropdown/search';
+import Dropdown from '../../../../components/dropdown/dropdown';
 import { DatePicker } from 'antd';
-import { SearchTransaltion } from '../../../views/dashboard/context/searchTransaltion';
+import { SearchTransaltion } from '../../context/searchTransaltion';
 import 'antd/dist/antd.css'
-import { CAPACITY } from '../../../shared/mocks/capacity.mock';
+import { CAPACITY } from '../../../../shared/mocks/capacity.mock';
 
 const SearchMenu = () => {
 

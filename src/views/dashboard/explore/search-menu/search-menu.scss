@@ -1,5 +1,5 @@
 @import "src/assets/styles/global/main";
-@import '../../../assets/styles/global/breakpoint.scss';
+@import '../../../../assets/styles/global/breakpoint.scss';
 
 .container {
     width: 60%;
@@ -12,6 +12,8 @@
 
     @media only screen and (max-width: $bp-xlarge) {
         flex-wrap: wrap;
+        left: 50%;
+        transform: translate(-50%, -50%);
     }
 
     @media only screen and (max-width: $bp-small) {

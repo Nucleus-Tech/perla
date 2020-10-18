@@ -1,5 +1,5 @@
 import React from 'react';
-import SearchMenu from '../search-menu/search-menu';
+import SearchMenu from './search-menu/search-menu';
 import './styles.scss';
 
 const Explore = () => {
