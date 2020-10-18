@@ -11,8 +11,6 @@ const Explore = () => {
       <div className="destination-box p-flex p-justify-center">
         <h1>Destinations</h1>
       </div>
-      <div className="footer">
-      </div>
     </div>
   )
 }
