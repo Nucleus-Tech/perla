@@ -7,12 +7,13 @@
     position: relative;
 
     .logo {
-        padding: 2rem 6rem;
+        padding: 1rem 6rem;
         height: 8rem;
+        cursor: pointer;
 
         @media only screen and (max-width: $bp-medium) {
             height: 6rem;
-            padding: 2rem;
+            padding: 1rem;
         }
     }
 
@@ -64,6 +65,7 @@
 
         &:hover,
         &:active {
+            color: inherit;
             background-size: 100% 2px, auto;
         }
     }

@@ -8,7 +8,7 @@ const Explore = () => {
       <div className="search-box p-flex p-justify-center p-items-center p-wrap">
         <SearchMenu />
       </div>
-      <div className="destination-box p-flex p-justify-center">
+      <div className="destination-box p-flex p-flex-column p-justify-center">
         <h1>Destinations</h1>
       </div>
       <div className="footer">

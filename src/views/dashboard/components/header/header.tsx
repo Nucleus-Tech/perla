@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 
-import { aboutUsRoute, homeRoute, loginRoute } from '../../../../shared/routes/routes';
+import { aboutUsRoute, dashboardRoute, homeRoute, loginRoute } from '../../../../shared/routes/routes';
 import { useTranslation } from 'react-i18next';
 import { MenuTransaltion } from '../../context/menuTranslation';
 // @TODO change logo and zakynthos
@@ -21,23 +21,27 @@ const Header = () => {
   }
 
   const redirectToHomePage = () => {
-    handleMenuContent(true);
     history.push(homeRoute());
+  }
+
+  const redirect = (name) => {
+    setMenuContentVisibility(false);
+    history.push(`${dashboardRoute()}/destination/${name}`);
   }
 
   return (
     <>
       <div className="menu p-flex p-align-strech">
-        <img className="logo" src={logo} alt="Perla Imperial" onMouseEnter={() => handleMenuContent(false)}/>
+        <img className="logo" src={logo} alt="Perla Imperial" onClick={() => redirectToHomePage()}/>
         <nav className="menu-box">
           <ul className="menu-nav p-flex p-wrap p-justify-between p-align-strech  m-0">
             <div className="p-flex">
-              <li className="menu-item p-flex p-items-center margin" onMouseEnter={() => handleMenuContent(true)} onClick={redirectToHomePage}>
+              <li className="menu-item p-flex p-items-center margin" onClick={() => handleMenuContent(true)}>
                 <span>{translate(MenuTransaltion.destination)}</span>
               </li>
-              <Link className="menu-item p-flex p-items-center" to={aboutUsRoute()} onMouseEnter={() => handleMenuContent(false)}>{translate(MenuTransaltion.aboutUs)}</Link>
+              <Link className="menu-item p-flex p-items-center" to={aboutUsRoute()} onClick={() => handleMenuContent(false)}>{translate(MenuTransaltion.aboutUs)}</Link>
             </div>
-            <Link className="menu-item p-flex p-items-center margin" to={loginRoute()} onMouseEnter={() => handleMenuContent(false)}>{translate(MenuTransaltion.login)}</Link>
+            <Link className="menu-item p-flex p-items-center margin" to={loginRoute()} onClick={() => handleMenuContent(false)}>{translate(MenuTransaltion.login)}</Link>
           </ul>
         </nav>
       </div>
@@ -45,7 +49,7 @@ const Header = () => {
         <div className="menu-content p-flex" onMouseLeave={() => handleMenuContent(false)}>
         <div className="box p-flex p-wrap">
           <div className="country">
-              <h3 className="country-name">Grcka</h3>
+              <h3 className="country-name" onClick={() => redirect('Grcka')}>Grcka</h3>
               <h4 className="region">Tasos</h4>
               <ul>
                 <li>

@@ -1,0 +1,59 @@
+@import '../../assets/styles/global/colors.scss';
+
+@mixin padding($top: .3rem, $side: 3rem, $down: .3rem) {
+    padding: $top $side $down;
+}
+
+.wrapper {
+    width: 35rem;
+    border-radius: 3rem;
+    margin-top: 3rem;
+    box-shadow: 0 0 1rem $p-color-a0;
+    cursor: pointer;
+
+    img {
+        border-top-left-radius: inherit;
+        border-top-right-radius: inherit;
+        height: 30rem;
+        object-fit: cover;
+    }
+
+    .box {
+        @include padding;
+        .pin {
+            height: 2rem;
+            cursor: pointer;
+        }
+    
+        .name {
+            font-size: 2rem;
+            font-weight: 600;
+            padding-right: 1rem;
+        }
+    }
+
+    .rate {
+        @include padding;
+        font-size: 1.5rem;
+        border-bottom: 1px solid $p-color-light-grey;
+    }
+
+    .facility {
+        @include padding(.5rem, 3rem, 1rem);
+        font-size: 1.3rem;
+
+        &-item {
+            padding-right: 1rem;
+            flex: 0 0 33%;
+        }
+
+        &-name {
+            padding-left: 1rem;
+        }
+
+        &-icon {
+            height: 1rem;
+        }
+    }
+}
+

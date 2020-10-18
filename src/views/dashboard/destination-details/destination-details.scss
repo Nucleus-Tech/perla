@@ -1,0 +1,25 @@
+@import '../../../assets/styles/global/colors.scss';
+
+.destination {
+    &-header {
+        height: 30rem;
+        background-image: url('https://www.jet2holidays.com/-/media/destination%20guide/greece/kgs_kefalos_0813_02_ps_.jpg?h=500&w=1920&crop=1&hash=D8B88B21C47BBDC3DC6EE27B427C225212792A60');
+        background-repeat: no-repeat;
+        background-size: cover;
+
+        &_title {
+            color: $p-white;
+            font-size: 6rem;
+        }
+    }
+
+    &-filter-box {
+        padding: 4rem 8rem;
+        flex: 0 0 30%;
+
+    }
+
+    &-results {
+        flex: 0 0 60%;
+    }
+}
