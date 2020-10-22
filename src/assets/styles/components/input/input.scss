@@ -1,20 +1,30 @@
 @import "src/assets/styles/global/main";
 
 .p-input {
-  min-height: $p-input-height;
+  padding: 1rem 0 1rem 0;
+
+  @media only screen and (max-width: $bp-medium) {
+    padding: 0.5rem 0 0.5rem 0;
+  }
 
   &__label {
     color: $p-color-black;
   }
   &__container {
-    height: $p-input-container-height;
+    padding: 1rem 0 1rem 0;
     border-radius: $p-input-border-radius;
     border: 0.07rem solid rgba(0, 0, 0, 0.5);
     font-size: $p-input-font-size;
     padding-left: 1.5rem;
     outline: none;
-    min-width: -webkit-fill-available;
-    max-width: -webkit-fill-available;
+    min-width: fill-available;
+    max-width: fill-available;
+    min-width: -moz-available;
+    max-width: -moz-available;
+
+    @media only screen and (max-width: $bp-medium) {
+      font-size: 1.4rem;
+    }
 
     &--errors {
       border: 0.1rem solid $p-error-color;
@@ -30,19 +40,31 @@
     }
   }
 
-  > div > svg {
-    height: 2rem;
-    padding-right: 0.5rem;
-  }
-
   &__error {
     width: max-content;
-    padding-left: 1.5rem;
-    padding-top: 0.5rem;
+    padding: 0.2rem 0 0.2rem 1.5rem;
+
+    @media only screen and (max-width: $bp-medium) {
+      padding: 0.2rem 0 0.2rem 0.5rem;
+    }
+
     &__message {
       color: $p-error-color;
       font-size: $p-input-font-size;
       opacity: $p-opacity;
+
+      @media only screen and (max-width: $bp-medium) {
+        font-size: 1.4rem;
+      }
+    }
+
+    > div > svg {
+      height: 2rem;
+      padding-right: 0.5rem;
+
+      @media only screen and (max-width: $bp-medium) {
+        height: 1.5rem;
+      }
     }
   }
 }

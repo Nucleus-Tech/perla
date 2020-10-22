@@ -1,8 +1,8 @@
 {
   "onboarding": {
     "loginPlaceholder": {
-      "email": "email",
-      "password": "password",
+      "email": "Please enter your email...",
+      "password": "Please enter your password...",
       "signIn": "Sign in",
       "forgotPassword": "Forgot password?",
       "or": "or"

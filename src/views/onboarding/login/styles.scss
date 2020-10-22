@@ -11,24 +11,42 @@
   background-repeat: no-repeat;
 
   &__wrapper {
+    min-width: 50rem;
+
+    @media only screen and (max-width: $bp-medium) {
+      min-width: 50%;
+    }
+
+    @media only screen and (max-width: $bp-small) {
+      min-width: 80%;
+    }
+
     &__container {
       background-color: $p-color-white;
-      padding: 2rem 3rem 6rem 3rem !important;
+      padding: 3rem 3rem 3rem 3rem !important;
       border-radius: $p-onboarding-border-radius;
 
       &__logo {
         max-height: $p-logo-height;
+        margin-bottom: 1rem;
+
+        @media only screen and (max-width: $bp-medium) {
+          max-height: 8rem;
+        }
       }
 
       &__label {
-        width: 95%;
         line-height: 0.1em;
-        margin: 1rem 0 1rem;
+        margin: 1rem 0 1rem 0;
 
         & > h1 {
           font-size: 5.3rem;
           font-family: "Roboto-Thin";
           font-weight: 300;
+
+          @media only screen and (max-width: $bp-medium) {
+            font-size: 3.3rem;
+          }
         }
 
         & > h1:before,
@@ -50,7 +68,6 @@
 
       &__form {
         &__forgot {
-          margin-top: -4rem;
           align-self: flex-end;
           padding-right: 1.5rem;
           font-size: 1.6rem;
@@ -58,26 +75,49 @@
           &:hover {
             cursor: pointer;
           }
+
+          @media only screen and (max-width: $bp-medium) {
+            font-size: 1.2rem;
+          }
+        }
+      }
+
+      &__button {
+        width: max-content;
+        margin: 1.5rem;
+        padding: 0.5rem 3rem 0.5rem 3rem;
+        border: none;
+
+        @media only screen and (max-width: $bp-medium) {
+          margin: 0.75rem;
+          font-size: 2rem;
         }
       }
 
       &__or {
-        width: 95%;
         line-height: 0.1em;
-        margin: 1rem 0 1rem;
+        margin: 0 0 1rem 0;
 
         & > h1 {
-          font-size: 2.67rem;
+          font-size: 1.6rem;
           font-weight: 300;
           color: $p-color-grey;
+
+          @media only screen and (max-width: $bp-medium) {
+            font-size: 1.2rem;
+          }
         }
 
         & > h1:before,
         & > h1:after {
           content: "";
           flex: 1 1;
-          border-bottom: 0.25rem solid $p-color-grey;
+          border-bottom: 0.06rem solid $p-color-grey;
           margin: auto;
+
+          @media only screen and (max-width: $bp-medium) {
+            border-bottom: 0.03rem solid $p-color-grey;
+          }
         }
 
         & > h1:before {
@@ -89,20 +129,75 @@
         }
       }
 
-      &__fbgoogle {
-        max-height: 5rem;
-        font-size: 2rem;
+      &__social {
+        margin-top: 3rem;
+
+        @media only screen and (max-width: $bp-medium) {
+          margin-top: 1.5rem;
+        }
         &__facebook,
         &__google {
+          width: 100%;
+
+          & > svg {
+            max-height: 5rem;
+          }
+
+          @media only screen and (max-width: $bp-medium) {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            & > svg {
+              height: 4rem;
+            }
+          }
+
+          @media only screen and (max-width: $bp-small) {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            & > svg {
+              height: 3rem;
+            }
+          }
+
+          @media only screen and (max-width: $bp-extra-small) {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            & > svg {
+              height: 2rem;
+            }
+          }
+
           &:hover {
             cursor: pointer;
           }
         }
       }
 
-      &__button {
-        width: max-content;
-        padding: 0 2rem 0 2rem;
+      &__member {
+        margin-top: 2rem;
+        padding: 1rem 0 1rem 0;
+        font-size: 1.6rem;
+        color: $p-color-grey;
+
+        @media only screen and (max-width: $bp-medium) {
+          font-size: 1.2rem;
+          margin-top: 1rem;
+          padding: 0.5rem 0 0.5rem 0;
+        }
+
+        &__link {
+          color: $p-color-grey;
+
+          &:hover {
+            cursor: pointer;
+          }
+        }
       }
     }
   }
