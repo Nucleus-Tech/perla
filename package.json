@@ -42,6 +42,8 @@
     "@types/react-router-dom": "5.1.3",
     "@types/react-tooltip": "3.11.0",
     "@types/yup": "0.26.35",
+    "husky": "1.3.1",
+    "lint-staged": "8.1.5",
     "prettier": "^2.0.5",
     "pretty-format": "24.8.0",
     "tslint": "5.14.0",
@@ -55,7 +57,20 @@
     "build": "react-scripts build",
     "format": "prettier --write \"**/*.+(js|jsx|json|css|md)\"",
     "test": "react-scripts test",
+    "lint": "tslint -p tsconfig.json -c tslint.json 'src/**/*.{ts,tsx}' -q",
+    "lint:fix": "tslint --fix -p tsconfig.json -c tslint.json 'src/**/*.{ts,tsx}' -q",
     "eject": "react-scripts eject"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{ts,tsx,json,html,css,scss,md}": [
+      "prettier --write",
+      "git add"
+    ]
   },
   "eslintConfig": {
     "extends": "react-app"
