@@ -3,8 +3,7 @@ import { useTranslation } from "react-i18next";
 import { useFormik } from "formik";
 import { Link, useHistory } from "react-router-dom";
 
-import Input from "../../../components/input/input";
-import Button from "../../../components/button/button";
+import { Input, Button } from "../../../components/";
 import {
   loginRequest,
   loginSocialRequest,
@@ -16,11 +15,12 @@ import {
 } from "../form/loginForm";
 import { OnboardingTranslation } from "../context/translation/onboardingTranslation";
 import { exploreRoute, registrationRoute } from "../../../shared/routes/routes";
-import "./styles.scss";
 import { useUserStore } from "../../../stores/user-store/user-store";
-import logoBlack from "../../../assets/images/logoBlack.svg";
 import { useSocialLogin } from "../context/hooks/social-login.hook";
-import { Facebook, Google } from "../../../shared/icons";
+import { Facebook, Google, LogoBlack } from "../../../shared/icons";
+import { UserModel } from "../../../shared/models/onboarding/internal";
+
+import "./styles.scss";
 
 const Login = () => {
   const history = useHistory();
@@ -38,10 +38,10 @@ const Login = () => {
 
   const submitLogin = async () => {
     try {
-      const { data } = await loginRequest(values);
-      const accessToken = data.accessToken;
-      setAccessToken(accessToken, data.user);
-      history.push(exploreRoute());
+      const {
+        data: { accessToken, user },
+      } = await loginRequest(values);
+      completeLogin(accessToken, user);
     } catch (error) {
       // TODO: Handle error https://brick-link.atlassian.net/browse/BRIC-15
     }
@@ -49,29 +49,38 @@ const Login = () => {
 
   const handleSocial = async (vendor: string) => {
     socialLogin("facebook").then(async (socialData) => {
-      const { data } = await loginSocialRequest({
+      const {
+        data: { accessToken, user },
+      } = await loginSocialRequest({
         ...socialData,
         vendor,
       });
-      console.log(data);
+      completeLogin(accessToken, user);
     });
+  };
+
+  const completeLogin = (accessToken: string, user: UserModel) => {
+    setAccessToken(accessToken, user);
+    history.push(exploreRoute());
   };
 
   return (
     <div
       className={"p-login p-flex p-flex-column p-items-center p-justify-center"}
     >
-      <div className={"p-login__wrapper p-flex p-flex-column p-items-center p-justify-center"}>
+      <div
+        className={
+          "p-login__wrapper p-flex p-flex-column p-items-center p-justify-center"
+        }
+      >
         <div className={"p-login__wrapper__container p-w-100"}>
           <div className={"p-flex p-justify-center p-items-center"}>
-          <img
-          className={"p-login__wrapper__container__logo"}
-            src={logoBlack}
-            alt="Perla Imperial"
-          />
+            <LogoBlack className={"p-login__wrapper__container__logo"} />
           </div>
           <label className={"p-login__wrapper__container__label p-text-center"}>
-            <h1 className={"p-flex p-flex-row"}>{translate(OnboardingTranslation.signInPlaceholder)}</h1>
+            <h1 className={"p-flex p-flex-row"}>
+              {translate(OnboardingTranslation.signInPlaceholder)}
+            </h1>
           </label>
           <div
             className={
@@ -109,14 +118,41 @@ const Login = () => {
             />
           </div>
           <div className={"p-login__wrapper__container__or p-text-center"}>
-            <h1 className={"p-flex p-flex-row"}>{translate(OnboardingTranslation.orPlaceholder)}</h1>
+            <h1 className={"p-flex p-flex-row"}>
+              {translate(OnboardingTranslation.orPlaceholder)}
+            </h1>
           </div>
           <div className={"p-login__wrapper__container__social p-flex"}>
-           <div className={"p-login__wrapper__container__social__facebook"} onClick={() => handleSocial("FACEBOOK")}><Facebook/></div>
-           <div className={"p-login__wrapper__container__social__google"} onClick={() => handleSocial("GOOGLE")}><Google/></div>
+            <div
+              className={"p-login__wrapper__container__social__facebook"}
+              onClick={() => handleSocial("FACEBOOK")}
+            >
+              <Facebook />
+            </div>
+            <div
+              className={"p-login__wrapper__container__social__google"}
+              onClick={() => handleSocial("GOOGLE")}
+            >
+              <Google />
+            </div>
           </div>
-          <div className={"p-login__wrapper__container__member p-flex p-items-center p-justify-center"}>
-          <p> Not a member? <Link className={"p-login__wrapper__container__member__link"}  to={registrationRoute()} > Sign up now</Link> </p></div>
+          <div
+            className={
+              "p-login__wrapper__container__member p-flex p-items-center p-justify-center"
+            }
+          >
+            <p>
+              {" "}
+              Not a member?{" "}
+              <Link
+                className={"p-login__wrapper__container__member__link"}
+                to={registrationRoute()}
+              >
+                {" "}
+                Sign up now
+              </Link>{" "}
+            </p>
+          </div>
         </div>
       </div>
     </div>

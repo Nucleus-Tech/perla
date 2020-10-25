@@ -20,9 +20,6 @@ const Registration = () => {
     validationSchema: registrationValidators,
   });
 
-  console.log(values);
-  console.log(errors);
-
   return (
     <div className={"p-registration p-mt6"}>
       <div
