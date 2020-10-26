@@ -25,7 +25,7 @@ const Input: FC<Props> = ({
   disabled = false,
   errors = {},
   label,
-  type = "text",
+  type = "text"
 }) => {
   return (
     <div className={"p-input"}>
