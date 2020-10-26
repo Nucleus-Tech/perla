@@ -1,8 +1,7 @@
-<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14.99 16.17">
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15 16">
   <defs>
     <style>.clsError-1{fill:red;opacity:0.5;}.clsFont-2{font-size:1.4rem;fill:#fff;font-family:Roboto-Black, Roboto;font-weight:800;letter-spacing:0em;}</style>
   </defs>
-  <title>Usklicnik</title>
-  <circle class="clsError-1" cx="7.5" cy="7.5" r="7.5" />
-  <text class="clsFont-2" transform="translate(6 12.44)">!</text>
+  <circle class="clsError-1" cx="7.5" cy="8.6" r="7.5" />
+  <text class="clsFont-2" transform="translate(5.8 14)">!</text>
 </svg>

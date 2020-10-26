@@ -74,8 +74,8 @@ const Login = () => {
         }
       >
         <div className={"p-login__wrapper__container p-w-100"}>
-          <div className={"p-flex p-justify-center p-items-center"}>
-            <LogoBlack className={"p-login__wrapper__container__logo"} />
+          <div  className={"p-login__wrapper__container__logo p-w-100 p-text-center"} >
+              <LogoBlack/>   
           </div>
           <label className={"p-login__wrapper__container__label p-text-center"}>
             <h1 className={"p-flex p-flex-row"}>
@@ -124,13 +124,13 @@ const Login = () => {
           </div>
           <div className={"p-login__wrapper__container__social p-flex"}>
             <div
-              className={"p-login__wrapper__container__social__facebook"}
+              className={"p-login__wrapper__container__social__facebook p-w-100"}
               onClick={() => handleSocial("FACEBOOK")}
             >
               <Facebook />
             </div>
             <div
-              className={"p-login__wrapper__container__social__google"}
+              className={"p-login__wrapper__container__social__google p-w-100"}
               onClick={() => handleSocial("GOOGLE")}
             >
               <Google />

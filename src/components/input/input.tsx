@@ -44,11 +44,9 @@ const Input: FC<Props> = ({
         disabled={disabled}
         type={type}
       />
-
       {value ? (
         <div className={"p-input__error p-flex p-flex-row "}>
-          <Error />{" "}
-          <div className={"p-input__error__message"}>{errors[name]}</div>
+          <div className={"p-input__error__message"}>{errors[name]?  <Error /> : ""}{""}{errors[name]} </div>
         </div>
       ) : (
         <></>
