@@ -1,24 +1,26 @@
 import React, { useEffect, useState } from "react";
 import { Link, useHistory } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+import { Collapse } from "antd";
+
 import { useUserStore } from "../../../../stores/user-store/user-store";
 import {
   aboutUsRoute,
   homeRoute,
   loginRoute,
 } from "../../../../shared/routes/routes";
-import { useTranslation } from "react-i18next";
 import { MenuTransaltion } from "../../context/menuTranslation";
 import { destinationRequest } from "../../../../services/api/destination/destinationService";
-import userIcon from "../../../../assets/images/user.svg";
-// @TODO change logo and zakynthos
-import logo from "../../../../assets/images/logo.svg";
-import hamburgerMenu from "../../../../assets/images/menu-hamburger.svg";
-import close from "../../../../assets/images/remove.svg";
-import circle from "../../../../assets/images/circle.svg";
-import zakynthos from "../../../../assets/images/zakynthos-JPEG.jpg";
-import { Collapse } from "antd";
 
 import "./header.scss";
+import {
+  UserIcon,
+  Logo,
+  HamburgerMenu,
+  Close,
+  Circle,
+} from "../../../../shared/icons/index";
+import zakynthos from "../../../../assets/images/zakynthos-JPEG.jpg";
 
 const Header = () => {
   const history = useHistory();
@@ -31,8 +33,8 @@ const Header = () => {
 
   const {
     state: { user },
+    logoutUser,
   } = useUserStore();
-  const { logoutUser } = useUserStore();
 
   const { Panel } = Collapse;
 
@@ -51,11 +53,7 @@ const Header = () => {
 
   const handleMenuMobile = (value: boolean) => {
     setMenuMobileVisibility(value);
-    if (value === true) {
-      setMenuMobileStyle({ maxHeight: "200rem" });
-    } else {
-      setMenuMobileStyle({ maxHeight: "0rem" });
-    }
+    setMenuMobileStyle({ maxHeight: value ? "200rem" : "0rem" });
   };
 
   const redirectToHomePage = () => {
@@ -70,12 +68,10 @@ const Header = () => {
   return (
     <>
       <div className="menu p-flex p-align-strech">
-        <img
+        <Logo
           className="logo"
-          src={logo}
-          alt="Perla Imperial"
           onMouseEnter={() => handleMenuContent(false)}
-        />
+        ></Logo>
         <nav className="menu-box">
           <ul className="menu-nav p-flex p-wrap p-justify-between p-align-strech  m-0">
             <div className="p-flex">
@@ -101,14 +97,14 @@ const Header = () => {
                   to={homeRoute()}
                   onMouseEnter={() => handleMenuContent(false)}
                 >
-                  <img src={userIcon}></img>
+                  <UserIcon className="menu-item__img"></UserIcon>
                   <span className="username">
                     {user.firstName ? user.firstName : user.email}
                   </span>
                 </Link>
                 <Link
                   className="menu-item p-flex p-items-center margin"
-                  onClick={() => logOut()}
+                  onClick={logOut}
                   to={loginRoute()}
                   onMouseEnter={() => handleMenuContent(false)}
                 >
@@ -126,12 +122,17 @@ const Header = () => {
             )}
           </ul>
         </nav>
-        <img
-          className="menu-hamburger"
-          src={menuMobileVisibility ? close : hamburgerMenu}
-          alt="Hamburger menu"
-          onClick={() => handleMenuMobile(menuMobileVisibility ? false : true)}
-        />
+        {menuMobileVisibility ? (
+          <Close
+            className="menu-hamburger"
+            onClick={() => handleMenuMobile(false)}
+          ></Close>
+        ) : (
+          <HamburgerMenu
+            className="menu-hamburger"
+            onClick={() => handleMenuMobile(true)}
+          ></HamburgerMenu>
+        )}
       </div>
       {menuContentVisibility && (
         <div
@@ -187,7 +188,7 @@ const Header = () => {
                               {region.places.map((place) => (
                                 <p className="place-box" key={place.id}>
                                   <span>
-                                    <img src={circle}></img>
+                                    <Circle className="menu-mobile-content-item__img" />
                                     {place.name}
                                   </span>
                                 </p>
@@ -217,7 +218,7 @@ const Header = () => {
               <div className="menu-mobile-content-item">
                 <Link className="margin-username" to={homeRoute()}>
                   <span className="username">
-                    <img src={userIcon}></img>{" "}
+                    <UserIcon></UserIcon>
                     {user.firstName ? user.firstName : user.email}
                   </span>
                 </Link>
@@ -226,7 +227,7 @@ const Header = () => {
             {user && (
               <div className="menu-mobile-content-item">
                 <Link
-                  onClick={() => logOut()}
+                  onClick={logOut}
                   to={loginRoute()}
                   onMouseEnter={() => handleMenuContent(false)}
                 >
