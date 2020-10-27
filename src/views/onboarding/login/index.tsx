@@ -17,7 +17,7 @@ import { OnboardingTranslation } from "../context/translation/onboardingTranslat
 import { exploreRoute, registrationRoute } from "../../../shared/routes/routes";
 import { useUserStore } from "../../../stores/user-store/user-store";
 import { useSocialLogin } from "../context/hooks/social-login.hook";
-import { Facebook, Google, LogoBlack } from "../../../shared/icons";
+import { Email, Facebook, Google, LogoBlack, Password } from "../../../shared/icons";
 import { UserModel } from "../../../shared/models/onboarding/internal";
 
 import "./styles.scss";
@@ -95,6 +95,7 @@ const Login = () => {
               value={values.email}
               errors={errors}
               type={"email"}
+              icon={<Email/>}
             />
             <Input
               id={LoginFormFields.password}
@@ -104,6 +105,7 @@ const Login = () => {
               value={values.password}
               errors={errors}
               type={"password"}
+              icon={<Password/>}
             />
             <div className={"p-login__wrapper__container__form__forgot"}>
               {translate(OnboardingTranslation.forgotPasswordPlaceholder)}

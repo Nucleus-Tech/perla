@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, ReactNode } from "react";
 
 import { Error } from "../../shared/icons";
 import "./styles.scss";
@@ -14,6 +14,7 @@ interface Props {
   label?: string;
   type?: "text" | "password" | "email";
   className?: string;
+  icon?: ReactNode;
 }
 
 const Input: FC<Props> = ({
@@ -25,11 +26,13 @@ const Input: FC<Props> = ({
   disabled = false,
   errors = {},
   label,
-  type = "text"
+  type = "text",
+  icon
 }) => {
   return (
     <div className={"p-input"}>
       {label && <div className={"p-input__label"}>{label}</div>}
+      <div className={"p-flex p-items-center p-relative"}>
       <input
         placeholder={placeholder}
         className={
@@ -44,6 +47,8 @@ const Input: FC<Props> = ({
         disabled={disabled}
         type={type}
       />
+      <div className={"p-input__container__icon p-absolute"}>{icon}</div>
+      </div>
       {value ? (
         <div className={"p-input__error p-flex p-flex-row "}>
           <div className={"p-input__error__message"}>{errors[name]?  <Error /> : ""}{""}{errors[name]} </div>

@@ -23,6 +23,32 @@
       padding: 0.5rem 0.75rem 0.5rem 0.75rem;
     }
 
+    &__icon {
+      left: 92%;
+      > svg {
+        height: 2rem;
+      }
+
+      @media only screen and (max-width: $bp-medium) {
+        > svg {
+          height: 1.8rem;
+        }
+      }
+
+      @media only screen and (max-width: $bp-small) {
+        > svg {
+          height: 1.6rem;
+        }
+      }
+
+      @media only screen and (max-width: $bp-extra-small) {
+        left: 90%;
+        > svg {
+          height: 1.4rem;
+        }
+      }
+    }
+
     &--errors {
       border: 0.1rem solid $p-error-color;
       opacity: $p-opacity;
