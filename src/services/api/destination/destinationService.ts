@@ -1,6 +1,5 @@
-import { get } from '../httpService';
+import { get } from "../httpService";
 
-export const destinationUrl = () => 'destinations';
+export const destinationUrl = () => "destinations";
 
-export const destinationRequest = async () =>
-    get<[]>(`${destinationUrl()}`);
+export const destinationRequest = async () => get<[]>(`${destinationUrl()}`);

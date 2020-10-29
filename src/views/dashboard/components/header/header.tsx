@@ -19,7 +19,7 @@ import {
   HamburgerMenu,
   Close,
   Circle,
-} from "../../../../shared/icons/index";
+} from "../../../../shared/icons";
 import zakynthos from "../../../../assets/images/zakynthos-JPEG.jpg";
 
 const Header = () => {
@@ -38,6 +38,8 @@ const Header = () => {
 
   const { Panel } = Collapse;
 
+  const [placeImage, setPlaceImage] = useState<string>(zakynthos);
+
   useEffect(() => {
     fetchDestinations();
   }, []);
@@ -55,6 +57,10 @@ const Header = () => {
     setMenuMobileVisibility(value);
     setMenuMobileStyle({ maxHeight: value ? "200rem" : "0rem" });
   };
+
+  const changePlaceImage = (placeImage: string) => {
+    setPlaceImage(placeImage);
+  }
 
   const redirectToHomePage = () => {
     handleMenuContent(true);
@@ -149,7 +155,7 @@ const Header = () => {
                     <ul>
                       {region.places.map((place) => (
                         <li key={place.id}>
-                          <span className="place">{place.name}</span>
+                          <span className="place" onMouseOver={() => changePlaceImage(place.image)}>{place.name}</span>
                         </li>
                       ))}
                     </ul>
@@ -158,7 +164,7 @@ const Header = () => {
               </div>
             ))}
           </div>
-          <img className="destination-image" src={zakynthos} />
+          <img className="destination-image" src={placeImage} alt=""/>
         </div>
       )}
       <div style={menuMobileStyle} className="menu-mobile">
