@@ -17,7 +17,7 @@ import { OnboardingTranslation } from "../context/translation/onboardingTranslat
 import { exploreRoute, registrationRoute } from "../../../shared/routes/routes";
 import { useUserStore } from "../../../stores/user-store/user-store";
 import { useSocialLogin } from "../context/hooks/social-login.hook";
-import { Facebook, Google, LogoBlack } from "../../../shared/icons";
+import { Email, Facebook, Google, LogoBlack, Password } from "../../../shared/icons";
 import { UserModel } from "../../../shared/models/onboarding/internal";
 
 import "./styles.scss";
@@ -74,8 +74,8 @@ const Login = () => {
         }
       >
         <div className={"p-login__wrapper__container p-w-100"}>
-          <div className={"p-flex p-justify-center p-items-center"}>
-            <LogoBlack className={"p-login__wrapper__container__logo"} />
+          <div  className={"p-login__wrapper__container__logo p-w-100 p-text-center"} >
+              <LogoBlack/>   
           </div>
           <label className={"p-login__wrapper__container__label p-text-center"}>
             <h1 className={"p-flex p-flex-row"}>
@@ -95,6 +95,7 @@ const Login = () => {
               value={values.email}
               errors={errors}
               type={"email"}
+              icon={<Email/>}
             />
             <Input
               id={LoginFormFields.password}
@@ -104,6 +105,7 @@ const Login = () => {
               value={values.password}
               errors={errors}
               type={"password"}
+              icon={<Password/>}
             />
             <div className={"p-login__wrapper__container__form__forgot"}>
               {translate(OnboardingTranslation.forgotPasswordPlaceholder)}
@@ -124,13 +126,13 @@ const Login = () => {
           </div>
           <div className={"p-login__wrapper__container__social p-flex"}>
             <div
-              className={"p-login__wrapper__container__social__facebook"}
+              className={"p-login__wrapper__container__social__facebook p-w-100"}
               onClick={() => handleSocial("FACEBOOK")}
             >
               <Facebook />
             </div>
             <div
-              className={"p-login__wrapper__container__social__google"}
+              className={"p-login__wrapper__container__social__google p-w-100"}
               onClick={() => handleSocial("GOOGLE")}
             >
               <Google />

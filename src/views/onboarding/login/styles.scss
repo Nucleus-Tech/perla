@@ -13,12 +13,8 @@
   &__wrapper {
     min-width: 50rem;
 
-    @media only screen and (max-width: $bp-medium) {
-      min-width: 50%;
-    }
-
     @media only screen and (max-width: $bp-small) {
-      min-width: 80%;
+      min-width: 95%;
     }
 
     &__container {
@@ -27,25 +23,29 @@
       border-radius: $p-onboarding-border-radius;
 
       &__logo {
-        max-height: $p-logo-height;
-        margin-bottom: 1rem;
+        & > svg {
+          max-height: $p-logo-height;
+        }
 
         @media only screen and (max-width: $bp-medium) {
-          max-height: 8rem;
+          & > svg {
+            max-height: 8rem;
+          }
         }
       }
 
       &__label {
         line-height: 0.1em;
-        margin: 1rem 0 1rem 0;
 
         & > h1 {
           font-size: 5.3rem;
           font-family: "Roboto-Thin";
           font-weight: 300;
+          margin: 4rem 0 4rem 0;
 
           @media only screen and (max-width: $bp-medium) {
             font-size: 3.3rem;
+            margin: 2rem 0 2rem 0;
           }
         }
 
@@ -85,18 +85,28 @@
       &__button {
         width: max-content;
         margin: 1.5rem;
-        padding: 0.5rem 3rem 0.5rem 3rem;
+        padding: 0 4rem 0 4rem;
         border: none;
 
         @media only screen and (max-width: $bp-medium) {
+          padding: 0 3rem 0 3rem;
           margin: 0.75rem;
           font-size: 2rem;
+        }
+
+        @media only screen and (max-width: $bp-extra-small) {
+          margin: 0.5rem;
+          font-size: 1.5rem;
         }
       }
 
       &__or {
         line-height: 0.1em;
-        margin: 0 0 1rem 0;
+        margin: 1rem 0 1rem 0;
+
+        @media only screen and (max-width: $bp-medium) {
+          margin: 0.5rem 0 0.5rem 0;
+        }
 
         & > h1 {
           font-size: 1.6rem;
@@ -137,13 +147,13 @@
         }
         &__facebook,
         &__google {
-          width: 100%;
-
+          margin: 0 0.5rem 0 0.5rem;
           & > svg {
             max-height: 5rem;
           }
 
           @media only screen and (max-width: $bp-medium) {
+            margin: 0 0.25rem 0 0.25rem;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -154,6 +164,7 @@
           }
 
           @media only screen and (max-width: $bp-small) {
+            margin: 0 0.1rem 0 0.1rem;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -193,9 +204,11 @@
 
         &__link {
           color: $p-color-grey;
+          border-bottom: 0.01rem solid $p-color-grey;
 
           &:hover {
             cursor: pointer;
+            color: $p-color-blue;
           }
         }
       }

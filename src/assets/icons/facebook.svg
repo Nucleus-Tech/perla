@@ -1,11 +1,10 @@
 <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 270 50">
   <defs>
-    <style>.cls-1{fill:#5b77b2;}.cls-f-2{font-size:3rem;font-family:ProductSans-Regular, Product Sans;}.cls-f-2,.cls-5{fill:#fff;}.cls-3{letter-spacing:-0.02em;}.cls-4{letter-spacing:0em;}.cls-5{fill-rule:evenodd;}</style>
+    <style>.cls-f-1{fill:#5b77b2;}.cls-f-2{font-size:3rem;font-family:ProductSans-Regular, Product Sans;}.cls-f-2,.cls-f-5{fill:#fff;}.cls-f-3{letter-spacing:-0.02em;}.cls-f-4{letter-spacing:0em;}.cls-f-5{fill-rule:evenodd;}</style>
   </defs>
-  <title>facebook</title>
-  <rect class="cls-1" width="100%" height="100%" rx="23" />
+  <rect class="cls-f-1" width="100%" height="100%" rx="23" />
   <text class="cls-f-2" transform="translate(70 34.24)">
     Facebook
   </text>
-  <path class="cls-5" d="M860.49,274.45c0,1.6-.07,5.31-.07,5.31h7.64c-.35,2.55-.68,5-1,7.49h-6.57v17a27,27,0,0,1-6.27.73c-.6,0-1.19,0-1.78-.06V287.22h-6.58v-7.46h6.62v-.56c0-1.51,0-3,0-4.51a21.39,21.39,0,0,1,.25-2.87,8.31,8.31,0,0,1,3.47-5.57,10.24,10.24,0,0,1,5.79-1.72c1.37,0,2.73,0,4.1.08.74.05,1.49.14,2.19.21v6.68h-.54c-1.34,0-2.66,0-4,0C861.9,271.58,860.56,272.24,860.49,274.45Z" transform="translate(-820.4 -253.99)" />
+  <path class="cls-f-5" d="M860.49,274.45c0,1.6-.07,5.31-.07,5.31h7.64c-.35,2.55-.68,5-1,7.49h-6.57v17a27,27,0,0,1-6.27.73c-.6,0-1.19,0-1.78-.06V287.22h-6.58v-7.46h6.62v-.56c0-1.51,0-3,0-4.51a21.39,21.39,0,0,1,.25-2.87,8.31,8.31,0,0,1,3.47-5.57,10.24,10.24,0,0,1,5.79-1.72c1.37,0,2.73,0,4.1.08.74.05,1.49.14,2.19.21v6.68h-.54c-1.34,0-2.66,0-4,0C861.9,271.58,860.56,272.24,860.49,274.45Z" transform="translate(-820.4 -253.99)" />
 </svg>
