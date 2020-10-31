@@ -1,0 +1,27 @@
+@import "../../../../assets/styles/global/colors.scss";
+
+.top-destination-card {
+  position: relative;
+  margin: 2rem;
+  cursor: pointer;
+
+  &-header {
+    position: absolute;
+    top: 0;
+    background-color: $p-color-black;
+    opacity: 0.5;
+    color: $p-color-white;
+    font-size: 1.6rem;
+    width: 100%;
+    padding: 1rem;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+  }
+
+  &-image {
+    height: 30rem;
+    width: 30rem;
+    object-fit: cover;
+    border-radius: 1rem;
+  }
+}

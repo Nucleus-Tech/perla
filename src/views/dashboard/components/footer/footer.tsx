@@ -8,7 +8,7 @@ import "./footer.scss";
 
 const Footer = () => (
   <div className="footer p-flex p-flex-column">
-    <div className="p-flex p-justify-center">
+    <div className="p-flex">
       <ul className="nav p-flex p-wrap">
         <li className="nav__item">
           <a className="nav__link">About us</a>

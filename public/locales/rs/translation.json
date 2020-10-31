@@ -27,6 +27,9 @@
     "adults": "Adults",
     "children": "Children"
   },
+  "explore": {
+    "topDestinations": "Top destinations"
+  },
   "fallback": {
     "notFound": " Page not found",
     "notFoundMessage": "Don't worry, be happy :)",
