@@ -1,11 +1,14 @@
 @import "src/assets/styles/global/main";
 
 .p-button {
-  height: $p-button-height;
   min-width: min-content;
   border-radius: $p-button-border-radius;
   background-color: $p-primary-button-background;
   color: $p-color-white;
-  font-size: 25pt;
+  font-size: 3rem;
   font-family: "Roboto-Regular";
+
+  &:disabled {
+    opacity: $p-opacity;
+  }
 }

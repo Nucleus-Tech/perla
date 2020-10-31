@@ -1,6 +1,6 @@
-import React from 'react';
-import SearchMenu from '../search-menu/search-menu';
-import './styles.scss';
+import React from "react";
+import SearchMenu from "./search-menu/search-menu";
+import "./styles.scss";
 
 const Explore = () => {
   return (
@@ -12,7 +12,7 @@ const Explore = () => {
         <h1>Destinations</h1>
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default Explore;

@@ -16,9 +16,9 @@ const Button: FC<Props> = ({
 }) => {
   return (
     <button
-      onClick={onClick}
+      className={`p-button ${className}`}
       disabled={disabled}
-      className={`p-button p-disabled ${className}`}
+      onClick={onClick}
     >
       {label}
     </button>
