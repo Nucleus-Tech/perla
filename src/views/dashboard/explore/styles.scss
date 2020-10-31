@@ -10,5 +10,10 @@
 
 .destination-box {
   background-color: $p-color-white;
-  height: 30rem;
+
+  &-title {
+    font-size: 2rem;
+    margin-top: 2rem;
+    font-weight: 600;
+  }
 }

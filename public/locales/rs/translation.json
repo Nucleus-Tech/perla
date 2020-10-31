@@ -26,5 +26,8 @@
   "dropdown": {
     "adults": "Adults",
     "children": "Children"
+  },
+  "explore": {
+    "topDestinations": "Top destinations"
   }
 }
