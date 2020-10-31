@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link, useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { Collapse } from "antd";
 
@@ -23,7 +23,6 @@ import {
 import zakynthos from "../../../../assets/images/zakynthos-JPEG.jpg";
 
 const Header = () => {
-  const history = useHistory();
   const { t: translate } = useTranslation();
   const [menuContentVisibility, setMenuContentVisibility] = useState(false);
   const [menuMobileVisibility, setMenuMobileVisibility] = useState(false);
@@ -49,8 +48,12 @@ const Header = () => {
     setDestinations(data);
   };
 
-  const handleMenuContent = (show: boolean) => {
-    setMenuContentVisibility(show);
+  const handleMenuContent = () => {
+    setMenuContentVisibility(!menuContentVisibility);
+  };
+
+  const hideMenuContent = () => {
+    setMenuContentVisibility(false);
   };
 
   const handleMenuMobile = (value: boolean) => {
@@ -62,11 +65,6 @@ const Header = () => {
     setPlaceImage(placeImage);
   };
 
-  const redirectToHomePage = () => {
-    handleMenuContent(true);
-    history.push(homeRoute());
-  };
-
   const logOut = () => {
     logoutUser(null, null);
   };
@@ -74,24 +72,26 @@ const Header = () => {
   return (
     <>
       <div className="menu p-flex p-align-strech">
-        <Logo
-          className="logo"
-          onMouseEnter={() => handleMenuContent(false)}
-        ></Logo>
+        <Logo className="logo"></Logo>
         <nav className="menu-box">
           <ul className="menu-nav p-flex p-wrap p-justify-between p-align-strech  m-0">
             <div className="p-flex">
-              <li
+              <Link
                 className="menu-item p-flex p-items-center margin"
-                onMouseEnter={() => handleMenuContent(true)}
-                onClick={redirectToHomePage}
+                to={homeRoute()}
+                onMouseOver={hideMenuContent}
               >
-                <span>{translate(MenuTransaltion.destination)}</span>
+                {translate(MenuTransaltion.home)}
+              </Link>
+              <li className="menu-item p-flex p-items-center margin">
+                <span onClick={handleMenuContent}>
+                  {translate(MenuTransaltion.destination)}
+                </span>
               </li>
               <Link
                 className="menu-item p-flex p-items-center"
                 to={aboutUsRoute()}
-                onMouseEnter={() => handleMenuContent(false)}
+                onMouseOver={hideMenuContent}
               >
                 {translate(MenuTransaltion.aboutUs)}
               </Link>
@@ -101,7 +101,6 @@ const Header = () => {
                 <Link
                   className="menu-item p-flex p-items-center margin-username"
                   to={homeRoute()}
-                  onMouseEnter={() => handleMenuContent(false)}
                 >
                   <UserIcon className="menu-item__img"></UserIcon>
                   <span className="username">
@@ -112,7 +111,6 @@ const Header = () => {
                   className="menu-item p-flex p-items-center margin"
                   onClick={logOut}
                   to={loginRoute()}
-                  onMouseEnter={() => handleMenuContent(false)}
                 >
                   {translate(MenuTransaltion.logout)}
                 </Link>
@@ -121,7 +119,6 @@ const Header = () => {
               <Link
                 className="menu-item p-flex p-items-center margin"
                 to={loginRoute()}
-                onMouseEnter={() => handleMenuContent(false)}
               >
                 {translate(MenuTransaltion.login)}
               </Link>
@@ -141,10 +138,7 @@ const Header = () => {
         )}
       </div>
       {menuContentVisibility && (
-        <div
-          className="menu-content p-flex"
-          onMouseLeave={() => handleMenuContent(false)}
-        >
+        <div onMouseLeave={handleMenuContent} className="menu-content p-flex">
           <div className="box p-flex p-wrap">
             {destinations.map((destination) => (
               <div key={destination.code} className="country">
@@ -237,11 +231,7 @@ const Header = () => {
             )}
             {user && (
               <div className="menu-mobile-content-item">
-                <Link
-                  onClick={logOut}
-                  to={loginRoute()}
-                  onMouseEnter={() => handleMenuContent(false)}
-                >
+                <Link onClick={logOut} to={loginRoute()}>
                   {translate(MenuTransaltion.logout)}
                 </Link>
               </div>
