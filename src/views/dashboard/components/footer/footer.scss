@@ -1,32 +1,36 @@
-@import '../../../../assets/styles/global/colors.scss';
-@import '../../../../assets/styles/global/breakpoint.scss';
+@import "../../../../assets/styles/global/colors.scss";
+@import "../../../../assets/styles/global/breakpoint.scss";
 
 .footer {
-    background-color: $p-color-blue;
-    padding: 3rem 8rem;
-    font-size: 1.2rem;
-    color: $p-white;
+  background-color: $p-color-blue;
+  padding: 3rem 8rem;
+  font-size: 1.2rem;
+  color: $p-white;
 
-    @media only screen and (max-width: $bp-medium) {
-        padding: 3rem;
-    }
-  
+  @media only screen and (max-width: $bp-medium) {
+    padding: 3rem;
+  }
+
+  @media only screen and (max-width: $bp-small) {
+    font-size: 1rem;
+  }
+
   .nav {
     list-style: none;
     padding: 0;
     width: 40%;
 
     @media only screen and (max-width: $bp-medium) {
-        width: 60%;
+      width: 60%;
     }
 
     &__item {
-        flex: 0 0 50%;
-        padding: 1rem;
+      flex: 0 0 50%;
+      padding: 1rem;
     }
 
     a {
-        color: $p-white;
+      color: $p-white;
     }
 
     &__link:hover,
@@ -37,16 +41,28 @@
       transform: translateY(-3px);
     }
   }
-  
+
   .contact-section {
     font-size: 1.2rem;
     color: $p-white;
     padding: 1rem;
+
+    .social-icon {
+      height: 3rem;
+      margin-right: 1rem;
+      cursor: pointer;
+    }
+
+    @media only screen and (max-width: $bp-small) {
+      font-size: 1rem;
+      .social-icon {
+        height: 2.5rem;
+      }
+    }
   }
 
   .copyright {
-    margin-top: 2rem;
-    margin: 0 auto;
+    margin: 1rem auto 0 auto;
     text-align: center;
     width: 70%;
   }
