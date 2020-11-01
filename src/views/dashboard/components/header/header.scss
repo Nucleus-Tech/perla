@@ -7,11 +7,15 @@
   position: relative;
 
   .logo {
-    padding: 2rem 6rem;
+    padding: 1rem 6rem;
     height: 8rem;
 
     @media only screen and (max-width: $bp-xlarge) {
-      padding: 2rem 3rem;
+      padding: 1rem 3rem;
+    }
+
+    @media only screen and (max-width: $bp-medium) {
+      padding: 0rem 3rem;
     }
   }
 
@@ -22,7 +26,7 @@
   &-nav {
     padding: 0 !important;
     height: 100%;
-    font-size: 2.5rem;
+    font-size: 2rem;
     list-style: none;
 
     @media only screen and (max-width: $bp-xlarge) {
@@ -77,6 +81,7 @@
     &:hover,
     &:active {
       background-size: 100% 2px, auto;
+      color: $p-color-black;
     }
 
     img {
@@ -95,7 +100,7 @@
       display: none !important;
     }
 
-    padding: 2.5rem 3rem;
+    padding: 2rem 3rem;
     height: 8rem;
     width: auto;
     cursor: pointer;
@@ -170,6 +175,10 @@
   -webkit-transition: max-height 0.5s ease;
   -moz-transition: max-height 0.5s ease;
 
+  @media only screen and (min-width: $bp-xlarge) {
+    display: none;
+  }
+
   &-content {
     border-top: 1px solid $p-color-ec;
     padding: 0;
@@ -185,15 +194,15 @@
       font-size: 2rem;
       border-bottom: 1px solid #ececec;
 
+      @media only screen and (max-width: $bp-large) {
+        font-size: 1.5rem;
+      }
+
       a {
         color: $p-color-black;
 
         img {
           margin-right: 0.5rem;
-        }
-
-        &:hover {
-          color: $p-color-black !important;
         }
       }
 
@@ -203,6 +212,14 @@
 
       .place-box {
         padding: 0 2rem;
+
+        @media only screen and (max-width: $bp-large) {
+          font-size: 1.5rem;
+        }
+      }
+
+      :hover {
+        color: $p-color-black;
       }
     }
 
@@ -234,6 +251,11 @@
 
       &-header {
         padding-left: 3rem !important;
+
+        @media only screen and (max-width: $bp-large) {
+          font-size: 1.5rem;
+          padding: 0.5rem 0 3rem 0.5rem;
+        }
       }
 
       &-content-box {
