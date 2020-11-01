@@ -177,21 +177,30 @@ const Header = () => {
                   showArrow={false}
                 >
                   {destinations.map((destination) => (
-                    <Collapse className="destination-menu">
+                    <Collapse
+                      className="destination-menu"
+                      key={`col_${destination.id}`}
+                    >
                       <Panel
                         className="destination-panel"
                         header={destination.name}
                         key={destination.id}
                       >
                         {destination.regions.map((region) => (
-                          <Collapse className="destination-menu">
+                          <Collapse
+                            className="destination-menu"
+                            key={`col_${region.id}`}
+                          >
                             <Panel
                               className="destination-panel"
                               header={region.name}
                               key={region.id}
                             >
                               {region.places.map((place) => (
-                                <p className="place-box" key={place.id}>
+                                <p
+                                  className="place-box"
+                                  key={`col_${place.id}`}
+                                >
                                   <span>
                                     <Circle className="menu-mobile-content-item__img" />
                                     {place.name}
