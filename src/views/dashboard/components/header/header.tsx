@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { Collapse } from "antd";
@@ -27,8 +27,10 @@ const Header = () => {
   const [menuContentVisibility, setMenuContentVisibility] = useState(false);
   const [menuMobileVisibility, setMenuMobileVisibility] = useState(false);
   const [menuMobileStyle, setMenuMobileStyle] = useState({ maxHeight: "0rem" });
-
   const [destinations, setDestinations] = useState<any[]>([]);
+
+  const menuRef = useRef(null);
+  useOutsideMenuClick(menuRef);
 
   const {
     state: { user },
@@ -48,14 +50,6 @@ const Header = () => {
     setDestinations(data);
   };
 
-  const handleMenuContent = () => {
-    setMenuContentVisibility(!menuContentVisibility);
-  };
-
-  const hideMenuContent = () => {
-    setMenuContentVisibility(false);
-  };
-
   const handleMenuMobile = (value: boolean) => {
     setMenuMobileVisibility(value);
     setMenuMobileStyle({ maxHeight: value ? "200rem" : "0rem" });
@@ -69,6 +63,23 @@ const Header = () => {
     logoutUser(null, null);
   };
 
+  function useOutsideMenuClick(ref) {
+    useEffect(() => {
+      function handleClickOutside(event) {
+        if (ref.current && !ref.current.contains(event.target)) {
+          setMenuContentVisibility(false);
+        } else {
+          setMenuContentVisibility(true);
+        }
+      }
+
+      document.addEventListener("mousedown", handleClickOutside);
+      return () => {
+        document.removeEventListener("mousedown", handleClickOutside);
+      };
+    }, [ref]);
+  }
+
   return (
     <>
       <div className="menu p-flex p-align-strech">
@@ -79,19 +90,15 @@ const Header = () => {
               <Link
                 className="menu-item p-flex p-items-center margin"
                 to={homeRoute()}
-                onMouseOver={hideMenuContent}
               >
                 {translate(MenuTransaltion.home)}
               </Link>
               <li className="menu-item p-flex p-items-center margin">
-                <span onClick={handleMenuContent}>
-                  {translate(MenuTransaltion.destination)}
-                </span>
+                <span>{translate(MenuTransaltion.destination)}</span>
               </li>
               <Link
                 className="menu-item p-flex p-items-center"
                 to={aboutUsRoute()}
-                onMouseOver={hideMenuContent}
               >
                 {translate(MenuTransaltion.aboutUs)}
               </Link>
@@ -138,7 +145,7 @@ const Header = () => {
         )}
       </div>
       {menuContentVisibility && (
-        <div onMouseLeave={handleMenuContent} className="menu-content p-flex">
+        <div ref={menuRef} className="menu-content p-flex">
           <div className="box p-flex p-wrap">
             {destinations.map((destination) => (
               <div key={destination.code} className="country">
