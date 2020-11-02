@@ -1,13 +1,19 @@
-@import '../../../assets/styles/global/colors.scss';
+@import "../../../assets/styles/global/colors.scss";
 
 .search-box {
-    height: calc(100vh - 12rem);
-    background-image: url('../../../assets/images/zakynthos-JPEG.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
+  height: calc(100vh - 12rem);
+  background-image: url("../../../assets/images/zakynthos-JPEG.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
 }
 
 .destination-box {
-    background-color: $p-color-white;
-    height: 30rem;
+  background-color: $p-color-white;
+
+  &-title {
+    font-size: 2rem;
+    margin-top: 2rem;
+    font-weight: 600;
+  }
 }

@@ -4,36 +4,53 @@
   height: 100vh;
   background: linear-gradient(
       rgba(255, 255, 255, 0.5),
-      rgba(255, 255, 255, 0.5)
+      rgba(163, 105, 105, 0.5)
     ),
     url(../../../assets/images/zakynthos-JPEG.jpg);
   background-size: cover;
   background-repeat: no-repeat;
 
+  @media only screen and (max-width: $bp-medium) {
+    font-size: 50%;
+  }
+
   &__wrapper {
-    width: 100%;
+    min-width: 50rem;
+
+    @media only screen and (max-width: $bp-small) {
+      min-width: 95%;
+    }
+
     &__container {
-      width: 100%;
       background-color: $p-color-white;
-      padding: 2rem 3rem 6rem 3rem !important;
+      padding: 3rem 3rem 3rem 3rem !important;
       border-radius: $p-onboarding-border-radius;
 
       &__logo {
-        max-height: $p-logo-height;
+        & > svg {
+          max-height: $p-logo-height;
+        }
+
+        @media only screen and (max-width: $bp-medium) {
+          & > svg {
+            max-height: 8rem;
+          }
+        }
       }
 
       &__label {
-        width: 95%;
-        text-align: center;
         line-height: 0.1em;
-        margin: 1rem 0 1rem;
 
         & > h1 {
-          display: flex;
-          flex-direction: row;
-          font-size: 40pt;
+          font-size: 5.3rem;
           font-family: "Roboto-Thin";
           font-weight: 300;
+          margin: 4rem 0 4rem 0;
+
+          @media only screen and (max-width: $bp-medium) {
+            font-size: 3.3rem;
+            margin: 2rem 0 2rem 0;
+          }
         }
 
         & > h1:before,
@@ -54,43 +71,67 @@
       }
 
       &__form {
-        width: 100%;
-        flex-direction: column;
-
         &__forgot {
-          margin-top: -4rem;
           align-self: flex-end;
           padding-right: 1.5rem;
-          font-size: 12pt;
+          font-size: 1.6rem;
           color: $p-color-grey;
-          font-family: "Roboto-Light";
           &:hover {
             cursor: pointer;
+          }
+
+          @media only screen and (max-width: $bp-medium) {
+            font-size: 1.2rem;
           }
         }
       }
 
+      &__button {
+        width: max-content;
+        margin: 1.5rem;
+        padding: 0 4rem 0 4rem;
+        border: none;
+
+        @media only screen and (max-width: $bp-medium) {
+          padding: 0 3rem 0 3rem;
+          margin: 0.75rem;
+          font-size: 2rem;
+        }
+
+        @media only screen and (max-width: $bp-extra-small) {
+          margin: 0.5rem;
+          font-size: 1.5rem;
+        }
+      }
+
       &__or {
-        width: 95%;
-        text-align: center;
         line-height: 0.1em;
-        margin: 1rem 0 1rem;
+        margin: 1rem 0 1rem 0;
+
+        @media only screen and (max-width: $bp-medium) {
+          margin: 0.5rem 0 0.5rem 0;
+        }
 
         & > h1 {
-          display: flex;
-          flex-direction: row;
-          font-size: 20pt;
-          font-family: "Roboto-Light";
+          font-size: 1.6rem;
           font-weight: 300;
           color: $p-color-grey;
+
+          @media only screen and (max-width: $bp-medium) {
+            font-size: 1.2rem;
+          }
         }
 
         & > h1:before,
         & > h1:after {
           content: "";
           flex: 1 1;
-          border-bottom: 0.25rem solid $p-color-grey;
+          border-bottom: 0.06rem solid $p-color-grey;
           margin: auto;
+
+          @media only screen and (max-width: $bp-medium) {
+            border-bottom: 0.03rem solid $p-color-grey;
+          }
         }
 
         & > h1:before {
@@ -102,20 +143,78 @@
         }
       }
 
-      &__fbgoogle {
-        max-height: 5rem;
-        font-size: 15pt;
+      &__social {
+        margin-top: 3rem;
+
+        @media only screen and (max-width: $bp-medium) {
+          margin-top: 1.5rem;
+        }
         &__facebook,
         &__google {
+          margin: 0 0.5rem 0 0.5rem;
+          & > svg {
+            max-height: 5rem;
+          }
+
+          @media only screen and (max-width: $bp-medium) {
+            margin: 0 0.25rem 0 0.25rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            & > svg {
+              height: 4rem;
+            }
+          }
+
+          @media only screen and (max-width: $bp-small) {
+            margin: 0 0.1rem 0 0.1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            & > svg {
+              height: 3rem;
+            }
+          }
+
+          @media only screen and (max-width: $bp-extra-small) {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            & > svg {
+              height: 2rem;
+            }
+          }
+
           &:hover {
             cursor: pointer;
           }
         }
       }
 
-      &__button {
-        width: max-content;
-        padding: 0 2rem 0 2rem;
+      &__member {
+        margin-top: 2rem;
+        padding: 1rem 0 1rem 0;
+        font-size: 1.6rem;
+        color: $p-color-grey;
+
+        @media only screen and (max-width: $bp-medium) {
+          font-size: 1.2rem;
+          margin-top: 1rem;
+          padding: 0.5rem 0 0.5rem 0;
+        }
+
+        &__link {
+          color: $p-color-grey;
+          border-bottom: 0.01rem solid $p-color-grey;
+
+          &:hover {
+            cursor: pointer;
+            color: $p-color-blue;
+          }
+        }
       }
     }
   }

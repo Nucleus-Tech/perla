@@ -1,8 +1,8 @@
 {
   "onboarding": {
     "loginPlaceholder": {
-      "email": "email",
-      "password": "password",
+      "email": "Please enter your email...",
+      "password": "Please enter your password...",
       "signIn": "Sign in",
       "forgotPassword": "Forgot password?",
       "or": "or"
@@ -13,8 +13,10 @@
   },
   "menu": {
     "login": "Login",
-    "destination": "Destionation",
-    "aboutUs": "About us"
+    "destination": "Destination",
+    "aboutUs": "About us",
+    "logout": "Log out",
+    "home": "Home"
   },
   "search": {
     "cityRegion": "City, region",
@@ -24,5 +26,12 @@
   "dropdown": {
     "adults": "Adults",
     "children": "Children"
+  },
+  "explore": {
+    "topDestinations": "Top destinations"
+  },
+  "footer": {
+    "termsAndConditions": "Terms & conditions",
+    "faq": "FAQs"
   }
 }

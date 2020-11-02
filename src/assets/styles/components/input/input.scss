@@ -1,22 +1,53 @@
 @import "src/assets/styles/global/main";
 
 .p-input {
-  min-height: $p-input-height;
+  padding: 0.5rem 0 0.5rem 0;
 
   &__label {
     color: $p-color-black;
   }
+
   &__container {
-    height: $p-input-container-height;
-    width: 100%;
+    padding: 1rem 1.5rem 1rem 1.5rem;
     border-radius: $p-input-border-radius;
-    border: 0.5pt solid rgba(0, 0, 0, 0.5);
-    font-size: 14pt;
-    font-family: "Roboto-Light";
-    padding-left: 1.5rem;
+    border: 0.07rem solid rgba(0, 0, 0, 0.5);
+    font-size: $p-input-font-size;
     outline: none;
-    min-width: -webkit-fill-available;
-    max-width: -webkit-fill-available;
+    min-width: fill-available;
+    max-width: fill-available;
+    min-width: -moz-available;
+    max-width: -moz-available;
+
+    @media only screen and (max-width: $bp-medium) {
+      font-size: 1.4rem;
+      padding: 0.5rem 0.75rem 0.5rem 0.75rem;
+    }
+
+    &__icon {
+      left: 92%;
+      > svg {
+        height: 2rem;
+      }
+
+      @media only screen and (max-width: $bp-medium) {
+        > svg {
+          height: 1.8rem;
+        }
+      }
+
+      @media only screen and (max-width: $bp-small) {
+        > svg {
+          height: 1.6rem;
+        }
+      }
+
+      @media only screen and (max-width: $bp-extra-small) {
+        left: 90%;
+        > svg {
+          height: 1.4rem;
+        }
+      }
+    }
 
     &--errors {
       border: 0.1rem solid $p-error-color;
@@ -32,22 +63,31 @@
     }
   }
 
-  > div > svg {
-    height: 2rem;
-    padding-right: 0.5rem;
-  }
-
   &__error {
-    display: flex;
-    flex-direction: row;
     width: max-content;
-    padding-left: 1.5rem;
-    padding-top: 0.5rem;
+    padding: 0.5rem 0 0.5rem 1.5rem;
+
+    @media only screen and (max-width: $bp-medium) {
+      padding: 0.25rem 0 0.25rem 0.5rem;
+    }
+
     &__message {
       color: $p-error-color;
-      font-size: 14pt;
+      font-size: $p-input-font-size;
       opacity: $p-opacity;
-      font-family: "Roboto-Light";
+
+      @media only screen and (max-width: $bp-medium) {
+        font-size: 1.4rem;
+      }
+    }
+
+    > div > svg {
+      height: 1.7rem;
+      padding-right: 0.25rem;
+
+      @media only screen and (max-width: $bp-medium) {
+        height: 1.5rem;
+      }
     }
   }
 }

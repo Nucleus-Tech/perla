@@ -4,7 +4,7 @@ import { Input } from "../../../components";
 
 import "./style.scss";
 import { useTranslation } from "react-i18next";
-import { OnboardingTranslation } from "../context/onboardingTranslation";
+import { OnboardingTranslation } from "../context/translation/onboardingTranslation";
 import { useFormik } from "formik";
 import {
   defaultRegistartionValue,
@@ -19,9 +19,6 @@ const Registration = () => {
     initialValues: defaultRegistartionValue,
     validationSchema: registrationValidators,
   });
-
-  console.log(values);
-  console.log(errors);
 
   return (
     <div className={"p-registration p-mt6"}>
