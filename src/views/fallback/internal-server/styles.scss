@@ -1,0 +1,91 @@
+@import "src/assets/styles/global/main";
+
+.p-internalServer {
+  height: 100vh;
+  background-color: $p-color-white2;
+  background-size: cover;
+
+  &__wrapper {
+    margin: 0 4rem;
+    padding: 0 4rem;
+
+    &__message {
+      color: $p-color-black;
+      font-family: "Roboto-Thin";
+      flex: 0 0 50%;
+      margin: 0 3rem;
+
+      @media only screen and (max-width: $bp-medium) {
+        margin: 0 2rem;
+      }
+
+      @media only screen and (max-width: $bp-small) {
+        margin: 0 1rem;
+      }
+
+      &__code {
+        font-size: 18rem;
+        font-weight: 900;
+        line-height: 1.2;
+
+        @media only screen and (max-width: $bp-medium) {
+          font-size: 13rem;
+        }
+
+        @media only screen and (max-width: $bp-small) {
+          font-size: 8rem;
+        }
+
+        @media only screen and (max-width: $bp-extra-small) {
+          font-size: 5rem;
+        }
+      }
+
+      &__text {
+        font-size: 3rem;
+        font-weight: 700;
+
+        @media only screen and (max-width: $bp-medium) {
+          font-size: 2rem;
+        }
+
+        @media only screen and (max-width: $bp-small) {
+          font-size: 1.5rem;
+        }
+
+        @media only screen and (max-width: $bp-extra-small) {
+          font-size: 1rem;
+        }
+      }
+    }
+    &__image {
+      margin: 0 3rem;
+      flex: 0 0 50%;
+
+      & > svg {
+        max-height: 30rem;
+      }
+
+      @media only screen and (max-width: $bp-medium) {
+        margin: 0 2rem;
+        & > svg {
+          max-height: 20rem;
+        }
+      }
+
+      @media only screen and (max-width: $bp-small) {
+        margin: 0 1rem;
+        & > svg {
+          max-height: 12.5rem;
+        }
+      }
+
+      @media only screen and (max-width: $bp-extra-small) {
+        margin: 0 1rem;
+        & > svg {
+          max-height: 9rem;
+        }
+      }
+    }
+  }
+}

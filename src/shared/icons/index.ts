@@ -9,6 +9,7 @@ import { ReactComponent as Logo } from "../../assets/images/logo.svg";
 import { ReactComponent as HamburgerMenu } from "../../assets/images/menu-hamburger.svg";
 import { ReactComponent as Close } from "../../assets/images/remove.svg";
 import { ReactComponent as Circle } from "../../assets/images/circle.svg";
+import { ReactComponent as Smile } from "../../assets/images/smile.svg";
 
 export {
   Facebook,
@@ -22,4 +23,5 @@ export {
   Circle,
   Email,
   Password,
+  Smile,
 };

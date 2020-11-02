@@ -25,5 +25,10 @@
   "dropdown": {
     "adults": "Adults",
     "children": "Children"
+  },
+  "fallback": {
+    "notFound": "Page not found",
+    "internalServer": "It's not you, it's me... Server maintenance",
+    "home": "Home"
   }
 }

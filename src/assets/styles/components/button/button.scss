@@ -7,8 +7,10 @@
   color: $p-color-white;
   font-size: 3rem;
   font-family: "Roboto-Regular";
+  cursor: pointer;
 
   &:disabled {
     opacity: $p-opacity;
+    cursor: not-allowed;
   }
 }

@@ -1,0 +1,49 @@
+@import "src/assets/styles/global/main";
+
+.p-notFound {
+  height: 100vh;
+  background: linear-gradient(
+      rgba(255, 255, 255, 0.5),
+      rgba(163, 105, 105, 0.5)
+    ),
+    url(../../../assets/images/zakynthos-JPEG.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  &__message {
+    font-size: 10rem;
+    color: $p-color-white;
+    line-height: 1;
+    font-weight: 900;
+    margin: 3rem;
+    text-shadow: 0.2rem 0.2rem 0.4rem $p-color-black;
+
+    @media only screen and (max-width: $bp-medium) {
+      font-size: 5rem;
+      margin: 1.5rem;
+      text-shadow: 0.1rem 0.1rem 0.2rem $p-color-black;
+    }
+
+    @media only screen and (max-width: $bp-extra-small) {
+      font-size: 4rem;
+    }
+  }
+
+  &__button {
+    width: max-content;
+    margin: 3rem;
+    padding: 0 4rem;
+    border: none;
+    font-family: "Roboto-Thin";
+
+    @media only screen and (max-width: $bp-medium) {
+      padding: 0 3rem;
+      margin: 1.5rem;
+      font-size: 2rem;
+    }
+
+    @media only screen and (max-width: $bp-extra-small) {
+      font-size: 1.5rem;
+    }
+  }
+}
