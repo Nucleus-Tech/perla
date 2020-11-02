@@ -29,5 +29,9 @@
   },
   "explore": {
     "topDestinations": "Top destinations"
+  },
+  "footer": {
+    "termsAndConditions": "Terms & conditions",
+    "faq": "FAQs"
   }
 }
