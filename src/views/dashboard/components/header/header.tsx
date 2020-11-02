@@ -170,6 +170,9 @@ const Header = () => {
         {menuMobileVisibility && (
           <div className="menu-mobile-content p-flex p-column">
             <div className="menu-mobile-content-item">
+              <Link to={homeRoute()}>{translate(MenuTransaltion.home)}</Link>
+            </div>
+            <div className="menu-mobile-content-item">
               <Collapse className="destination-menu">
                 <Panel
                   header={translate(MenuTransaltion.destination)}
