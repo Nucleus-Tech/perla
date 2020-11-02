@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { Collapse } from "antd";
 
@@ -24,6 +24,7 @@ import zakynthos from "../../../../assets/images/zakynthos-JPEG.jpg";
 
 const Header = () => {
   const { t: translate } = useTranslation();
+  const history = useHistory();
   const [menuContentVisibility, setMenuContentVisibility] = useState(false);
   const [menuMobileVisibility, setMenuMobileVisibility] = useState(false);
   const [menuMobileStyle, setMenuMobileStyle] = useState({ maxHeight: "0rem" });
@@ -62,6 +63,11 @@ const Header = () => {
 
   const logOut = () => {
     logoutUser(null, null);
+  };
+
+  const navigateToDestinationDetailsPage = (destinationId: string) => {
+    setMenuContentVisibility(false);
+    history.push(`/dashboard/destination/${destinationId}`);
   };
 
   function useOutsideMenuClick(ref) {
@@ -161,6 +167,9 @@ const Header = () => {
                         <li key={place.id}>
                           <span
                             className="place"
+                            onClick={() =>
+                              navigateToDestinationDetailsPage(place.id)
+                            }
                             onMouseOver={() => changePlaceImage(place.image)}
                           >
                             {place.name}
