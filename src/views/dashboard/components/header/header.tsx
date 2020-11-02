@@ -30,6 +30,7 @@ const Header = () => {
   const [destinations, setDestinations] = useState<any[]>([]);
 
   const menuRef = useRef(null);
+  const destinationMenuItemRef = useRef(null);
   useOutsideMenuClick(menuRef);
 
   const {
@@ -66,10 +67,10 @@ const Header = () => {
   function useOutsideMenuClick(ref) {
     useEffect(() => {
       function handleClickOutside(event) {
-        if (ref.current && !ref.current.contains(event.target)) {
+        if (event.target === destinationMenuItemRef.current) {
+          setMenuContentVisibility(!menuContentVisibility);
+        } else if (ref.current && !ref.current.contains(event.target)) {
           setMenuContentVisibility(false);
-        } else {
-          setMenuContentVisibility(true);
         }
       }
 
@@ -77,7 +78,7 @@ const Header = () => {
       return () => {
         document.removeEventListener("mousedown", handleClickOutside);
       };
-    }, [ref]);
+    }, [ref, menuContentVisibility]);
   }
 
   return (
@@ -94,7 +95,9 @@ const Header = () => {
                 {translate(MenuTransaltion.home)}
               </Link>
               <li className="menu-item p-flex p-items-center margin">
-                <span>{translate(MenuTransaltion.destination)}</span>
+                <span ref={destinationMenuItemRef}>
+                  {translate(MenuTransaltion.destination)}
+                </span>
               </li>
               <Link
                 className="menu-item p-flex p-items-center"
