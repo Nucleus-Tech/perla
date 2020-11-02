@@ -30,6 +30,10 @@
   "explore": {
     "topDestinations": "Top destinations"
   },
+  "footer": {
+    "termsAndConditions": "Terms & conditions",
+    "faq": "FAQs"
+  },
   "fallback": {
     "notFound": " Page not found",
     "notFoundMessage": "Don't worry, be happy :)",
