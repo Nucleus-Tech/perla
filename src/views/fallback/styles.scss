@@ -1,8 +1,8 @@
 @import "src/assets/styles/global/main";
 
-.p-internalServer {
+.p-fallback {
   height: 100vh;
-  background-color: $p-color-white2;
+  background-color: $p-color-f7;
   background-size: cover;
 
   &__wrapper {
@@ -13,14 +13,14 @@
       color: $p-color-black;
       font-family: "Roboto-Thin";
       flex: 0 0 50%;
-      margin: 0 3rem;
+      margin: 0 6rem;
 
       @media only screen and (max-width: $bp-medium) {
-        margin: 0 2rem;
+        margin: 0 4rem;
       }
 
       @media only screen and (max-width: $bp-small) {
-        margin: 0 1rem;
+        margin: 0 2rem;
       }
 
       &__code {
@@ -35,15 +35,10 @@
         @media only screen and (max-width: $bp-small) {
           font-size: 8rem;
         }
-
-        @media only screen and (max-width: $bp-extra-small) {
-          font-size: 5rem;
-        }
       }
 
       &__text {
         font-size: 3rem;
-        font-weight: 700;
 
         @media only screen and (max-width: $bp-medium) {
           font-size: 2rem;
@@ -53,38 +48,21 @@
           font-size: 1.5rem;
         }
 
-        @media only screen and (max-width: $bp-extra-small) {
-          font-size: 1rem;
+        &__info {
+          font-weight: 900;
         }
       }
     }
     &__image {
-      margin: 0 3rem;
+      margin: 0 6rem;
       flex: 0 0 50%;
 
-      & > svg {
-        max-height: 30rem;
-      }
-
       @media only screen and (max-width: $bp-medium) {
-        margin: 0 2rem;
-        & > svg {
-          max-height: 20rem;
-        }
+        margin: 0 4rem;
       }
 
       @media only screen and (max-width: $bp-small) {
-        margin: 0 1rem;
-        & > svg {
-          max-height: 12.5rem;
-        }
-      }
-
-      @media only screen and (max-width: $bp-extra-small) {
-        margin: 0 1rem;
-        & > svg {
-          max-height: 9rem;
-        }
+        margin: 0 2rem;
       }
     }
   }

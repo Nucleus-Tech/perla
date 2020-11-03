@@ -27,8 +27,10 @@
     "children": "Children"
   },
   "fallback": {
-    "notFound": "Page not found",
-    "internalServer": "It's not you, it's me... Server maintenance",
+    "notFound": " Page not found",
+    "notFoundMessage": "Don't worry, be happy :)",
+    "internalServer": "Server maintenance",
+    "internalServerMessage": "It's not you, it's me...",
     "home": "Home"
   }
 }
