@@ -7,14 +7,6 @@ body {
   font-size: 62.5%; // 1rem = 10px
   --antd-wave-shadow-color: none !important;
 
-  @media only screen and (max-width: $bp-medium) {
-    font-size: 50%;
-  }
-
-  @media only screen and (max-width: $bp-small) {
-    font-size: 50%;
-  }
-
   p,
   span {
     margin: 0;

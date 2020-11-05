@@ -15,7 +15,8 @@
     "login": "Login",
     "destination": "Destination",
     "aboutUs": "About us",
-    "logout": "Log out"
+    "logout": "Log out",
+    "home": "Home"
   },
   "search": {
     "cityRegion": "City, region",
@@ -25,6 +26,13 @@
   "dropdown": {
     "adults": "Adults",
     "children": "Children"
+  },
+  "explore": {
+    "topDestinations": "Top destinations"
+  },
+  "footer": {
+    "termsAndConditions": "Terms & conditions",
+    "faq": "FAQs"
   },
   "fallback": {
     "notFound": " Page not found",
