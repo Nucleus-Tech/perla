@@ -14,7 +14,7 @@ import { OnboardingTranslation } from "../context/translation/onboardingTranslat
 import { loginRoute } from "../../../shared/routes/routes";
 import { Email, LogoBlack, Password } from "../../../shared/icons";
 
-import "../login/styles.scss";
+import "../styles.scss";
 import { registrationRequest } from "../../../services/api/auth/authService";
 
 const Registration = () => {
@@ -43,29 +43,33 @@ const Registration = () => {
 
   return (
     <div
-      className={"p-login p-flex p-flex-column p-items-center p-justify-center"}
+      className={
+        "p-onboarding p-flex p-flex-column p-items-center p-justify-center"
+      }
     >
       <div
         className={
-          "p-login__wrapper p-flex p-flex-column p-items-center p-justify-center"
+          "p-onboarding__wrapper p-flex p-flex-column p-items-center p-justify-center"
         }
       >
-        <div className={"p-login__wrapper__container p-w-100"}>
+        <div className={"p-onboarding__wrapper__container p-w-100"}>
           <div
             className={
-              "p-login__wrapper__container__logo p-w-100 p-text-center"
+              "p-onboarding__wrapper__container__logo p-w-100 p-text-center"
             }
           >
             <LogoBlack />
           </div>
-          <label className={"p-login__wrapper__container__label p-text-center"}>
+          <label
+            className={"p-onboarding__wrapper__container__label p-text-center"}
+          >
             <h1 className={"p-flex p-flex-row"}>
               {translate(OnboardingTranslation.signUpPlaceholder)}
             </h1>
           </label>
           <div
             className={
-              "p-login__wrapper__container__form p-flex p-flex-column p-justify-center p-w-100"
+              "p-onboarding__wrapper__container__form p-flex p-flex-column p-justify-center p-w-100"
             }
           >
             <Input
@@ -78,7 +82,6 @@ const Registration = () => {
               value={values.firstName}
               errors={errors}
               type={"text"}
-              // icon={<UserIcon/>}
             />
             <Input
               id={RegistartionFromFields.lastName}
@@ -88,7 +91,6 @@ const Registration = () => {
               value={values.lastName}
               errors={errors}
               type={"text"}
-              // icon={<UserIcon/>}
             />
             <Input
               id={RegistartionFromFields.email}
@@ -113,22 +115,22 @@ const Registration = () => {
           </div>
           <div className={"p-flex p-justify-center"}>
             <Button
-              label={translate(OnboardingTranslation.confirmPlaceholder)}
+              label={translate(OnboardingTranslation.signUpPlaceholder)}
               onClick={submitRegistration}
               disabled={!dirty || !isValid}
-              className={"p-login__wrapper__container__button"}
+              className={"p-onboarding__wrapper__container__button"}
             />
           </div>
           <div
             className={
-              "p-login__wrapper__container__member p-flex p-items-center p-justify-center"
+              "p-onboarding__wrapper__container__member p-flex p-items-center p-justify-center"
             }
           >
             <p>
               {" "}
               {translate(OnboardingTranslation.haveAccPlaceholder)}{" "}
               <Link
-                className={"p-login__wrapper__container__member__link"}
+                className={"p-onboarding__wrapper__container__member__link"}
                 to={loginRoute()}
               >
                 {" "}

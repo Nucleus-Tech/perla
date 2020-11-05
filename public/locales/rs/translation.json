@@ -5,7 +5,9 @@
       "password": "Please enter your password...",
       "signIn": "Sign in",
       "forgotPassword": "Forgot password?",
-      "or": "or"
+      "or": "or",
+      "notAMember": "Not a member?",
+      "signUpNow": "Sign up now"
     },
     "registrationPlaceholder": {
       "firstName": "Please enter your first name...",

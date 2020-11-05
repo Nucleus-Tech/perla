@@ -1,14 +1,8 @@
 @import "src/assets/styles/global/main";
 
 .p-login {
-  height: 100vh;
-  background: linear-gradient(
-      rgba(255, 255, 255, 0.5),
-      rgba(163, 105, 105, 0.5)
-    ),
-    url(../../../assets/images/zakynthos-JPEG.jpg);
-  background-size: cover;
-  background-repeat: no-repeat;
+  &__social {
+    margin-top: 3rem;
 
   @media only screen and (max-width: $bp-medium) {
     font-size: 50%;
@@ -20,201 +14,47 @@
     @media only screen and (max-width: $bp-small) {
       min-width: 95%;
     }
+    &__facebook,
+    &__google {
+      margin: 0 0.5rem 0 0.5rem;
+      & > svg {
+        max-height: 5rem;
+      }
 
-    &__container {
-      background-color: $p-color-white;
-      padding: 3rem 3rem 3rem 3rem !important;
-      border-radius: $p-onboarding-border-radius;
+      @media only screen and (max-width: $bp-medium) {
+        margin: 0 0.25rem 0 0.25rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
 
-      &__logo {
         & > svg {
-          max-height: $p-logo-height;
-        }
-
-        @media only screen and (max-width: $bp-medium) {
-          & > svg {
-            max-height: 8rem;
-          }
+          height: 4rem;
         }
       }
 
-      &__label {
-        line-height: 0.1em;
+      @media only screen and (max-width: $bp-small) {
+        margin: 0 0.1rem 0 0.1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
 
-        & > h1 {
-          font-size: 5.3rem;
-          font-family: "Roboto-Thin";
-          font-weight: 300;
-          margin: 4rem 0 4rem 0;
-
-          @media only screen and (max-width: $bp-medium) {
-            font-size: 3.3rem;
-            margin: 2rem 0 2rem 0;
-          }
-        }
-
-        & > h1:before,
-        & > h1:after {
-          content: "";
-          flex: 1 1;
-          border-bottom: 0.25rem solid $p-primary-button-background;
-          margin: auto;
-        }
-
-        & > h1:before {
-          margin-right: 1rem;
-        }
-
-        & > h1:after {
-          margin-left: 1rem;
+        & > svg {
+          height: 3rem;
         }
       }
 
-      &__form {
-        &__forgot {
-          align-self: flex-end;
-          padding-right: 1.5rem;
-          font-size: 1.6rem;
-          color: $p-color-grey;
-          &:hover {
-            cursor: pointer;
-          }
+      @media only screen and (max-width: $bp-extra-small) {
+        display: flex;
+        align-items: center;
+        justify-content: center;
 
-          @media only screen and (max-width: $bp-medium) {
-            font-size: 1.2rem;
-          }
+        & > svg {
+          height: 2rem;
         }
       }
 
-      &__button {
-        width: max-content;
-        margin: 1.5rem;
-        padding: 0 4rem 0 4rem;
-        border: none;
-
-        @media only screen and (max-width: $bp-medium) {
-          padding: 0 3rem 0 3rem;
-          margin: 0.75rem;
-          font-size: 2rem;
-        }
-
-        @media only screen and (max-width: $bp-extra-small) {
-          margin: 0.5rem;
-          font-size: 1.5rem;
-        }
-      }
-
-      &__or {
-        line-height: 0.1em;
-        margin: 1rem 0 1rem 0;
-
-        @media only screen and (max-width: $bp-medium) {
-          margin: 0.5rem 0 0.5rem 0;
-        }
-
-        & > h1 {
-          font-size: 1.6rem;
-          font-weight: 300;
-          color: $p-color-grey;
-
-          @media only screen and (max-width: $bp-medium) {
-            font-size: 1.2rem;
-          }
-        }
-
-        & > h1:before,
-        & > h1:after {
-          content: "";
-          flex: 1 1;
-          border-bottom: 0.06rem solid $p-color-grey;
-          margin: auto;
-
-          @media only screen and (max-width: $bp-medium) {
-            border-bottom: 0.03rem solid $p-color-grey;
-          }
-        }
-
-        & > h1:before {
-          margin-right: 1rem;
-        }
-
-        & > h1:after {
-          margin-left: 1rem;
-        }
-      }
-
-      &__social {
-        margin-top: 3rem;
-
-        @media only screen and (max-width: $bp-medium) {
-          margin-top: 1.5rem;
-        }
-        &__facebook,
-        &__google {
-          margin: 0 0.5rem 0 0.5rem;
-          & > svg {
-            max-height: 5rem;
-          }
-
-          @media only screen and (max-width: $bp-medium) {
-            margin: 0 0.25rem 0 0.25rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            & > svg {
-              height: 4rem;
-            }
-          }
-
-          @media only screen and (max-width: $bp-small) {
-            margin: 0 0.1rem 0 0.1rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            & > svg {
-              height: 3rem;
-            }
-          }
-
-          @media only screen and (max-width: $bp-extra-small) {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            & > svg {
-              height: 2rem;
-            }
-          }
-
-          &:hover {
-            cursor: pointer;
-          }
-        }
-      }
-
-      &__member {
-        margin-top: 2rem;
-        padding: 1rem 0 1rem 0;
-        font-size: 1.6rem;
-        color: $p-color-grey;
-
-        @media only screen and (max-width: $bp-medium) {
-          font-size: 1.2rem;
-          margin-top: 1rem;
-          padding: 0.5rem 0 0.5rem 0;
-        }
-
-        &__link {
-          color: $p-color-grey;
-          border-bottom: 0.01rem solid $p-color-grey;
-
-          &:hover {
-            cursor: pointer;
-            color: $p-color-blue;
-          }
-        }
+      &:hover {
+        cursor: pointer;
       }
     }
   }

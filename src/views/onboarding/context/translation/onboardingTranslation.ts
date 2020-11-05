@@ -5,6 +5,9 @@ export class OnboardingTranslation {
   public static forgotPasswordPlaceholder =
     "onboarding.loginPlaceholder.forgotPassword";
   public static orPlaceholder = "onboarding.loginPlaceholder.or";
+  public static notAMemberPlaceholder =
+    "onboarding.loginPlaceholder.notAMember";
+  public static signUpNowPlaceholder = "onboarding.loginPlaceholder.signUpNow";
 
   public static signUpPlaceholder = "onboarding.registrationPlaceholder.signUp";
   public static confirmPlaceholder =
