@@ -18,8 +18,8 @@ const Dashboard = () => {
   return (
     <>
       <Header />
-      <Switch>
-        <div className="content-container">
+      <div className="content-container">
+        <Switch>
           <Route path={homeRoute()} component={Explore} />
           <Route path={aboutUsRoute()} component={AboutUs} />
           <Route
@@ -27,8 +27,8 @@ const Dashboard = () => {
             component={DestinationDetails}
           />
           <Redirect to={homeRoute()} />
-        </div>
-      </Switch>
+        </Switch>
+      </div>
       <Footer />
     </>
   );

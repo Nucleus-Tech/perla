@@ -154,35 +154,37 @@ const Header = () => {
         )}
       </div>
       {menuContentVisibility && (
-        <div ref={menuRef} className="menu-content p-flex">
-          <div className="box p-flex p-wrap">
-            {destinations.map((destination) => (
-              <div key={destination.code} className="country">
-                <h3 className="country-name">{destination.name}</h3>
-                {destination.regions.map((region) => (
-                  <div key={region.id} className="country-wrapper">
-                    <h4 className="region">{region.name}</h4>
-                    <ul>
-                      {region.places.map((place) => (
-                        <li key={place.id}>
-                          <span
-                            className="place"
-                            onClick={() =>
-                              navigateToDestinationDetailsPage(place.name)
-                            }
-                            onMouseOver={() => changePlaceImage(place.image)}
-                          >
-                            {place.name}
-                          </span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                ))}
-              </div>
-            ))}
+        <div className="menu">
+          <div ref={menuRef} className="menu-content p-flex">
+            <div className="box p-flex p-wrap">
+              {destinations.map((destination) => (
+                <div key={destination.code} className="country">
+                  <h3 className="country-name">{destination.name}</h3>
+                  {destination.regions.map((region) => (
+                    <div key={region.id} className="country-wrapper">
+                      <h4 className="region">{region.name}</h4>
+                      <ul>
+                        {region.places.map((place) => (
+                          <li key={place.id}>
+                            <span
+                              className="place"
+                              onClick={() =>
+                                navigateToDestinationDetailsPage(place.name)
+                              }
+                              onMouseOver={() => changePlaceImage(place.image)}
+                            >
+                              {place.name}
+                            </span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
+                </div>
+              ))}
+            </div>
+            <img className="destination-image" src={placeImage} alt="" />
           </div>
-          <img className="destination-image" src={placeImage} alt="" />
         </div>
       )}
       <div style={menuMobileStyle} className="menu-mobile">

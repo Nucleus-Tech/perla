@@ -15,8 +15,8 @@ const Card = ({ name, category, facilities }) => (
       />
     </div>
     <div className="p-flex">
-      {facilities.map((facility) => (
-        <div key={facility.id} className="p-flex p-wrap facility">
+      {facilities.map((facility, index) => (
+        <div key={index} className="p-flex p-wrap facility">
           <div className="facility-item p-flex p-items-center">
             <img className="facility-icon" src={facility.image} />
             <span className="facility-name">{facility.name}</span>

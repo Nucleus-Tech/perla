@@ -6,22 +6,22 @@ import Filter from "./filter/filter";
 import "./destination-details.scss";
 import { getAccomodationsForPlace } from "../../../services/api/destination/accomodationService";
 import { useParams } from "react-router-dom";
-import { getDestinationByName } from "../../../services/api/destination/destinationService";
 
 const DestinationDetails = () => {
   const params = useParams();
-  const [setDestination] = useState<any>(null);
+  // @TODO
+  // const [setDestination] = useState<any>(null);
   const [accomodations, setAccomodations] = useState<Array<any>>([]);
-  // const { id } = useParams();
 
   useEffect(() => {
     fetchDestination();
     fetchAccomodations();
-  }, []);
+  }, [params]);
 
   const fetchDestination = async () => {
-    const { data } = await getDestinationByName(params["name"]);
-    setDestination(data);
+    // @TODO
+    //  const { data } = await getDestinationByName(params["name"]);
+    //  setDestination(data);
   };
 
   const fetchAccomodations = async () => {

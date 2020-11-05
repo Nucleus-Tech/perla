@@ -60,3 +60,12 @@
 .ant-picker {
   border-radius: 1rem;
 }
+
+.ant-select-focused:not(.ant-select-disabled)
+  .ant-select-single:not(.ant-select-customize-input)
+  .ant-select-selector,
+.ant-select-single:not(.ant-select-customize-input) .ant-select-selector {
+  border-radius: 1rem;
+  border-color: $p-color-grey-d9 !important;
+  box-shadow: none !important;
+}
