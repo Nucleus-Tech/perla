@@ -7,8 +7,12 @@
       "forgotPassword": "Forgot password?",
       "or": "or"
     },
-    "registration": {
-      "name": "name"
+    "registrationPlaceholder": {
+      "firstName": "Please enter your first name...",
+      "lastName": "Please enter your last name...",
+      "signUp": "Sign up",
+      "confirm": "Confirm",
+      "haveAcc": "Already have an account?"
     }
   },
   "menu": {

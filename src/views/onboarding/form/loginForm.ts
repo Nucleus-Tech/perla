@@ -23,22 +23,3 @@ export const loginValidators: ObjectSchema<Record<
     .min(3, "Must be 3 characters or more")
     .required("Required"),
 });
-
-export enum RegistartionFromFields {
-  email = "email",
-}
-
-export const defaultRegistartionValue: Record<
-  RegistartionFromFields,
-  string
-> = {
-  [RegistartionFromFields.email]: "",
-};
-export const registrationValidators: ObjectSchema<Record<
-  RegistartionFromFields,
-  string
->> = Yup.object({
-  [LoginFormFields.email]: Yup.string()
-    .email("Nije tacna email address")
-    .required("Required"),
-});
