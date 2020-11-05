@@ -1,25 +1,58 @@
-@import '../../../assets/styles/global/colors.scss';
+@import "../../../assets/styles/global/colors.scss";
+@import "../../../assets/styles/global/breakpoint.scss";
 
 .destination {
-    &-header {
-        height: 30rem;
-        background-image: url('https://www.jet2holidays.com/-/media/destination%20guide/greece/kgs_kefalos_0813_02_ps_.jpg?h=500&w=1920&crop=1&hash=D8B88B21C47BBDC3DC6EE27B427C225212792A60');
-        background-repeat: no-repeat;
-        background-size: cover;
+  &-header {
+    height: 30rem;
+    background-image: url("https://www.jet2holidays.com/-/media/destination%20guide/greece/kgs_kefalos_0813_02_ps_.jpg?h=500&w=1920&crop=1&hash=D8B88B21C47BBDC3DC6EE27B427C225212792A60");
+    background-repeat: no-repeat;
+    background-size: cover;
 
-        &_title {
-            color: $p-white;
-            font-size: 6rem;
-        }
+    &_title {
+      color: $p-white;
+      font-size: 6rem;
+    }
+  }
+
+  &-filter-box {
+    padding: 4rem 8rem;
+    flex: 0 0 30%;
+    justify-content: space-between;
+
+    @media only screen and (max-width: $bp-xlarge) {
+      padding: 3rem;
+      flex: 0 0 20%;
     }
 
-    &-filter-box {
-        padding: 4rem 8rem;
-        flex: 0 0 30%;
-
+    @media only screen and (max-width: $bp-mlarge) {
+      flex: 0 0 60%;
     }
 
-    &-results {
-        flex: 0 0 60%;
+    @media only screen and (max-width: $bp-large) {
+      flex: 1;
+      justify-content: center;
     }
+
+    @media only screen and (max-width: $bp-small) {
+      padding: 1rem;
+    }
+  }
+
+  &-results {
+    flex: 0 0 60%;
+    justify-content: space-between;
+
+    @media only screen and (max-width: $bp-xlarge) {
+      flex: 0 0 65%;
+    }
+
+    @media only screen and (max-width: $bp-mlarge) {
+      flex: 0 0 60%;
+    }
+
+    @media only screen and (max-width: $bp-large) {
+      flex: 1;
+      justify-content: center;
+    }
+  }
 }

@@ -12,3 +12,6 @@ export const getTopDestinations = async (
   get<[]>(
     `${destinationUrl()}/top?active=${active}&limit=${limit}&offset=${offset}`
   );
+
+export const getDestinationByName = async (destination: string) =>
+  get<[]>(`${destinationUrl()}/place/${destination}`);

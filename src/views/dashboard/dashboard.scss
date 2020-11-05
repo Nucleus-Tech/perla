@@ -1,0 +1,8 @@
+.content-container {
+  max-width: 140rem;
+  margin: auto;
+
+  & > * {
+    width: 100%;
+  }
+}

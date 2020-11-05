@@ -65,9 +65,9 @@ const Header = () => {
     logoutUser(null, null);
   };
 
-  const navigateToDestinationDetailsPage = (destinationId: string) => {
+  const navigateToDestinationDetailsPage = (destination: string) => {
     setMenuContentVisibility(false);
-    history.push(`/dashboard/destination/${destinationId}`);
+    history.push(`/dashboard/destination/${destination}`);
   };
 
   function useOutsideMenuClick(ref) {
@@ -124,7 +124,7 @@ const Header = () => {
                   </span>
                 </Link>
                 <Link
-                  className="menu-item p-flex p-items-center margin"
+                  className="menu-item p-flex p-items-center"
                   onClick={logOut}
                   to={loginRoute()}
                 >
@@ -168,7 +168,7 @@ const Header = () => {
                           <span
                             className="place"
                             onClick={() =>
-                              navigateToDestinationDetailsPage(place.id)
+                              navigateToDestinationDetailsPage(place.name)
                             }
                             onMouseOver={() => changePlaceImage(place.image)}
                           >
