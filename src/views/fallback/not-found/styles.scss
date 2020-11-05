@@ -1,0 +1,22 @@
+@import "src/assets/styles/global/main";
+
+.p-notFound {
+  &__button {
+    width: max-content;
+    margin: 8rem 4rem;
+    padding: 0 4rem;
+    border: none;
+    font-family: "Roboto-Thin";
+    background-color: $p-color-17;
+
+    @media only screen and (max-width: $bp-medium) {
+      padding: 0 3rem;
+      margin: 4rem 2rem;
+      font-size: 2rem;
+    }
+
+    @media only screen and (max-width: $bp-extra-small) {
+      font-size: 1.5rem;
+    }
+  }
+}
