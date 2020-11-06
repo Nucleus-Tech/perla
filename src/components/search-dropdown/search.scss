@@ -1,96 +1,98 @@
-@import '../../assets/styles/global/colors.scss';
-@import '../../assets/styles/global/main.scss';
-@import '../../assets/styles//global/breakpoint.scss';
+@import "../../assets/styles/global/colors.scss";
+@import "../../assets/styles/global/main.scss";
+@import "../../assets/styles//global/breakpoint.scss";
 
 .dropdown-wrapper-search {
+  width: 30rem;
+
+  @media only screen and (max-width: $bp-xlarge) {
+    width: 100%;
+  }
+
+  @media only screen and (min-width: $bp-xlarge) {
     min-width: 30rem;
-    width: 30rem;
+  }
+
+  .border-left {
+    border-top-left-radius: 1rem;
+    border-bottom-left-radius: 1rem;
 
     @media only screen and (max-width: $bp-xlarge) {
-        width: 100%;
+      border-top-right-radius: 1rem;
+      border-bottom-left-radius: unset;
+    }
+  }
+
+  .results {
+    width: 100%;
+    padding: 1rem 0;
+    z-index: 2;
+    background: $p-color-white;
+    color: $p-color-black;
+    box-shadow: 0.5rem 0.5rem 0.5rem rgba(0, 0, 0, 0.3);
+    border-top: 1px solid $p-color-ec;
+    max-height: 20rem;
+    overflow-y: auto;
+    border-bottom-right-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+
+    scrollbar-color: $p-color-grey;
+    scrollbar-width: none;
+
+    @media only screen and (min-width: $bp-xlarge) {
+      border-top-left-radius: 1rem;
     }
 
-    .border-left {
-        border-top-left-radius: 1rem;
-        border-bottom-left-radius: 1rem;
-
-        @media only screen and (max-width: $bp-xlarge) {
-            border-top-right-radius: 1rem;
-            border-bottom-left-radius: unset;
-        }
+    @media only screen and (max-width: $bp-xlarge) {
+      position: absolute;
     }
 
-    .results {
-        width: 100%;
-        padding: 1rem 0;
-        z-index: 2;
-        background: $p-color-white;
-        color: $p-color-black;
-        box-shadow: .5rem .5rem .5rem rgba(0, 0, 0, 0.3);
-        border-top: 1px solid $p-color-ec;
-        max-height: 20rem;
-        overflow-y: auto;
-        border-bottom-right-radius: 1rem;
-        border-bottom-left-radius: 1rem;
-    
-        scrollbar-color: $p-color-grey;
-        scrollbar-width: none;
-
-        @media only screen and (min-width: $bp-xlarge) {
-            border-top-left-radius: 1rem;
-        }
-
-        @media only screen and (max-width: $bp-xlarge) {
-            position: absolute;
-        }
-    
-        &::-webkit-scrollbar {
-          width: 0.6rem;
-        }
-    
-        &::-webkit-scrollbar-thumb {
-          border-radius: 1rem;
-          background: $p-color-grey;
-        }
-    
-        &::-webkit-scrollbar-track {
-          -webkit-box-shadow: inset 0 0 5px $p-color-grey;
-          box-shadow: inset 0 0 5px $p-color-grey;
-          border-radius: 1rem;
-        }
-    
-        .item {
-            padding: .5rem 1rem;
-            cursor: pointer;
-    
-            .pin {
-                height: 1.5rem;
-                margin-right: 1rem;
-            }
-    
-            .city {
-                font-size: 1.8rem;
-                font-weight: 500;
-            }
-        
-            .country {
-                color: $p-color-a0;
-                font-size: 1.5rem;
-            }
-    
-            &:hover {
-                background-color: rgba(225, 179, 129, 0.3);
-            }
-        }
-    
-        .message {
-            padding:.5rem 2rem;
-            font-size: 1.5rem;
-        }
+    &::-webkit-scrollbar {
+      width: 0.6rem;
     }
-    
-    .active {
-        background-color: rgba(225, 179, 129, 0.3); 
+
+    &::-webkit-scrollbar-thumb {
+      border-radius: 1rem;
+      background: $p-color-grey;
     }
+
+    &::-webkit-scrollbar-track {
+      -webkit-box-shadow: inset 0 0 5px $p-color-grey;
+      box-shadow: inset 0 0 5px $p-color-grey;
+      border-radius: 1rem;
+    }
+
+    .item {
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+
+      .pin {
+        height: 1.5rem;
+        margin-right: 1rem;
+      }
+
+      .city {
+        font-size: 1.8rem;
+        font-weight: 500;
+      }
+
+      .country {
+        color: $p-color-a0;
+        font-size: 1.5rem;
+      }
+
+      &:hover {
+        background-color: rgba(225, 179, 129, 0.3);
+      }
+    }
+
+    .message {
+      padding: 0.5rem 2rem;
+      font-size: 1.5rem;
+    }
+  }
+
+  .active {
+    background-color: rgba(225, 179, 129, 0.3);
+  }
 }
-

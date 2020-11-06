@@ -1,9 +1,9 @@
-import React from 'react';
-import { Redirect, Route, Switch } from 'react-router-dom';
+import React from "react";
+import { Redirect, Route, Switch } from "react-router-dom";
 
-import {loginRoute, registrationRoute} from '../../shared/routes/routes';
-import Login from './login';
-import Registration from './registration';
+import { loginRoute, registrationRoute } from "../../shared/routes/routes";
+import Login from "./login";
+import Registration from "./registration";
 
 const Onboarding = () => {
   return (

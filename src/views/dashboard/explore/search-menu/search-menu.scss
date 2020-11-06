@@ -23,7 +23,6 @@
   .ant-picker {
     height: max-content;
     border-radius: unset;
-    min-width: 30rem;
     border: unset;
     padding: 2.1rem;
     cursor: pointer;
@@ -33,6 +32,10 @@
       width: 100%;
       border-bottom: 1px solid $p-color-light-grey;
       border-right: unset;
+    }
+
+    @media only screen and (min-width: $bp-xlarge) {
+      min-width: 30rem;
     }
 
     .ant-picker-suffix {

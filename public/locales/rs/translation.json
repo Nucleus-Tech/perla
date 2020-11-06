@@ -29,5 +29,16 @@
   },
   "explore": {
     "topDestinations": "Top destinations"
+  },
+  "footer": {
+    "termsAndConditions": "Terms & conditions",
+    "faq": "FAQs"
+  },
+  "fallback": {
+    "notFound": " Page not found",
+    "notFoundMessage": "Don't worry, be happy :)",
+    "internalServer": "Server maintenance",
+    "internalServerMessage": "It's not you, it's me...",
+    "home": "Home"
   }
 }
