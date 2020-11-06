@@ -4,4 +4,5 @@ export class MenuTransaltion {
   public static login = "menu.login";
   public static logout = "menu.logout";
   public static home = "menu.home";
+  public static profile = "menu.profile";
 }

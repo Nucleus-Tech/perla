@@ -25,6 +25,7 @@ import zakynthos from "../../../../assets/images/zakynthos-JPEG.jpg";
 const Header = () => {
   const { t: translate } = useTranslation();
   const [menuContentVisibility, setMenuContentVisibility] = useState(false);
+  const [userContentVisibility, setUserContentVisibility] = useState(false);
   const [menuMobileVisibility, setMenuMobileVisibility] = useState(false);
   const [menuMobileStyle, setMenuMobileStyle] = useState({ maxHeight: "0rem" });
   const [destinations, setDestinations] = useState<any[]>([]);
@@ -32,6 +33,10 @@ const Header = () => {
   const menuRef = useRef(null);
   const destinationMenuItemRef = useRef(null);
   useOutsideMenuClick(menuRef);
+
+  const userMenuRef = useRef(null);
+  const userMenuItemRef = useRef(null);
+  useOutsideUserMenuClick(userMenuRef);
 
   const {
     state: { user },
@@ -81,6 +86,24 @@ const Header = () => {
     }, [ref, menuContentVisibility]);
   }
 
+  function useOutsideUserMenuClick(ref) {
+    useEffect(() => {
+      function handleClickOutside(event) {
+        if (event.target === userMenuItemRef.current) {
+          setUserContentVisibility(!userContentVisibility);
+          setMenuMobileVisibility(false);
+        } else if (ref.current && !ref.current.contains(event.target)) {
+          setUserContentVisibility(false);
+        }
+      }
+
+      document.addEventListener("mousedown", handleClickOutside);
+      return () => {
+        document.removeEventListener("mousedown", handleClickOutside);
+      };
+    }, [ref, userContentVisibility]);
+  }
+
   return (
     <>
       <div className="menu p-flex p-align-strech">
@@ -113,7 +136,7 @@ const Header = () => {
                   to={homeRoute()}
                 >
                   <UserIcon className="menu-item__img"></UserIcon>
-                  <span className="username">
+                  <span className="menu-item__username p-ml3">
                     {user.firstName ? user.firstName : user.email}
                   </span>
                 </Link>
@@ -135,17 +158,23 @@ const Header = () => {
             )}
           </ul>
         </nav>
-        {menuMobileVisibility ? (
-          <Close
-            className="menu-hamburger"
-            onClick={() => handleMenuMobile(false)}
-          ></Close>
-        ) : (
-          <HamburgerMenu
-            className="menu-hamburger"
-            onClick={() => handleMenuMobile(true)}
-          ></HamburgerMenu>
-        )}
+        <span className="menu__wrapper p-flex p-items-center">
+          <UserIcon
+            className="menu__wrapper__user"
+            ref={userMenuItemRef}
+          ></UserIcon>
+          {menuMobileVisibility ? (
+            <Close
+              className="menu__wrapper__hamburger"
+              onClick={() => handleMenuMobile(false)}
+            ></Close>
+          ) : (
+            <HamburgerMenu
+              className="menu__wrapper__hamburger"
+              onClick={() => handleMenuMobile(true)}
+            ></HamburgerMenu>
+          )}
+        </span>
       </div>
       {menuContentVisibility && (
         <div ref={menuRef} className="menu-content p-flex">
@@ -174,6 +203,29 @@ const Header = () => {
             ))}
           </div>
           <img className="destination-image" src={placeImage} alt="" />
+        </div>
+      )}
+      {userContentVisibility && (
+        <div className="user-content p-flex p-flex-column" ref={userMenuRef}>
+          {user && (
+            <div className="user-content__item">
+              <Link to={loginRoute()}>
+                {translate(MenuTransaltion.profile)}
+              </Link>
+            </div>
+          )}
+          {user && (
+            <div className="user-content__item">
+              <Link onClick={logOut} to={loginRoute()}>
+                {translate(MenuTransaltion.logout)}
+              </Link>
+            </div>
+          )}
+          {!user && (
+            <div className="user-content__item">
+              <Link to={loginRoute()}>{translate(MenuTransaltion.login)}</Link>
+            </div>
+          )}
         </div>
       )}
       <div style={menuMobileStyle} className="menu-mobile">
@@ -234,30 +286,6 @@ const Header = () => {
                 {translate(MenuTransaltion.aboutUs)}
               </Link>
             </div>
-            {!user && (
-              <div className="menu-mobile-content-item">
-                <Link to={loginRoute()}>
-                  {translate(MenuTransaltion.login)}
-                </Link>
-              </div>
-            )}
-            {user && (
-              <div className="menu-mobile-content-item">
-                <Link className="margin-username" to={homeRoute()}>
-                  <span className="username">
-                    <UserIcon></UserIcon>
-                    {user.firstName ? user.firstName : user.email}
-                  </span>
-                </Link>
-              </div>
-            )}
-            {user && (
-              <div className="menu-mobile-content-item">
-                <Link onClick={logOut} to={loginRoute()}>
-                  {translate(MenuTransaltion.logout)}
-                </Link>
-              </div>
-            )}
           </div>
         )}
       </div>

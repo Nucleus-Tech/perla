@@ -16,7 +16,8 @@
     "destination": "Destination",
     "aboutUs": "About us",
     "logout": "Log out",
-    "home": "Home"
+    "home": "Home",
+    "profile": "Profile"
   },
   "search": {
     "cityRegion": "City, region",
