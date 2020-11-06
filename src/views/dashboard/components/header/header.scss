@@ -305,6 +305,8 @@
 
 .destination-image {
   height: 24rem;
+  width: 48rem;
+  align-self: center;
   object-fit: cover;
 
   @media only screen and (max-width: $bp-large) {
