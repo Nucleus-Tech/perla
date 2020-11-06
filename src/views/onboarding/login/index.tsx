@@ -122,7 +122,11 @@ const Login = () => {
               type={"password"}
               icon={<Password />}
             />
-            <div className={"p-onboarding__wrapper__container__form__forgot"}>
+            <div
+              className={
+                "p-onboarding__wrapper__container__form__forgot p-items-end"
+              }
+            >
               {translate(OnboardingTranslation.forgotPasswordPlaceholder)}
             </div>
           </div>

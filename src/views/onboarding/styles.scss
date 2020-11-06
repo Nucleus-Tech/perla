@@ -19,7 +19,7 @@
 
     &__container {
       background-color: $p-color-white;
-      padding: 3rem 3rem 3rem 3rem !important;
+      padding: 3rem;
       border-radius: $p-onboarding-border-radius;
 
       &__logo {
@@ -38,14 +38,12 @@
         line-height: 0.1em;
 
         & > h1 {
-          font-size: 5.3rem;
-          font-family: "Roboto-Thin";
-          font-weight: 300;
-          margin: 4rem 0 4rem 0;
+          font: 300 5.3rem "Roboto-Thin";
+          margin: 4rem 0;
 
           @media only screen and (max-width: $bp-medium) {
             font-size: 3.3rem;
-            margin: 2rem 0 2rem 0;
+            margin: 2rem 0;
           }
         }
 
@@ -68,10 +66,10 @@
 
       &__form {
         &__forgot {
-          align-self: flex-end;
           padding-right: 1.5rem;
           font-size: 1.6rem;
           color: $p-color-grey;
+
           &:hover {
             cursor: pointer;
           }
@@ -85,11 +83,11 @@
       &__button {
         width: max-content;
         margin: 1.5rem;
-        padding: 0 4rem 0 4rem;
+        padding: 0 4rem;
         border: none;
 
         @media only screen and (max-width: $bp-medium) {
-          padding: 0 3rem 0 3rem;
+          padding: 0 3rem;
           margin: 0.75rem;
           font-size: 2rem;
         }
@@ -102,10 +100,10 @@
 
       &__or {
         line-height: 0.1em;
-        margin: 1rem 0 1rem 0;
+        margin: 1rem 0;
 
         @media only screen and (max-width: $bp-medium) {
-          margin: 0.5rem 0 0.5rem 0;
+          margin: 0.5rem 0;
         }
 
         & > h1 {
@@ -141,14 +139,14 @@
 
       &__member {
         margin-top: 2rem;
-        padding: 1rem 0 1rem 0;
+        padding: 1rem 0;
         font-size: 1.6rem;
         color: $p-color-grey;
 
         @media only screen and (max-width: $bp-medium) {
           font-size: 1.2rem;
           margin-top: 1rem;
-          padding: 0.5rem 0 0.5rem 0;
+          padding: 0.5rem 0;
         }
 
         &__link {
