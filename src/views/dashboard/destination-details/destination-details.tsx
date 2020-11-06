@@ -1,31 +1,46 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
+import { useLocation, useParams } from "react-router-dom";
+import qs from "query-string";
 
+import { getAccomodationsForPlace } from "../../../services/api/destination/accomodationService";
 import Card from "../../../components/card/card";
 import Filter from "./filter/filter";
 
 import "./destination-details.scss";
-import { getAccomodationsForPlace } from "../../../services/api/destination/accomodationService";
-import { useParams } from "react-router-dom";
 
 const DestinationDetails = () => {
   const params = useParams();
-  // @TODO
-  // const [setDestination] = useState<any>(null);
+  const { search } = useLocation();
   const [accomodations, setAccomodations] = useState<Array<any>>([]);
+  const queryParams = useMemo(() => qs.parse(search), [search]);
 
   useEffect(() => {
     fetchDestination();
     fetchAccomodations();
   }, [params]);
 
+  useEffect(() => {
+    console.log(queryParams);
+    fetchAccomodations();
+  }, [queryParams]);
+
   const fetchDestination = async () => {
     // @TODO
-    //  const { data } = await getDestinationByName(params["name"]);
-    //  setDestination(data);
   };
 
   const fetchAccomodations = async () => {
-    const { data } = await getAccomodationsForPlace(params["name"]);
+    let queryString = "";
+    if (Object.keys(queryParams).length > 0) {
+      delete queryParams[""];
+      Object.keys(queryParams).forEach((key) => {
+        console.log(Object.keys(queryParams).length);
+        queryString = queryString.concat(`&${key}=${queryParams[key]}`);
+      });
+    }
+    const { data } = await getAccomodationsForPlace(
+      params["name"],
+      queryString
+    );
     setAccomodations(data);
   };
 
@@ -43,6 +58,7 @@ const DestinationDetails = () => {
                 name={accomodation.name}
                 facilities={accomodation.facilities}
                 category={accomodation.category}
+                image={accomodation.images[0]}
               ></Card>
             </div>
           ))}

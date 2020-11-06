@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useHistory, useParams } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { Select } from "antd";
 import { Checkbox, Rate, DatePicker } from "antd";
 
 import { getFacilities } from "../../../../services/api/destination/facilityService";
 import { CAPACITY } from "../../../../shared/mocks/capacity.mock";
+import { FilterTranslation } from "../../context/filterTranslation";
 
 import "antd/dist/antd.css";
 import "./filter.scss";
@@ -15,14 +17,15 @@ const Filter = () => {
   const dateFormat = "DD-MM-YYYY";
   const history = useHistory();
   const params = useParams();
+  const { t: translate } = useTranslation();
 
   const [hotelFacilities, setHotelFacilities] = useState<any[]>([]);
   const [roomFacilities, setRoomFacilities] = useState<any[]>([]);
   const [queryParams, setQueryParams] = useState<any>({
-    rate: [],
-    hotelFilters: [],
-    roomFilters: [],
-    adults: 0,
+    category: [],
+    roomFacilities: [],
+    accommodationFacilities: [],
+    capacity: 0,
   });
 
   useEffect(() => {
@@ -48,21 +51,25 @@ const Filter = () => {
     history.push({
       pathname: `/dashboard/destination/${params["name"]}`,
       search: `?${
-        queryParams.adults > 0 ? `adults=${queryParams.adults}` : ""
+        queryParams.capacity > 0 ? `capacity=${queryParams.capacity}` : ""
       }${
-        queryParams.hotelFilters.length > 0
-          ? `&hotelFilters=${queryParams.hotelFilters}`
+        queryParams.accommodationFacilities.length > 0
+          ? `&accommodationFacilities=${queryParams.accommodationFacilities}`
           : ""
       }${
-        queryParams.roomFilters.length > 0
-          ? `&roomFilters=${queryParams.roomFilters}`
+        queryParams.roomFacilities.length > 0
+          ? `&roomFacilities=${queryParams.roomFacilities}`
           : ""
-      }${queryParams.rate.length > 0 ? `&rate=${queryParams.rate}` : ""}`,
+      }${
+        queryParams.category.length > 0
+          ? `&category=${queryParams.category}`
+          : ""
+      }`,
     });
   };
 
   const handleChangeAdultsDropdown = (event) => {
-    setQueryParams({ ...queryParams, adults: event });
+    setQueryParams({ ...queryParams, capacity: event });
   };
 
   const handleCheckboxChange = (event, type, value) => {
@@ -78,7 +85,9 @@ const Filter = () => {
 
   return (
     <div className="wrapper destination-filter p-flex p-flex-column p-pb4">
-      <h1 className="destination-filter_title border-bottom">Filters</h1>
+      <h1 className="destination-filter_title border-bottom">
+        {translate(FilterTranslation.filters)}
+      </h1>
       <div className="p-flex p-flex-column border-bottom padding">
         <RangePicker
           format={dateFormat}
@@ -98,45 +107,59 @@ const Filter = () => {
         </Select>
       </div>
       <div className="p-flex p-flex-column border-bottom padding">
-        <h2 className="destination-filter_subtitle">Choose star rating</h2>
+        <h2 className="destination-filter_subtitle">
+          {translate(FilterTranslation.starRating)}
+        </h2>
         <div>
           <Checkbox
             className="p-mr2"
-            onChange={(e) => handleCheckboxChange(e.target.checked, "rate", 5)}
+            onChange={(e) =>
+              handleCheckboxChange(e.target.checked, "category", 5)
+            }
           ></Checkbox>
           <Rate className="destination-filter_rate" disabled defaultValue={5} />
         </div>
         <div>
           <Checkbox
             className="p-mr2"
-            onChange={(e) => handleCheckboxChange(e.target.checked, "rate", 4)}
+            onChange={(e) =>
+              handleCheckboxChange(e.target.checked, "category", 4)
+            }
           ></Checkbox>
           <Rate className="destination-filter_rate" disabled defaultValue={4} />
         </div>
         <div>
           <Checkbox
             className="p-mr2"
-            onChange={(e) => handleCheckboxChange(e.target.checked, "rate", 3)}
+            onChange={(e) =>
+              handleCheckboxChange(e.target.checked, "category", 3)
+            }
           ></Checkbox>
           <Rate className="destination-filter_rate" disabled defaultValue={3} />
         </div>
         <div>
           <Checkbox
             className="p-mr2"
-            onChange={(e) => handleCheckboxChange(e.target.checked, "rate", 2)}
+            onChange={(e) =>
+              handleCheckboxChange(e.target.checked, "category", 2)
+            }
           ></Checkbox>
           <Rate className="destination-filter_rate" disabled defaultValue={2} />
         </div>
         <div>
           <Checkbox
             className="p-mr2"
-            onChange={(e) => handleCheckboxChange(e.target.checked, "rate", 1)}
+            onChange={(e) =>
+              handleCheckboxChange(e.target.checked, "category", 1)
+            }
           ></Checkbox>
           <Rate className="destination-filter_rate" disabled defaultValue={1} />
         </div>
       </div>
       <div className="p-flex p-flex-column border-bottom padding">
-        <h2 className="destination-filter_subtitle">Hotel filters</h2>
+        <h2 className="destination-filter_subtitle">
+          {translate(FilterTranslation.hotelFilters)}
+        </h2>
         {hotelFacilities.map((hotelFacility) => (
           <div key={hotelFacility.id}>
             <Checkbox
@@ -144,7 +167,7 @@ const Filter = () => {
               onChange={(e) =>
                 handleCheckboxChange(
                   e.target.checked,
-                  "hotelFilters",
+                  "accommodationFacilities",
                   hotelFacility.name
                 )
               }
@@ -154,7 +177,9 @@ const Filter = () => {
         ))}
       </div>
       <div className="p-flex p-flex-column padding">
-        <h2 className="destination-filter_subtitle">Room filters</h2>
+        <h2 className="destination-filter_subtitle">
+          {translate(FilterTranslation.roomFilters)}
+        </h2>
         {roomFacilities.map((roomFacility) => (
           <div key={roomFacility.id}>
             <Checkbox
@@ -162,7 +187,7 @@ const Filter = () => {
               onChange={(e) =>
                 handleCheckboxChange(
                   e.target.checked,
-                  "roomFilters",
+                  "roomFacilities",
                   roomFacility.name
                 )
               }

@@ -3,9 +3,9 @@ import { Rate } from "antd";
 
 import "./card.scss";
 
-const Card = ({ name, category, facilities }) => (
+const Card = ({ name, category, facilities, image }) => (
   <div className="p-flex p-flex-column wrapper">
-    <img src="https://media-cdn.tripadvisor.com/media/photo-s/16/1a/ea/54/hotel-presidente-4s.jpg" />
+    <img src={image.url} />
     <Rate className="rate" disabled defaultValue={category} />
     <div className="box p-flex p-items-center">
       <span className="name">{name}</span>
