@@ -7,6 +7,7 @@ import { Checkbox, Rate, DatePicker } from "antd";
 import { getFacilities } from "../../../../services/api/destination/facilityService";
 import { CAPACITY } from "../../../../shared/mocks/capacity.mock";
 import { FilterTranslation } from "../../context/filterTranslation";
+import filter from "../../../../assets/images/filter.svg";
 
 import "antd/dist/antd.css";
 import "./filter.scss";
@@ -27,6 +28,7 @@ const Filter = () => {
     accommodationFacilities: [],
     capacity: 0,
   });
+  const [filtersVisibility, setFiltersVisibility] = useState<boolean>(true);
 
   useEffect(() => {
     fetchHotelFacilities();
@@ -83,119 +85,156 @@ const Filter = () => {
     }
   };
 
+  const handleFiltersVisibility = () => {
+    setFiltersVisibility(!filtersVisibility);
+  };
+
   return (
-    <div className="wrapper destination-filter p-flex p-flex-column p-pb4">
-      <h1 className="destination-filter_title border-bottom">
-        {translate(FilterTranslation.filters)}
-      </h1>
-      <div className="p-flex p-flex-column border-bottom padding">
-        <RangePicker
-          format={dateFormat}
-          className={"customSelect"}
-          placeholder={["From:", "To:"]}
+    <div className="wrapper destination-filter p-flex p-flex-column">
+      <div className="p-flex p-items-center">
+        <h1 className="destination-filter_title">
+          {translate(FilterTranslation.filters)}
+        </h1>
+        <img
+          className="filter-img"
+          src={filter}
+          onClick={handleFiltersVisibility}
         />
-        <Select
-          className="p-mt3"
-          placeholder="Adults"
-          onChange={handleChangeAdultsDropdown}
-        >
-          {CAPACITY.map((item) => (
-            <Option key={item.value} value={item.value}>
-              {item.label}
-            </Option>
-          ))}
-        </Select>
       </div>
-      <div className="p-flex p-flex-column border-bottom padding">
-        <h2 className="destination-filter_subtitle">
-          {translate(FilterTranslation.starRating)}
-        </h2>
-        <div>
-          <Checkbox
-            className="p-mr2"
-            onChange={(e) =>
-              handleCheckboxChange(e.target.checked, "category", 5)
-            }
-          ></Checkbox>
-          <Rate className="destination-filter_rate" disabled defaultValue={5} />
-        </div>
-        <div>
-          <Checkbox
-            className="p-mr2"
-            onChange={(e) =>
-              handleCheckboxChange(e.target.checked, "category", 4)
-            }
-          ></Checkbox>
-          <Rate className="destination-filter_rate" disabled defaultValue={4} />
-        </div>
-        <div>
-          <Checkbox
-            className="p-mr2"
-            onChange={(e) =>
-              handleCheckboxChange(e.target.checked, "category", 3)
-            }
-          ></Checkbox>
-          <Rate className="destination-filter_rate" disabled defaultValue={3} />
-        </div>
-        <div>
-          <Checkbox
-            className="p-mr2"
-            onChange={(e) =>
-              handleCheckboxChange(e.target.checked, "category", 2)
-            }
-          ></Checkbox>
-          <Rate className="destination-filter_rate" disabled defaultValue={2} />
-        </div>
-        <div>
-          <Checkbox
-            className="p-mr2"
-            onChange={(e) =>
-              handleCheckboxChange(e.target.checked, "category", 1)
-            }
-          ></Checkbox>
-          <Rate className="destination-filter_rate" disabled defaultValue={1} />
-        </div>
-      </div>
-      <div className="p-flex p-flex-column border-bottom padding">
-        <h2 className="destination-filter_subtitle">
-          {translate(FilterTranslation.hotelFilters)}
-        </h2>
-        {hotelFacilities.map((hotelFacility) => (
-          <div key={hotelFacility.id}>
-            <Checkbox
-              className="p-mr2"
-              onChange={(e) =>
-                handleCheckboxChange(
-                  e.target.checked,
-                  "accommodationFacilities",
-                  hotelFacility.name
-                )
-              }
-            ></Checkbox>
-            <span className="facility-name">{hotelFacility.name}</span>
+      {filtersVisibility ? (
+        <>
+          <div className="p-flex p-flex-column border-bottom border-top padding">
+            <RangePicker
+              format={dateFormat}
+              className={"customSelect"}
+              placeholder={["From:", "To:"]}
+            />
+            <Select
+              className="p-mt3"
+              placeholder="Adults"
+              onChange={handleChangeAdultsDropdown}
+            >
+              {CAPACITY.map((item) => (
+                <Option key={item.value} value={item.value}>
+                  {item.label}
+                </Option>
+              ))}
+            </Select>
           </div>
-        ))}
-      </div>
-      <div className="p-flex p-flex-column padding">
-        <h2 className="destination-filter_subtitle">
-          {translate(FilterTranslation.roomFilters)}
-        </h2>
-        {roomFacilities.map((roomFacility) => (
-          <div key={roomFacility.id}>
-            <Checkbox
-              className="p-mr2"
-              onChange={(e) =>
-                handleCheckboxChange(
-                  e.target.checked,
-                  "roomFacilities",
-                  roomFacility.name
-                )
-              }
-            ></Checkbox>
-            <span className="facility-name">{roomFacility.name}</span>
+          <div className="p-flex p-flex-column border-bottom padding">
+            <h2 className="destination-filter_subtitle">
+              {translate(FilterTranslation.starRating)}
+            </h2>
+            <div>
+              <Checkbox
+                className="p-mr2"
+                onChange={(e) =>
+                  handleCheckboxChange(e.target.checked, "category", 5)
+                }
+              ></Checkbox>
+              <Rate
+                className="destination-filter_rate"
+                disabled
+                defaultValue={5}
+              />
+            </div>
+            <div>
+              <Checkbox
+                className="p-mr2"
+                onChange={(e) =>
+                  handleCheckboxChange(e.target.checked, "category", 4)
+                }
+              ></Checkbox>
+              <Rate
+                className="destination-filter_rate"
+                disabled
+                defaultValue={4}
+              />
+            </div>
+            <div>
+              <Checkbox
+                className="p-mr2"
+                onChange={(e) =>
+                  handleCheckboxChange(e.target.checked, "category", 3)
+                }
+              ></Checkbox>
+              <Rate
+                className="destination-filter_rate"
+                disabled
+                defaultValue={3}
+              />
+            </div>
+            <div>
+              <Checkbox
+                className="p-mr2"
+                onChange={(e) =>
+                  handleCheckboxChange(e.target.checked, "category", 2)
+                }
+              ></Checkbox>
+              <Rate
+                className="destination-filter_rate"
+                disabled
+                defaultValue={2}
+              />
+            </div>
+            <div>
+              <Checkbox
+                className="p-mr2"
+                onChange={(e) =>
+                  handleCheckboxChange(e.target.checked, "category", 1)
+                }
+              ></Checkbox>
+              <Rate
+                className="destination-filter_rate"
+                disabled
+                defaultValue={1}
+              />
+            </div>
           </div>
-        ))}
-      </div>
+          <div className="p-flex p-flex-column border-bottom padding">
+            <h2 className="destination-filter_subtitle">
+              {translate(FilterTranslation.hotelFilters)}
+            </h2>
+            {hotelFacilities.map((hotelFacility) => (
+              <div key={hotelFacility.id}>
+                <Checkbox
+                  className="p-mr2"
+                  onChange={(e) =>
+                    handleCheckboxChange(
+                      e.target.checked,
+                      "accommodationFacilities",
+                      hotelFacility.name
+                    )
+                  }
+                ></Checkbox>
+                <span className="facility-name">{hotelFacility.name}</span>
+              </div>
+            ))}
+          </div>
+          <div className="p-flex p-flex-column padding p-pb4">
+            <h2 className="destination-filter_subtitle">
+              {translate(FilterTranslation.roomFilters)}
+            </h2>
+            {roomFacilities.map((roomFacility) => (
+              <div key={roomFacility.id}>
+                <Checkbox
+                  className="p-mr2"
+                  onChange={(e) =>
+                    handleCheckboxChange(
+                      e.target.checked,
+                      "roomFacilities",
+                      roomFacility.name
+                    )
+                  }
+                ></Checkbox>
+                <span className="facility-name">{roomFacility.name}</span>
+              </div>
+            ))}
+          </div>
+        </>
+      ) : (
+        ""
+      )}
     </div>
   );
 };
