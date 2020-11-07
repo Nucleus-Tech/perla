@@ -115,12 +115,10 @@
 
 @keyframes growDown {
   0% {
-    opacity: 0;
-    transform: translateY(-20px);
+    transform: scaleY(0);
   }
   100% {
-    opacity: 1;
-    transform: translateY(0);
+    transform: scaleY(1);
   }
 }
 
@@ -134,7 +132,9 @@
   background-color: $p-color-white;
   width: -webkit-fill-available;
   width: -moz-available;
+
   animation: growDown 300ms ease-in-out forwards;
+  transform-origin: top center;
 
   @media only screen and (max-width: $bp-medium) {
     padding: 2rem 2.5rem;
