@@ -16,6 +16,10 @@
     padding: 1rem;
     border-top-left-radius: 1rem;
     border-top-right-radius: 1rem;
+
+    &_destination {
+      width: 100%;
+    }
   }
 
   &-image {
@@ -24,4 +28,8 @@
     object-fit: cover;
     border-radius: 1rem;
   }
+}
+
+.crown {
+  height: 2rem;
 }
