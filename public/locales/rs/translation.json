@@ -1,8 +1,8 @@
 {
   "onboarding": {
     "loginPlaceholder": {
-      "email": "Please enter your email...",
-      "password": "Please enter your password...",
+      "email": "Email...",
+      "password": "Password...",
       "signIn": "Sign in",
       "forgotPassword": "Forgot password?",
       "or": "or",
@@ -10,8 +10,8 @@
       "signUpNow": "Sign up now"
     },
     "registrationPlaceholder": {
-      "firstName": "Please enter your first name...",
-      "lastName": "Please enter your last name...",
+      "firstName": "First name...",
+      "lastName": "Last name...",
       "signUp": "Sign up",
       "confirm": "Confirm",
       "haveAcc": "Already have an account?"
