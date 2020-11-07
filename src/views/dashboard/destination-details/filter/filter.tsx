@@ -29,6 +29,7 @@ const Filter = () => {
     capacity: 0,
   });
   const [filtersVisibility, setFiltersVisibility] = useState<boolean>(true);
+  const innerWidth = window.innerWidth;
 
   useEffect(() => {
     fetchHotelFacilities();
@@ -38,6 +39,10 @@ const Filter = () => {
   useEffect(() => {
     buildRoute();
   }, [queryParams]);
+
+  useEffect(() => {
+    if (innerWidth < 480) setFiltersVisibility(false);
+  }, [innerWidth]);
 
   const fetchHotelFacilities = async () => {
     const { data } = await getFacilities("HOTEL");

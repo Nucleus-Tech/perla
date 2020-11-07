@@ -20,7 +20,6 @@ const DestinationDetails = () => {
   }, [params]);
 
   useEffect(() => {
-    console.log(queryParams);
     fetchAccomodations();
   }, [queryParams]);
 

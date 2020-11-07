@@ -16,10 +16,6 @@
     width: 30rem;
   }
 
-  @media only screen and (max-width: $bp-small) {
-    width: max-content;
-  }
-
   img {
     border-top-left-radius: inherit;
     border-top-right-radius: inherit;
