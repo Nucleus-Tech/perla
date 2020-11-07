@@ -189,7 +189,7 @@
   background-color: $p-color-white;
   margin-right: 4.5rem;
   box-shadow: 0.5rem 0.5rem 0.5rem rgba(0, 0, 0, 0.3);
-
+  animation: slideDown 0.5s ease-in forwards;
   width: 20%;
   right: 0;
 
@@ -323,5 +323,16 @@
 
   @media only screen and (max-width: $bp-small) {
     display: none;
+  }
+}
+
+@keyframes slideDown {
+  0% {
+    opacity: 0;
+    max-height: 0;
+  }
+  100% {
+    opacity: 1;
+    max-height: 60rem;
   }
 }
