@@ -113,6 +113,17 @@
   }
 }
 
+@keyframes growDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .menu-content {
   border-top: 1px solid $p-color-ec;
   padding: 2rem;
@@ -123,6 +134,7 @@
   background-color: $p-color-white;
   width: -webkit-fill-available;
   width: -moz-available;
+  animation: growDown 300ms ease-in-out forwards;
 
   @media only screen and (max-width: $bp-medium) {
     padding: 2rem 2.5rem;
