@@ -32,7 +32,7 @@ const Footer = () => {
           </li>
         </ul>
         <div className="contact-section p-flex p-flex-column">
-          <span>Contact us:</span>
+          <span>{translate(FooterTransaltion.contactUs)}</span>
           <div className="p-flex p-mt3">
             <img className="social-icon" src={facebook} alt="Facebook" />
             <img className="social-icon" src={instagram} alt="Instagram" />

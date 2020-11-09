@@ -8,7 +8,6 @@ export class OnboardingTranslation {
   public static notAMemberPlaceholder =
     "onboarding.loginPlaceholder.notAMember";
   public static signUpNowPlaceholder = "onboarding.loginPlaceholder.signUpNow";
-
   public static signUpPlaceholder = "onboarding.registrationPlaceholder.signUp";
   public static confirmPlaceholder =
     "onboarding.registrationPlaceholder.confirm";
@@ -18,4 +17,11 @@ export class OnboardingTranslation {
     "onboarding.registrationPlaceholder.firstName";
   public static lastNamePlaceholder =
     "onboarding.registrationPlaceholder.lastName";
+  public static signInNowPlaceholder =
+    "onboarding.registrationPlaceholder.signInNow";
+  public static invalidEmailAddressPlaceholder =
+    "formValidation.invalidEmailAddress";
+  public static requiredPlaceholder = "formValidation.required";
+  public static orLessCharsPlaceholder = "formValidation.orLessChars";
+  public static orMoreCharsPlaceholder = "formValidation.orMoreChars";
 }
