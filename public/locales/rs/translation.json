@@ -2,6 +2,65 @@
   "onboarding": {
     "loginPlaceholder": {
       "email": "Email...",
+      "password": "Lozinka...",
+      "signIn": "Prijava",
+      "forgotPassword": "Zaboravljena lozinka?",
+      "or": "ili",
+      "notAMember": "Nemaš nalog?",
+      "signUpNow": "Registruj se"
+    },
+    "registrationPlaceholder": {
+      "firstName": "Ime...",
+      "lastName": "Prezime...",
+      "signUp": "Registracija",
+      "confirm": "Potvrdi",
+      "haveAcc": "Već imaš nalog?",
+      "signInNow": "Prijavi se"
+    }
+  },
+  "menu": {
+    "login": "Prijava",
+    "destination": "Destinacije",
+    "aboutUs": "O nama",
+    "logout": "Odjavi se",
+    "home": "Početna strana"
+  },
+  "search": {
+    "cityRegion": "Grad, regija",
+    "message": "Nema rezultata...",
+    "search": "Pretraga",
+    "from": "Od",
+    "to": "Do"
+  },
+  "dropdown": {
+    "adults": "Odrasli",
+    "children": "Deca"
+  },
+  "explore": {
+    "topDestinations": "Top destinacije"
+  },
+  "footer": {
+    "termsAndConditions": "Uslovi",
+    "faq": "FAQs",
+    "contactUs" : "Kontaktiraj nas:"
+  },
+  "fallback": {
+    "notFound": " Stranica nije pronađena",
+    "notFoundMessage": "Bez brige, biće bolje :)",
+    "internalServer": "Održavanje servera",
+    "internalServerMessage": "Nije do tebe, do mene je... :(",
+    "home": "Početna strana"
+  },
+  "formValidation": {
+    "invalidEmailAddress": "Neispravna email adresa",
+    "required": "Obavezno polje",
+    "orLessChars": "Obavezno 20 karaktera ili manje",
+    "orMoreChars": "Obavezno 3 karaktera ili više"
+  },
+
+  "onboardingEng": {
+    "loginPlaceholder": {
+      "email": "Email...",
       "password": "Password...",
       "signIn": "Sign in",
       "forgotPassword": "Forgot password?",
@@ -17,34 +76,42 @@
       "haveAcc": "Already have an account?"
     }
   },
-  "menu": {
+  "menuEng": {
     "login": "Login",
     "destination": "Destination",
     "aboutUs": "About us",
     "logout": "Log out",
     "home": "Home"
   },
-  "search": {
+  "searchEng": {
     "cityRegion": "City, region",
     "message": "No results...",
-    "search": "Search"
+    "search": "Search",
+    "from": "From",
+    "to": "To"
   },
-  "dropdown": {
+  "dropdownEng": {
     "adults": "Adults",
     "children": "Children"
   },
-  "explore": {
+  "exploreEng": {
     "topDestinations": "Top destinations"
   },
-  "footer": {
+  "footerEng": {
     "termsAndConditions": "Terms & conditions",
     "faq": "FAQs"
   },
-  "fallback": {
+  "fallbackEng": {
     "notFound": " Page not found",
     "notFoundMessage": "Don't worry, be happy :)",
     "internalServer": "Server maintenance",
     "internalServerMessage": "It's not you, it's me...",
     "home": "Home"
+  },
+  "formValidationEng": {
+    "invalidEmailAddress": "Invalid email address",
+    "required": "Required",
+    "orLessChars": "Must be 20 characters or less",
+    "orMoreChars": "Must be 3 characters or more"
   }
 }

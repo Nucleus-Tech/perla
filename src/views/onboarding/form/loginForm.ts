@@ -16,10 +16,10 @@ export const loginValidators: ObjectSchema<Record<
   string
 >> = Yup.object({
   [LoginFormFields.email]: Yup.string()
-    .email("Invalid email address")
-    .required("Required"),
+    .email("Neispravna email adresa")
+    .required("Obavezno polje"),
   [LoginFormFields.password]: Yup.string()
-    .max(20, "Must be 20 characters or less")
-    .min(3, "Must be 3 characters or more")
-    .required("Required"),
+    .max(20, "Obavezno 20 karaktera ili manje")
+    .min(3, "Obavezno 3 karaktera ili više")
+    .required("Obavezno polje"),
 });

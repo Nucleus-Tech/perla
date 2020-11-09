@@ -110,7 +110,7 @@ const Registration = () => {
           </div>
           <div className={"p-flex p-justify-center"}>
             <Button
-              label={translate(OnboardingTranslation.signUpPlaceholder)}
+              label={translate(OnboardingTranslation.signUpNowPlaceholder)}
               onClick={submitRegistration}
               disabled={!dirty || !isValid}
               className={"p-onboarding__wrapper__container__button"}
@@ -129,7 +129,7 @@ const Registration = () => {
                 to={loginRoute()}
               >
                 {" "}
-                {translate(OnboardingTranslation.signInPlaceholder)}
+                {translate(OnboardingTranslation.signInNowPlaceholder)}
               </Link>{" "}
             </p>
           </div>

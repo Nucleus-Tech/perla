@@ -129,7 +129,7 @@ const Login = () => {
           </div>
           <div className={"p-flex p-justify-center"}>
             <Button
-              label={translate(OnboardingTranslation.signInPlaceholder)}
+              label={translate(OnboardingTranslation.signInNowPlaceholder)}
               onClick={submitLogin}
               disabled={!dirty || !isValid}
               className={"p-onboarding__wrapper__container__button"}
