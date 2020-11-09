@@ -4,7 +4,6 @@ import { useFormik } from "formik";
 import { Link, useHistory } from "react-router-dom";
 
 import { Input, Button } from "../../../components/";
-
 import {
   defaultRegistartionValue,
   RegistartionFromFields,
@@ -13,8 +12,6 @@ import {
 import { OnboardingTranslation } from "../context/translation/onboardingTranslation";
 import { loginRoute } from "../../../shared/routes/routes";
 import { Email, LogoBlack, Password } from "../../../shared/icons";
-
-import "../styles.scss";
 import { registrationRequest } from "../../../services/api/auth/authService";
 
 const Registration = () => {
@@ -32,9 +29,7 @@ const Registration = () => {
     try {
       registrationRequest(values);
       completeRegistration();
-    } catch (error) {
-      // TODO: Handle error https://brick-link.atlassian.net/browse/BRIC-15
-    }
+    } catch (error) {}
   };
 
   const completeRegistration = () => {

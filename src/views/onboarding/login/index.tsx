@@ -27,7 +27,6 @@ import {
 import { UserModel } from "../../../shared/models/onboarding/internal";
 
 import "./styles.scss";
-import "../styles.scss";
 
 const Login = () => {
   const history = useHistory();
@@ -49,9 +48,7 @@ const Login = () => {
         data: { accessToken, user },
       } = await loginRequest(values);
       completeLogin(accessToken, user);
-    } catch (error) {
-      // TODO: Handle error https://brick-link.atlassian.net/browse/BRIC-15
-    }
+    } catch (error) {}
   };
 
   const handleSocial = async (vendor: string) => {
