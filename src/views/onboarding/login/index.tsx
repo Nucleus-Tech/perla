@@ -17,7 +17,13 @@ import { OnboardingTranslation } from "../context/translation/onboardingTranslat
 import { exploreRoute, registrationRoute } from "../../../shared/routes/routes";
 import { useUserStore } from "../../../stores/user-store/user-store";
 import { useSocialLogin } from "../context/hooks/social-login.hook";
-import { Email, Facebook, Google, LogoBlack, Password } from "../../../shared/icons";
+import {
+  Email,
+  Facebook,
+  Google,
+  LogoBlack,
+  Password,
+} from "../../../shared/icons";
 import { UserModel } from "../../../shared/models/onboarding/internal";
 
 import "./styles.scss";
@@ -42,9 +48,7 @@ const Login = () => {
         data: { accessToken, user },
       } = await loginRequest(values);
       completeLogin(accessToken, user);
-    } catch (error) {
-      // TODO: Handle error https://brick-link.atlassian.net/browse/BRIC-15
-    }
+    } catch (error) {}
   };
 
   const handleSocial = async (vendor: string) => {
@@ -66,25 +70,33 @@ const Login = () => {
 
   return (
     <div
-      className={"p-login p-flex p-flex-column p-items-center p-justify-center"}
+      className={
+        "p-onboarding p-flex p-flex-column p-items-center p-justify-center"
+      }
     >
       <div
         className={
-          "p-login__wrapper p-flex p-flex-column p-items-center p-justify-center"
+          "p-onboarding__wrapper p-flex p-flex-column p-items-center p-justify-center"
         }
       >
-        <div className={"p-login__wrapper__container p-w-100"}>
-          <div  className={"p-login__wrapper__container__logo p-w-100 p-text-center"} >
-              <LogoBlack/>   
+        <div className={"p-onboarding__wrapper__container p-w-100"}>
+          <div
+            className={
+              "p-onboarding__wrapper__container__logo p-w-100 p-text-center"
+            }
+          >
+            <LogoBlack />
           </div>
-          <label className={"p-login__wrapper__container__label p-text-center"}>
+          <label
+            className={"p-onboarding__wrapper__container__label p-text-center"}
+          >
             <h1 className={"p-flex p-flex-row"}>
               {translate(OnboardingTranslation.signInPlaceholder)}
             </h1>
           </label>
           <div
             className={
-              "p-login__wrapper__container__form p-flex p-flex-column p-justify-center p-w-100"
+              "p-onboarding__wrapper__container__form p-flex p-flex-column p-justify-center p-w-100"
             }
           >
             <Input
@@ -95,7 +107,7 @@ const Login = () => {
               value={values.email}
               errors={errors}
               type={"email"}
-              icon={<Email/>}
+              icon={<Email />}
             />
             <Input
               id={LoginFormFields.password}
@@ -105,9 +117,13 @@ const Login = () => {
               value={values.password}
               errors={errors}
               type={"password"}
-              icon={<Password/>}
+              icon={<Password />}
             />
-            <div className={"p-login__wrapper__container__form__forgot"}>
+            <div
+              className={
+                "p-onboarding__wrapper__container__form__forgot p-items-end"
+              }
+            >
               {translate(OnboardingTranslation.forgotPasswordPlaceholder)}
             </div>
           </div>
@@ -116,23 +132,23 @@ const Login = () => {
               label={translate(OnboardingTranslation.signInPlaceholder)}
               onClick={submitLogin}
               disabled={!dirty || !isValid}
-              className={"p-login__wrapper__container__button"}
+              className={"p-onboarding__wrapper__container__button"}
             />
           </div>
-          <div className={"p-login__wrapper__container__or p-text-center"}>
+          <div className={"p-onboarding__wrapper__container__or p-text-center"}>
             <h1 className={"p-flex p-flex-row"}>
               {translate(OnboardingTranslation.orPlaceholder)}
             </h1>
           </div>
-          <div className={"p-login__wrapper__container__social p-flex"}>
+          <div className={"p-login__social p-flex"}>
             <div
-              className={"p-login__wrapper__container__social__facebook p-w-100"}
+              className={"p-login__social__facebook p-w-100"}
               onClick={() => handleSocial("FACEBOOK")}
             >
               <Facebook />
             </div>
             <div
-              className={"p-login__wrapper__container__social__google p-w-100"}
+              className={"p-login__social__google p-w-100"}
               onClick={() => handleSocial("GOOGLE")}
             >
               <Google />
@@ -140,18 +156,18 @@ const Login = () => {
           </div>
           <div
             className={
-              "p-login__wrapper__container__member p-flex p-items-center p-justify-center"
+              "p-onboarding__wrapper__container__member p-flex p-items-center p-justify-center"
             }
           >
             <p>
               {" "}
-              Not a member?{" "}
+              {translate(OnboardingTranslation.notAMemberPlaceholder)}{" "}
               <Link
-                className={"p-login__wrapper__container__member__link"}
+                className={"p-onboarding__wrapper__container__member__link"}
                 to={registrationRoute()}
               >
                 {" "}
-                Sign up now
+                {translate(OnboardingTranslation.signUpNowPlaceholder)}
               </Link>{" "}
             </p>
           </div>

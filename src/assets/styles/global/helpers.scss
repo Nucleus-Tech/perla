@@ -107,6 +107,11 @@
 .p-items-center {
   align-items: center !important;
 }
+
+.p-items-end {
+  align-self: flex-end;
+}
+
 .p-align-strech {
   align-items: stretch;
 }
@@ -414,31 +419,27 @@
   border-right: 1px solid $p-color-light-grey;
 
   @media only screen and (max-width: $bp-xlarge) {
-    border-bottom:  1px solid $p-color-light-grey;
+    border-bottom: 1px solid $p-color-light-grey;
     border-right: unset;
   }
 
   input {
-      font-size: 2rem;
-      color: $p-color-black;
-      border: none;
+    font-size: 2rem;
+    color: $p-color-black;
+    border: none;
 
-      &:focus {
-          outline: none;
-      }
+    &:focus {
+      outline: none;
+    }
 
-      &:disabled {
-        background-color: rgb(255, 255, 255);
-      }
+    &:disabled {
+      background-color: rgb(255, 255, 255);
+    }
   }
 
   .placeholder {
     font-size: 2rem;
     color: $p-color-grey;
-    
-   /* @media only screen and (max-width: $bp-xlarge) {
-      width: 10rem;
-    } */
   }
 
   .remove {
