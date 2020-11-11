@@ -14,7 +14,11 @@ import {
   loginValidators,
 } from "../form/loginForm";
 import { OnboardingTranslation } from "../context/translation/onboardingTranslation";
-import { exploreRoute, registrationRoute } from "../../../shared/routes/routes";
+import {
+  exploreRoute,
+  homeRoute,
+  registrationRoute,
+} from "../../../shared/routes/routes";
 import { useUserStore } from "../../../stores/user-store/user-store";
 import { useSocialLogin } from "../context/hooks/social-login.hook";
 import {
@@ -80,13 +84,14 @@ const Login = () => {
         }
       >
         <div className={"p-onboarding__wrapper__container p-w-100"}>
-          <div
+          <Link
+            to={homeRoute()}
             className={
               "p-onboarding__wrapper__container__logo p-w-100 p-text-center"
             }
           >
             <LogoBlack />
-          </div>
+          </Link>
           <label
             className={"p-onboarding__wrapper__container__label p-text-center"}
           >
@@ -142,7 +147,7 @@ const Login = () => {
           </div>
           <div className={"p-login__social p-flex"}>
             <div
-              className={"p-login__social__facebook p-w-100"}
+              className={"p-login__social__facebook p-w-100 "}
               onClick={() => handleSocial("FACEBOOK")}
             >
               <Facebook />

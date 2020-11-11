@@ -5,12 +5,16 @@
   border-radius: $p-button-border-radius;
   background-color: $p-primary-button-background;
   color: $p-color-white;
-  font-size: 3rem;
-  font-family: "Roboto-Regular";
+  font-size: 2.5rem;
+  font-family: "Roboto-Thin";
   cursor: pointer;
 
   &:disabled {
     opacity: $p-opacity;
     cursor: not-allowed;
+  }
+
+  @media only screen and (max-width: $bp-small) {
+    border-radius: 1.5rem;
   }
 }

@@ -1,6 +1,6 @@
 <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 270 50">
   <defs>
-    <style>.cls-g{stroke: #c3c3c3; stroke-width:1px; fill:none;}.cls-g-1{fill:#e94435;}.cls-g-2{font-size:3rem;font-family:Sans-Regular,Sans; fill: black}.cls-g-5{fill:#fff;}.cls-g-3{letter-spacing:0em;}.cls-4{letter-spacing:-0.01em;}.cls-g-6{fill:#f8bb15;}.cls-g-7{fill:#547dbe;}.cls-g-8{fill:#34a751;}</style>
+    <style>.cls-g{stroke: #c3c3c3; stroke-width:1px; fill:none;}.cls-g-1{fill:#e94435;}.cls-g-2{font-size:3rem;font-family:Roboto-Thin; fill: black}.cls-g-5{fill:#fff;}.cls-g-3{letter-spacing:0em;}.cls-4{letter-spacing:-0.01em;}.cls-g-6{fill:#f8bb15;}.cls-g-7{fill:#547dbe;}.cls-g-8{fill:#34a751;}</style>
   </defs>
   <rect class="cls-g" width="100%" height="100%" rx="23" />
   <text class="cls-g-2" transform="translate(70 34.24)">Google</text>
