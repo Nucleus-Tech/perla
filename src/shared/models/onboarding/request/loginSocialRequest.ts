@@ -1,5 +1,5 @@
 export interface LoginSocialRequest {
-    idToken: string;
-    vendor: string;
-    email: string;
+  idToken: string;
+  vendor: string;
+  email: string;
 }

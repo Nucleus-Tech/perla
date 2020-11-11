@@ -5,8 +5,8 @@ const FACEBOOK_PROVIDER = "facebook";
 const GOOGLE_PROVIDER = "google";
 
 interface SocialLoginResponse {
-    idToken: string;
-    email: string;
+  idToken: string;
+  email: string;
 }
 
 export const useSocialLogin = () => {

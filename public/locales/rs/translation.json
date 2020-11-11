@@ -46,5 +46,11 @@
     "internalServer": "Server maintenance",
     "internalServerMessage": "It's not you, it's me...",
     "home": "Home"
+  },
+  "filter": {
+    "hotelFilters": "Hotel filters",
+    "roomFilters": "Room filters",
+    "starRating": "Choose star rating",
+    "filters": "Filters"
   }
 }
