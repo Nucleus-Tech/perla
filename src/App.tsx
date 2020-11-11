@@ -16,7 +16,7 @@ const App = () => {
       <Route path={onboardingRoute()} component={Onboarding} />
       <Route path={dashboardRoute()} component={Dashboard} />
       <Route path={internalServerRoute()} component={InternalServer} />
-      <Route exact path={"/"} component={Onboarding} />
+      <Route exact path={"/"} component={Dashboard} />
       <Route component={NotFound} />
     </Switch>
   );

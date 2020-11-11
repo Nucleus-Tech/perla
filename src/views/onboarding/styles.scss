@@ -13,7 +13,7 @@
   &__wrapper {
     min-width: 50rem;
 
-    @media only screen and (max-width: $bp-small) {
+    @media only screen and (max-width: $bp-small) and (max-width: $bp-medium) {
       min-width: 95%;
     }
 
@@ -21,6 +21,16 @@
       background-color: $p-color-white;
       padding: 3rem;
       border-radius: $p-onboarding-border-radius;
+
+      @media only screen and (max-width: $bp-medium) {
+        padding: 2rem;
+        border-radius: 4.5rem;
+      }
+
+      @media only screen and (max-width: $bp-small) {
+        padding: 1.5rem;
+        border-radius: 3.5rem;
+      }
 
       &__logo {
         & > svg {
@@ -39,11 +49,11 @@
 
         & > h1 {
           font: 300 5.3rem "Roboto-Thin";
-          margin: 4rem 0;
+          margin: 1.5rem 0;
 
           @media only screen and (max-width: $bp-medium) {
             font-size: 3.3rem;
-            margin: 2rem 0;
+            margin: 1rem 0;
           }
         }
 
@@ -87,9 +97,14 @@
         border: none;
 
         @media only screen and (max-width: $bp-medium) {
+          margin: 0.75rem;
+          font-size: 2.25rem;
+        }
+
+        @media only screen and (max-width: $bp-small) {
           padding: 0 3rem;
           margin: 0.75rem;
-          font-size: 2rem;
+          font-size: 1.75rem;
         }
 
         @media only screen and (max-width: $bp-extra-small) {
@@ -100,10 +115,10 @@
 
       &__or {
         line-height: 0.1em;
-        margin: 1rem 0;
+        margin: 1.5rem 0;
 
         @media only screen and (max-width: $bp-medium) {
-          margin: 0.5rem 0;
+          margin: 1rem 0;
         }
 
         & > h1 {
