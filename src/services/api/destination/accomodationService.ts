@@ -9,5 +9,5 @@ export const getAccomodationsForPlace = async (
   offset: number = 0
 ) =>
   get<[]>(
-    `${accomodationUrl()}?place=${placeId}${queryString}&limit=${limit}&offset=${offset}`
+    `${accomodationUrl()}?destination=${placeId}${queryString}&limit=${limit}&offset=${offset}`
   );

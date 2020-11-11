@@ -14,7 +14,7 @@ const Card = ({ name, category, facilities, image }) => (
         src="https://i.pinimg.com/originals/30/98/49/309849c5815761081926477e5e872f1e.png"
       />
     </div>
-    <div className="p-flex">
+    <div className="p-flex p-wrap">
       {facilities.map((facility, index) => (
         <div key={index} className="p-flex p-wrap facility">
           <div className="facility-item p-flex p-items-center">

@@ -67,6 +67,11 @@ const Header = () => {
     setPlaceImage(placeImage);
   };
 
+  const placeSelectMobile = (place: string) => {
+    navigateToDestinationDetailsPage(place);
+    handleMenuMobile(false);
+  };
+
   const logOut = () => {
     logoutUser(null, null);
   };
@@ -189,10 +194,26 @@ const Header = () => {
             <div className="box p-flex p-wrap">
               {destinations.map((destination) => (
                 <div key={destination.code} className="country">
-                  <h3 className="country-name">{destination.name}</h3>
+                  <h3
+                    className="country-name"
+                    onClick={() =>
+                      navigateToDestinationDetailsPage(destination.name)
+                    }
+                    onMouseOver={() => changePlaceImage(destination.image)}
+                  >
+                    {destination.name}
+                  </h3>
                   {destination.regions.map((region) => (
                     <div key={region.id} className="country-wrapper">
-                      <h4 className="region">{region.name}</h4>
+                      <h4
+                        className="region"
+                        onClick={() =>
+                          navigateToDestinationDetailsPage(region.name)
+                        }
+                        onMouseOver={() => changePlaceImage(region.image)}
+                      >
+                        {region.name}
+                      </h4>
                       <ul>
                         {region.places.map((place) => (
                           <li key={place.id}>
@@ -277,6 +298,7 @@ const Header = () => {
                                 <p
                                   className="place-box"
                                   key={`col_${place.id}`}
+                                  onClick={() => placeSelectMobile(place.name)}
                                 >
                                   <span>
                                     <Circle className="menu-mobile-content-item__img" />

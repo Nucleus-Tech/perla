@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useHistory, useParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-//import { Select } from "antd";
+import { Select } from "antd";
 import { Checkbox, Rate, DatePicker } from "antd";
 
 import { getFacilities } from "../../../../services/api/destination/facilityService";
 import { destinationRoute } from "../../../../shared/routes/routes";
-//import { CAPACITY } from "../../../../shared/mocks/capacity.mock";
+import { CAPACITY } from "../../../../shared/mocks/capacity.mock";
 import { FilterTranslation } from "../../context/filterTranslation";
 import filter from "../../../../assets/images/filter.svg";
 
@@ -14,7 +14,7 @@ import "antd/dist/antd.css";
 import "./filter.scss";
 
 const Filter = () => {
-  //const { Option } = Select;
+  const { Option } = Select;
   const { RangePicker } = DatePicker;
   const dateFormat = "DD-MM-YYYY";
   const history = useHistory();
@@ -76,9 +76,9 @@ const Filter = () => {
     });
   };
 
-  /* const handleChangeAdultsDropdown = (event) => {
+  const handleChangeAdultsDropdown = (event) => {
     setQueryParams({ ...queryParams, capacity: event });
-  }; */
+  };
 
   const handleCheckboxChange = (event, type, value) => {
     if (event) {
@@ -111,7 +111,7 @@ const Filter = () => {
               className={"customSelect"}
               placeholder={["From:", "To:"]}
             />
-            {/* <Select
+            <Select
               className="p-mt3"
               placeholder="Adults"
               onChange={handleChangeAdultsDropdown}
@@ -121,7 +121,7 @@ const Filter = () => {
                   {item.label}
                 </Option>
               ))}
-              </Select>*/}
+            </Select>
           </div>
           <div className="p-flex p-flex-column border-bottom padding">
             <h2 className="destination-filter_subtitle">
