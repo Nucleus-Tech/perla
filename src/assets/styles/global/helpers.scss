@@ -107,6 +107,11 @@
 .p-items-center {
   align-items: center !important;
 }
+
+.p-items-end {
+  align-self: flex-end;
+}
+
 .p-align-strech {
   align-items: stretch;
 }
