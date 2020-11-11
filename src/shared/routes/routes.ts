@@ -9,5 +9,7 @@ export const destinationDetailsRoute = () =>
   `${dashboardRoute()}/destination/:name`;
 
 export const exploreRoute = () => `${dashboardRoute()}/explore`;
+export const destinationRoute = (name: string) =>
+  `${dashboardRoute()}/destination/${name}`;
 
 export const internalServerRoute = () => `/internal-server`;

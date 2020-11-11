@@ -6,6 +6,7 @@ import { Collapse } from "antd";
 import { useUserStore } from "../../../../stores/user-store/user-store";
 import {
   aboutUsRoute,
+  destinationRoute,
   homeRoute,
   loginRoute,
 } from "../../../../shared/routes/routes";
@@ -67,7 +68,7 @@ const Header = () => {
 
   const navigateToDestinationDetailsPage = (destination: string) => {
     setMenuContentVisibility(false);
-    history.push(`/dashboard/destination/${destination}`);
+    history.push(destinationRoute(destination));
   };
 
   function useOutsideMenuClick(ref) {

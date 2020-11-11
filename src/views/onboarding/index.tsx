@@ -5,6 +5,8 @@ import { loginRoute, registrationRoute } from "../../shared/routes/routes";
 import Login from "./login";
 import Registration from "./registration";
 
+import "./styles.scss";
+
 const Onboarding = () => {
   return (
     <>

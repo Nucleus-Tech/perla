@@ -3,6 +3,7 @@ import { useLocation, useParams } from "react-router-dom";
 import qs from "query-string";
 
 import { getAccomodationsForPlace } from "../../../services/api/destination/accomodationService";
+import { buildQueryString } from "../../../shared/utils/buildRoute";
 import Card from "../../../components/card/card";
 import Filter from "./filter/filter";
 
@@ -28,19 +29,15 @@ const DestinationDetails = () => {
   };
 
   const fetchAccomodations = async () => {
-    let queryString = "";
-    if (Object.keys(queryParams).length > 0) {
-      delete queryParams[""];
-      Object.keys(queryParams).forEach((key) => {
-        console.log(Object.keys(queryParams).length);
-        queryString = queryString.concat(`&${key}=${queryParams[key]}`);
-      });
+    try {
+      const { data } = await getAccomodationsForPlace(
+        params["name"],
+        buildQueryString(queryParams)
+      );
+      setAccomodations(data);
+    } catch (error) {
+      // @TODO
     }
-    const { data } = await getAccomodationsForPlace(
-      params["name"],
-      queryString
-    );
-    setAccomodations(data);
   };
 
   return (
