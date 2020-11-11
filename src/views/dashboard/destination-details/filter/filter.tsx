@@ -5,6 +5,7 @@ import { Select } from "antd";
 import { Checkbox, Rate, DatePicker } from "antd";
 
 import { getFacilities } from "../../../../services/api/destination/facilityService";
+import { destinationRoute } from "../../../../shared/routes/routes";
 import { CAPACITY } from "../../../../shared/mocks/capacity.mock";
 import { FilterTranslation } from "../../context/filterTranslation";
 import filter from "../../../../assets/images/filter.svg";
@@ -56,7 +57,7 @@ const Filter = () => {
 
   const buildRoute = () => {
     history.push({
-      pathname: `/dashboard/destination/${params["name"]}`,
+      pathname: destinationRoute(params["name"]),
       search: `?${
         queryParams.capacity > 0 ? `capacity=${queryParams.capacity}` : ""
       }${
@@ -90,10 +91,6 @@ const Filter = () => {
     }
   };
 
-  const handleFiltersVisibility = () => {
-    setFiltersVisibility(!filtersVisibility);
-  };
-
   return (
     <div className="wrapper destination-filter p-flex p-flex-column">
       <div className="p-flex p-items-center">
@@ -103,10 +100,10 @@ const Filter = () => {
         <img
           className="filter-img"
           src={filter}
-          onClick={handleFiltersVisibility}
+          onClick={() => setFiltersVisibility(!filtersVisibility)}
         />
       </div>
-      {filtersVisibility ? (
+      {filtersVisibility && (
         <>
           <div className="p-flex p-flex-column border-bottom border-top padding">
             <RangePicker
@@ -237,8 +234,6 @@ const Filter = () => {
             ))}
           </div>
         </>
-      ) : (
-        ""
       )}
     </div>
   );
