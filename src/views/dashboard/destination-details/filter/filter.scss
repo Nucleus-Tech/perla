@@ -1,0 +1,76 @@
+@import "../../../../assets/styles/global/colors.scss";
+@import "../../../../assets/styles/global/breakpoint.scss";
+
+.destination {
+  &-filter {
+    height: min-content;
+
+    &_title {
+      width: 100%;
+      padding: 2rem 3rem 0.5rem 3rem;
+      font-size: 1.5rem;
+
+      @media only screen and (max-width: $bp-small) {
+        font-size: 1.2rem;
+      }
+    }
+
+    &_subtitle {
+      font-size: 1.2rem;
+    }
+
+    &_rate {
+      font-size: 1.5rem;
+
+      @media only screen and (max-width: $bp-small) {
+        font-size: 1.2rem;
+      }
+    }
+
+    @media only screen and (max-width: $bp-small) {
+      width: 30rem;
+    }
+  }
+}
+
+.padding {
+  padding: 1rem 3rem;
+}
+
+.facility-name {
+  font-size: 1.2rem;
+  padding: 0 !important;
+
+  @media only screen and (max-width: $bp-small) {
+    font-size: 1.2rem;
+  }
+}
+
+.ant-picker:hover,
+.ant-picker-focused {
+  border: 1px solid $p-color-light-grey;
+  -webkit-box-shadow: 0 0 1px $p-color-light-grey;
+  box-shadow: 0 0 1px $p-color-light-grey;
+}
+
+.ant-picker-range .ant-picker-active-bar {
+  background: $p-primary;
+}
+
+.ant-picker {
+  border-radius: 1rem;
+}
+
+.ant-select-focused:not(.ant-select-disabled)
+  .ant-select-single:not(.ant-select-customize-input)
+  .ant-select-selector,
+.ant-select-single:not(.ant-select-customize-input) .ant-select-selector {
+  border-radius: 1rem;
+  border-color: $p-color-grey-d9 !important;
+  box-shadow: none !important;
+}
+
+.filter-img {
+  height: 2rem !important;
+  padding-right: 3rem;
+}

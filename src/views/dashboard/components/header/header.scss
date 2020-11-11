@@ -2,12 +2,14 @@
 @import "../../../../assets/styles/global/breakpoint.scss";
 
 .menu {
+  max-width: 140rem;
+  margin: auto;
   background: $p-color-white;
   color: $p-color-black;
   position: relative;
 
   .logo {
-    padding: 1rem 6rem;
+    padding: 1rem 6rem 1rem 0;
     height: 8rem;
 
     @media only screen and (max-width: $bp-xlarge) {
@@ -70,6 +72,10 @@
     background-position: center bottom;
     transition: all 0.5s ease-out;
 
+    &:last-child {
+      margin: 0;
+    }
+
     @media only screen and (max-width: $bp-medium) {
       margin: 0 1.2rem;
     }
@@ -113,9 +119,18 @@
   }
 }
 
+@keyframes growDown {
+  0% {
+    transform: scaleY(0);
+  }
+  100% {
+    transform: scaleY(1);
+  }
+}
+
 .menu-content {
   border-top: 1px solid $p-color-ec;
-  padding: 2rem 6rem;
+  padding: 2rem;
   border-bottom-left-radius: 2rem;
   border-bottom-right-radius: 2rem;
   position: absolute;
@@ -123,6 +138,9 @@
   background-color: $p-color-white;
   width: -webkit-fill-available;
   width: -moz-available;
+
+  animation: growDown 300ms ease-in-out forwards;
+  transform-origin: top center;
 
   @media only screen and (max-width: $bp-medium) {
     padding: 2rem 2.5rem;

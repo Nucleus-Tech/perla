@@ -1,14 +1,20 @@
 {
   "onboarding": {
     "loginPlaceholder": {
-      "email": "Please enter your email...",
-      "password": "Please enter your password...",
+      "email": "Email...",
+      "password": "Password...",
       "signIn": "Sign in",
       "forgotPassword": "Forgot password?",
-      "or": "or"
+      "or": "or",
+      "notAMember": "Not a member?",
+      "signUpNow": "Sign up now"
     },
-    "registration": {
-      "name": "name"
+    "registrationPlaceholder": {
+      "firstName": "First name...",
+      "lastName": "Last name...",
+      "signUp": "Sign up",
+      "confirm": "Confirm",
+      "haveAcc": "Already have an account?"
     }
   },
   "menu": {
@@ -41,5 +47,11 @@
     "internalServer": "Server maintenance",
     "internalServerMessage": "It's not you, it's me...",
     "home": "Home"
+  },
+  "filter": {
+    "hotelFilters": "Hotel filters",
+    "roomFilters": "Room filters",
+    "starRating": "Choose star rating",
+    "filters": "Filters"
   }
 }
