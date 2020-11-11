@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { useHistory } from "react-router-dom";
 
 import SearchMenu from "./search-menu/search-menu";
 import TopDestinationCard from "./top-destination-card/top-destination-card";
@@ -10,7 +11,9 @@ import "./styles.scss";
 
 const Explore = () => {
   const { t: translate } = useTranslation();
+  const history = useHistory();
   const [topDestinations, seTopDestinations] = useState<any[]>([]);
+  const innerWidth = window.innerWidth;
 
   useEffect(() => {
     fetchTopDestinations();
@@ -19,6 +22,10 @@ const Explore = () => {
   const fetchTopDestinations = async () => {
     const { data } = await getTopDestinations();
     seTopDestinations(data);
+  };
+
+  const openTopDestination = (destination: string) => {
+    history.push(`/dashboard/destination/${destination}`);
   };
 
   return (
@@ -32,14 +39,31 @@ const Explore = () => {
           {translate(ExploreTranslation.topDestinations)}
         </h1>
         <div className="p-flex p-wrap p-justify-center">
-          {topDestinations.map((destination) => (
-            <div key={destination.id}>
-              <TopDestinationCard
-                image={destination.image}
-                destination={destination.name}
-              />
-            </div>
-          ))}
+          {innerWidth < 1000 ? (
+            <>
+              {topDestinations.map((destination) => (
+                <div key={destination.id}>
+                  <TopDestinationCard
+                    image={destination.image}
+                    destination={destination.name}
+                    onClick={() => openTopDestination(destination.name)}
+                  />
+                </div>
+              ))}
+            </>
+          ) : (
+            <>
+              {topDestinations.slice(0, 3).map((destination) => (
+                <div key={destination.id}>
+                  <TopDestinationCard
+                    image={destination.image}
+                    destination={destination.name}
+                    onClick={() => openTopDestination(destination.name)}
+                  />
+                </div>
+              ))}
+            </>
+          )}
         </div>
       </div>
     </div>

@@ -27,31 +27,35 @@ const Input: FC<Props> = ({
   errors = {},
   label,
   type = "text",
-  icon
+  icon,
 }) => {
   return (
     <div className={"p-input"}>
       {label && <div className={"p-input__label"}>{label}</div>}
       <div className={"p-flex p-items-center p-relative"}>
-      <input
-        placeholder={placeholder}
-        className={
-          value && errors && errors[name]
-            ? `p-input__container p-w-100 p-input__container--errors`
-            : `p-input__container p-w-100 `
-        }
-        name={name}
-        onChange={onChange}
-        value={value}
-        id={id}
-        disabled={disabled}
-        type={type}
-      />
-      <div className={"p-input__container__icon p-absolute"}>{icon}</div>
+        <input
+          placeholder={placeholder}
+          className={
+            value && errors && errors[name]
+              ? `p-input__container p-w-100 p-input__container--errors`
+              : `p-input__container p-w-100 `
+          }
+          name={name}
+          onChange={onChange}
+          value={value}
+          id={id}
+          disabled={disabled}
+          type={type}
+        />
+        <div className={"p-input__container__icon p-absolute"}>{icon}</div>
       </div>
       {value ? (
         <div className={"p-input__error p-flex p-flex-row "}>
-          <div className={"p-input__error__message"}>{errors[name]?  <Error /> : ""}{""}{errors[name]} </div>
+          <div className={"p-input__error__message"}>
+            {errors[name] ? <Error /> : ""}
+            {""}
+            {errors[name]}{" "}
+          </div>
         </div>
       ) : (
         <></>

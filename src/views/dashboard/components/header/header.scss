@@ -2,12 +2,14 @@
 @import "../../../../assets/styles/global/breakpoint.scss";
 
 .menu {
+  max-width: 140rem;
+  margin: auto;
   background: $p-color-white;
   color: $p-color-black;
   position: relative;
 
   .logo {
-    padding: 1rem 6rem;
+    padding: 1rem 6rem 1rem 0;
     height: 8rem;
 
     @media only screen and (max-width: $bp-xlarge) {
@@ -70,6 +72,10 @@
     background-position: center bottom;
     transition: all 0.5s ease-out;
 
+    &:last-child {
+      margin: 0;
+    }
+
     @media only screen and (max-width: $bp-medium) {
       margin: 0 1.2rem;
     }
@@ -88,28 +94,43 @@
       margin-right: 0.5rem;
     }
 
-    .username {
+    &__username {
       @media only screen and (max-width: $bp-medium) {
         display: none;
       }
     }
   }
 
-  &-hamburger {
+  &__wrapper {
     @media only screen and (min-width: $bp-xlarge) {
       display: none !important;
     }
 
-    padding: 2rem 3rem;
-    height: 8rem;
-    width: auto;
-    cursor: pointer;
+    &__hamburger {
+      padding: 2.5rem 2.5rem;
+      height: 7rem;
+      width: auto;
+      cursor: pointer;
+    }
+
+    &__user {
+      cursor: pointer;
+    }
+  }
+}
+
+@keyframes growDown {
+  0% {
+    transform: scaleY(0);
+  }
+  100% {
+    transform: scaleY(1);
   }
 }
 
 .menu-content {
-  border-top: 1px solid $p-color-ec;
-  padding: 2rem 6rem;
+  border: 0.1rem solid $p-color-ec;
+  padding: 2rem;
   border-bottom-left-radius: 2rem;
   border-bottom-right-radius: 2rem;
   position: absolute;
@@ -118,8 +139,15 @@
   width: -webkit-fill-available;
   width: -moz-available;
 
+  animation: growDown 300ms ease-in-out forwards;
+  transform-origin: top center;
+
   @media only screen and (max-width: $bp-medium) {
     padding: 2rem 2.5rem;
+  }
+
+  @media only screen and (max-width: $bp-xlarge) {
+    display: none !important;
   }
 
   ul {
@@ -170,6 +198,38 @@
   }
 }
 
+.user-content {
+  border: 1px solid $p-color-ec;
+  border-bottom-left-radius: 2rem;
+  border-bottom-right-radius: 2rem;
+  position: absolute;
+  z-index: 9;
+  background-color: $p-color-white;
+  margin-right: 4.5rem;
+  box-shadow: 0.5rem 0.5rem 0.5rem rgba(0, 0, 0, 0.3);
+  animation: slideDown 0.3s ease-in forwards;
+  width: 20%;
+  right: 0;
+
+  @media only screen and (max-width: $bp-small) {
+    width: 50%;
+  }
+
+  &__item {
+    padding: 1.5rem 3rem;
+    font-size: 1.5rem;
+    text-decoration: none;
+
+    a {
+      color: $p-color-black !important;
+    }
+
+    &:not(:last-child) {
+      border-bottom: 1px solid $p-color-ec;
+    }
+  }
+}
+
 .menu-mobile {
   transition: max-height 0.5s ease;
   -webkit-transition: max-height 0.5s ease;
@@ -194,7 +254,7 @@
       font-size: 2rem;
       border-bottom: 1px solid #ececec;
 
-      @media only screen and (max-width: $bp-large) {
+      @media only screen and (max-width: $bp-xlarge) {
         font-size: 1.5rem;
       }
 
@@ -213,7 +273,7 @@
       .place-box {
         padding: 0 2rem;
 
-        @media only screen and (max-width: $bp-large) {
+        @media only screen and (max-width: $bp-xlarge) {
           font-size: 1.5rem;
         }
       }
@@ -223,7 +283,7 @@
       }
     }
 
-    &-item:not(:first-child) {
+    &-item:not(:nth-child(2)) {
       padding: 1.5rem 3rem;
     }
 
@@ -252,7 +312,7 @@
       &-header {
         padding-left: 3rem !important;
 
-        @media only screen and (max-width: $bp-large) {
+        @media only screen and (max-width: $bp-xlarge) {
           font-size: 1.5rem;
           padding: 0.5rem 0 3rem 0.5rem;
         }
@@ -267,6 +327,8 @@
 
 .destination-image {
   height: 24rem;
+  width: 48rem;
+  align-self: center;
   object-fit: cover;
 
   @media only screen and (max-width: $bp-large) {
@@ -279,5 +341,16 @@
 
   @media only screen and (max-width: $bp-small) {
     display: none;
+  }
+}
+
+@keyframes slideDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-2rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

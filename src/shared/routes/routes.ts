@@ -5,7 +5,11 @@ export const registrationRoute = () => `${onboardingRoute()}/registration`;
 export const dashboardRoute = () => `/dashboard`;
 export const homeRoute = () => `${dashboardRoute()}/home`;
 export const aboutUsRoute = () => `${dashboardRoute()}/about-us`;
+export const destinationDetailsRoute = () =>
+  `${dashboardRoute()}/destination/:name`;
 
 export const exploreRoute = () => `${dashboardRoute()}/explore`;
+export const destinationRoute = (name: string) =>
+  `${dashboardRoute()}/destination/${name}`;
 
 export const internalServerRoute = () => `/internal-server`;
