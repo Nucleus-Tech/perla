@@ -27,7 +27,7 @@ Axios.interceptors.response.use(
   (data) => data,
   async (error) => {
     const { response } = error;
-    
+
     if (response && response.status === 502) {
       history.push(internalServerRoute());
     }

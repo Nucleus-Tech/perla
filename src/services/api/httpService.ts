@@ -9,5 +9,4 @@ const getApiUrl = (): string => apiUrl();
 export const post = <T, R>(url: string, payload: T) =>
   Axios.post<R>(`${getApiUrl()}/${url}`, payload);
 
-export const get = <R>(url: string) => 
-  Axios.get<R>(`${getApiUrl()}/${url}`);
+export const get = <R>(url: string) => Axios.get<R>(`${getApiUrl()}/${url}`);

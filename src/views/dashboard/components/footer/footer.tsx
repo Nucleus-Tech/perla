@@ -14,7 +14,7 @@ const Footer = () => {
 
   return (
     <div className="footer p-flex p-flex-column">
-      <div className="p-flex">
+      <div className="p-flex footer-content">
         <ul className="nav p-flex p-wrap">
           <li className="nav__item">
             <a className="nav__link">{translate(MenuTransaltion.aboutUs)}</a>

@@ -3,8 +3,14 @@ import React, { createContext, useContext, useReducer } from "react";
 import { UserState } from "./user-type";
 import { initialUserState, userReducer } from "./user-reducer";
 import { setUserAccessTokenAction } from "./user-actions";
-import { storeInBrowserStorage, removeFromBrowserStorage } from "../../services/shared";
-import {BROWSER_STORAGE_KEY_ACCESS_TOKEN, USER} from "../../shared/constants/localStorageConstants";
+import {
+  storeInBrowserStorage,
+  removeFromBrowserStorage,
+} from "../../services/shared";
+import {
+  BROWSER_STORAGE_KEY_ACCESS_TOKEN,
+  USER,
+} from "../../shared/constants/localStorageConstants";
 import { UserModel } from "../../shared/models/onboarding/internal";
 
 interface UserContext {
@@ -30,7 +36,7 @@ export const UserStoreProvider = ({ children }) => {
     removeFromBrowserStorage(BROWSER_STORAGE_KEY_ACCESS_TOKEN);
     removeFromBrowserStorage(USER);
     setUserAccessTokenAction(accessToken, user, dispatch);
-  }
+  };
 
   return (
     <UserStore.Provider value={{ state, setAccessToken, logoutUser }}>

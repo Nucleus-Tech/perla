@@ -1,11 +1,12 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { Collapse } from "antd";
 
 import { useUserStore } from "../../../../stores/user-store/user-store";
 import {
   aboutUsRoute,
+  destinationRoute,
   homeRoute,
   loginRoute,
 } from "../../../../shared/routes/routes";
@@ -24,6 +25,7 @@ import zakynthos from "../../../../assets/images/zakynthos-JPEG.jpg";
 
 const Header = () => {
   const { t: translate } = useTranslation();
+  const history = useHistory();
   const [menuContentVisibility, setMenuContentVisibility] = useState(false);
   const [menuMobileVisibility, setMenuMobileVisibility] = useState(false);
   const [menuMobileStyle, setMenuMobileStyle] = useState({ maxHeight: "0rem" });
@@ -58,10 +60,15 @@ const Header = () => {
 
   const changePlaceImage = (placeImage: string) => {
     setPlaceImage(placeImage);
-  }
+  };
 
   const logOut = () => {
     logoutUser(null, null);
+  };
+
+  const navigateToDestinationDetailsPage = (destination: string) => {
+    setMenuContentVisibility(false);
+    history.push(destinationRoute(destination));
   };
 
   function useOutsideMenuClick(ref) {
@@ -118,7 +125,7 @@ const Header = () => {
                   </span>
                 </Link>
                 <Link
-                  className="menu-item p-flex p-items-center margin"
+                  className="menu-item p-flex p-items-center"
                   onClick={logOut}
                   to={loginRoute()}
                 >
@@ -148,27 +155,37 @@ const Header = () => {
         )}
       </div>
       {menuContentVisibility && (
-        <div ref={menuRef} className="menu-content p-flex">
-          <div className="box p-flex p-wrap">
-            {destinations.map((destination) => (
-              <div key={destination.code} className="country">
-                <h3 className="country-name">{destination.name}</h3>
-                {destination.regions.map((region) => (
-                  <div key={region.id} className="country-wrapper">
-                    <h4 className="region">{region.name}</h4>
-                    <ul>
-                      {region.places.map((place) => (
-                        <li key={place.id}>
-                          <span className="place" onMouseOver={() => changePlaceImage(place.image)}>{place.name}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                ))}
-              </div>
-            ))}
+        <div className="menu">
+          <div ref={menuRef} className="menu-content p-flex">
+            <div className="box p-flex p-wrap">
+              {destinations.map((destination) => (
+                <div key={destination.code} className="country">
+                  <h3 className="country-name">{destination.name}</h3>
+                  {destination.regions.map((region) => (
+                    <div key={region.id} className="country-wrapper">
+                      <h4 className="region">{region.name}</h4>
+                      <ul>
+                        {region.places.map((place) => (
+                          <li key={place.id}>
+                            <span
+                              className="place"
+                              onClick={() =>
+                                navigateToDestinationDetailsPage(place.name)
+                              }
+                              onMouseOver={() => changePlaceImage(place.image)}
+                            >
+                              {place.name}
+                            </span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
+                </div>
+              ))}
+            </div>
+            <img className="destination-image" src={placeImage} alt="" />
           </div>
-          <img className="destination-image" src={placeImage} alt=""/>
         </div>
       )}
       <div style={menuMobileStyle} className="menu-mobile">

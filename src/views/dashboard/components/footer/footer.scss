@@ -3,16 +3,27 @@
 
 .footer {
   background-color: $p-color-blue;
-  padding: 3rem 8rem;
+  padding: 3rem 0;
   font-size: 1.2rem;
   color: $p-white;
 
-  @media only screen and (max-width: $bp-medium) {
+  @media only screen and (max-width: $bp-xlarge) {
     padding: 3rem;
   }
 
   @media only screen and (max-width: $bp-small) {
     font-size: 1rem;
+    padding: 3rem 1rem;
+  }
+
+  &-content {
+    width: 140rem;
+    margin: auto;
+
+    @media only screen and (max-width: 1400px) {
+      width: 100%;
+      margin: 0;
+    }
   }
 
   .nav {

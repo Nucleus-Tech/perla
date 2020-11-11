@@ -117,7 +117,7 @@
 }
 
 .p-wrap {
-  flex-wrap: wrap;
+  flex-wrap: wrap !important;
 }
 
 .p-top-0 {
@@ -450,4 +450,12 @@
   span {
     padding: 0.1rem 0;
   }
+}
+
+.border-bottom {
+  border-bottom: 1px solid $p-color-light-grey;
+}
+
+.border-top {
+  border-top: 1px solid $p-color-light-grey;
 }
