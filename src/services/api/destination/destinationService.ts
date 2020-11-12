@@ -15,3 +15,8 @@ export const getTopDestinations = async (
 
 export const getDestinationByName = async (destination: string) =>
   get<[]>(`${destinationUrl()}/place/${destination}`);
+
+export const searchDestinations = async (
+  active: boolean = true,
+  word: string
+) => get<[]>(`${destinationUrl()}/explore?active=${active}&word=${word}`);
